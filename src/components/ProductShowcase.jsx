@@ -80,7 +80,8 @@ const tabs = [
       { icon: Gauge, text: '0.99 confidence rating, 7 FPS on mobile CPU-only' },
       { icon: Wifi, text: 'No external hardware needed — just your phone camera' },
     ],
-    mockup: 'analysis',
+    mockup: 'laptop',
+    screenshot: '/images/screenshots/vbt-lab-dashboard.png',
   },
 ]
 
