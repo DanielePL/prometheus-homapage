@@ -1,0 +1,790 @@
+/* ============================================
+   RESET & VARIABLES
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-orange: #F2721B;
+    --dark-bg: #000000;
+    --dark-gray: #1a1a1a;
+    --light-text: #ffffff;
+    --gray-text: #999999;
+    --light-gray: #f5f5f5;
+    --border-radius: 16px;
+    --transition: all 0.3s ease;
+    --phone-w: clamp(220px, 22vw, 380px);
+    --gap-x: clamp(90px, 10vw, 180px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    background-color: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-text {
+    font-family: 'Arimo', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.btn-waitlist {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-waitlist:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 2px 18px 0px #F2721B;
+}
+
+.btn-waitlist:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 80px 20px;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/hero-bg-athlete.jpg');
+    background-size: cover;
+    background-position: center top;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.85) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+}
+
+.hero-title {
+    font-family: 'Arimo', sans-serif;
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-title .highlight {
+    color: var(--primary-orange);
+    display: inline;
+}
+
+.intro-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+.intro-text strong {
+    color: var(--light-text);
+}
+
+.secondary-text {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.btn-primary {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 2px 18px 0px #F2721B;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-large {
+    padding: 18px 50px;
+    font-size: 18px;
+}
+
+.hero-phone {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    width: 200px;
+    z-index: 5;
+}
+
+.hero-phone img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(200, 200, 210, 0.35);
+    filter: drop-shadow(0 0 10px rgba(200, 200, 220, 0.2));
+}
+
+/* ============================================
+   WAVE DIVIDERS
+   ============================================ */
+.wave-divider {
+    position: relative;
+    margin-top: -1px;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.wave-divider svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+
+.wave-dark-to-gray {
+    background-color: var(--dark-bg);
+}
+
+.wave-gray-to-dark {
+    background-color: var(--dark-gray);
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+section {
+    padding: 100px 20px;
+    position: relative;
+}
+
+section h2 {
+    font-family: 'Arimo', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--gray-text);
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.section-description {
+    font-size: 16px;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--gray-text);
+}
+
+.section-image {
+    margin-top: 60px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.section-image img {
+    width: 100%;
+    display: block;
+}
+
+/* ============================================
+   PROGRESS SECTION
+   ============================================ */
+.progress-section {
+    background-color: var(--dark-bg);
+    padding: 100px 20px;
+}
+
+.progress-image {
+    margin-top: 50px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.progress-image img {
+    width: 100%;
+    display: block;
+}
+
+.progress-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ============================================
+   COACHING SECTION - PHONE CAROUSEL
+   ============================================ */
+.coaching-section {
+    background-color: var(--dark-gray);
+}
+
+.phone-carousel {
+    position: relative;
+    height: 650px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.phone {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: var(--phone-w);
+    aspect-ratio: 9 / 19;
+    border-radius: 30px;
+    object-fit: cover;
+    transform: translateX(-50%) scale(0.92);
+    opacity: 0;
+    transition: all 0.9s cubic-bezier(.2, .8, .2, 1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(200, 200, 210, 0.35);
+    filter: drop-shadow(0 0 8px rgba(200, 200, 220, 0.15));
+}
+
+.phone.center {
+    z-index: 6;
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    border-color: rgba(210, 210, 220, 0.5);
+    filter: drop-shadow(0 0 12px rgba(200, 200, 220, 0.2));
+}
+
+.phone.left-1 {
+    z-index: 5;
+}
+
+.phone.left-1.in {
+    transform: translateX(calc(-50% - var(--gap-x))) scale(0.93);
+    opacity: 0.85;
+}
+
+.phone.right-1 {
+    z-index: 5;
+}
+
+.phone.right-1.in {
+    transform: translateX(calc(-50% + var(--gap-x))) scale(0.93);
+    opacity: 0.85;
+}
+
+.phone.left-2 {
+    z-index: 4;
+}
+
+.phone.left-2.in {
+    transform: translateX(calc(-50% - var(--gap-x) * 1.8)) scale(0.88);
+    opacity: 0.65;
+}
+
+.phone.right-2 {
+    z-index: 4;
+}
+
+.phone.right-2.in {
+    transform: translateX(calc(-50% + var(--gap-x) * 1.8)) scale(0.88);
+    opacity: 0.65;
+}
+
+.coaching-text {
+    max-width: 800px;
+    margin: 60px auto 0;
+    text-align: center;
+}
+
+.coaching-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--gray-text);
+}
+
+/* ============================================
+   PERFORMANCE SECTION - DEVICE MOCKUP
+   ============================================ */
+.performance-section {
+    background-color: var(--dark-bg);
+}
+
+.performance-image {
+    margin-top: 60px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.performance-image img {
+    width: 100%;
+    display: block;
+}
+
+/* Performance Phones Gallery */
+.performance-phones {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.performance-phones img {
+    width: 240px;
+    border-radius: 30px;
+    border: 2px solid rgba(200, 200, 210, 0.35);
+    filter: drop-shadow(0 0 8px rgba(200, 200, 220, 0.15));
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(.2, .8, .2, 1);
+}
+
+.performance-phones img:nth-child(2) {
+    transform: translateY(-20px);
+}
+
+.performance-phones img:hover {
+    transform: translateY(-12px) scale(1.03);
+}
+
+.performance-phones img:nth-child(2):hover {
+    transform: translateY(-30px) scale(1.03);
+}
+
+/* ============================================
+   VIDEOS SECTION
+   ============================================ */
+.videos-section {
+    background-color: var(--dark-gray);
+}
+
+/* ============================================
+   VBT SECTION
+   ============================================ */
+.vbt-section {
+    background-color: var(--dark-bg);
+}
+
+.vbt-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.vbt-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.vbt-item {
+    background-color: var(--dark-gray);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+}
+
+.vbt-item:hover {
+    border-color: var(--primary-orange);
+    background-color: rgba(255, 107, 53, 0.05);
+    transform: translateX(10px);
+}
+
+.vbt-item h4 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.vbt-item p {
+    color: var(--gray-text);
+    font-size: 16px;
+}
+
+.vbt-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.vbt-image img {
+    width: 100%;
+    display: block;
+}
+
+/* ============================================
+   COMMUNITY SECTION
+   ============================================ */
+.community-section {
+    background-color: var(--dark-gray);
+}
+
+.community-image {
+    margin-top: 60px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.community-image img {
+    width: 100%;
+    display: block;
+}
+
+/* ============================================
+   COMING SOON SECTION
+   ============================================ */
+.coming-soon {
+    background-color: var(--dark-bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.feature-card {
+    background-color: var(--dark-gray);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+    position: relative;
+}
+
+.feature-card:hover {
+    border-color: var(--primary-orange);
+    transform: translateY(-10px);
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--primary-orange);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.release-date {
+    font-size: 13px;
+    color: var(--primary-orange);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.feature-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--gray-text);
+}
+
+/* ============================================
+   WHY PROMETHEUS SECTION
+   ============================================ */
+.why-section {
+    background-color: var(--dark-gray);
+}
+
+.features-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.feature {
+    background-color: var(--dark-bg);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: var(--transition);
+    text-align: center;
+}
+
+.feature:hover {
+    border-color: var(--primary-orange);
+    transform: translateY(-5px);
+    background-color: rgba(255, 107, 53, 0.05);
+}
+
+.feature-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.feature h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    font-size: 14px;
+    color: var(--gray-text);
+    line-height: 1.6;
+}
+
+/* ============================================
+   CTA FOOTER
+   ============================================ */
+.cta-footer {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-gray) 100%);
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.cta-footer h2 {
+    margin-bottom: 16px;
+}
+
+.cta-footer p {
+    font-size: 18px;
+    color: var(--gray-text);
+    margin-bottom: 40px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background-color: var(--dark-gray);
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.footer p {
+    color: var(--gray-text);
+    font-size: 14px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .vbt-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .phone-carousel {
+        height: 550px;
+    }
+
+    .performance-phones img {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 20px;
+    }
+
+    .btn-waitlist {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 80vh;
+        padding: 60px 20px;
+    }
+
+    .hero-phone {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 150px;
+        margin: 40px auto 0;
+    }
+
+    .phone-carousel {
+        height: 450px;
+    }
+
+    .features-list {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .performance-phones img {
+        width: 160px;
+    }
+
+    .performance-phones {
+        gap: 16px;
+    }
+
+    .wave-divider svg {
+        height: 50px;
+    }
+}
+
+@media (max-width: 560px) {
+    --gap-x: 50px;
+
+    .phone-carousel {
+        height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 40px 20px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .intro-text {
+        font-size: 16px;
+    }
+
+    .secondary-text {
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 14px 28px;
+        font-size: 14px;
+    }
+
+    .performance-phones img {
+        width: 120px;
+    }
+
+    .wave-divider svg {
+        height: 40px;
+    }
+}

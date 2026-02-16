@@ -1,0 +1,152 @@
+/* ============================================
+   PHONE CAROUSEL ANIMATIONS
+   ============================================ */
+
+.phone.left-1.in,
+.phone.right-1.in,
+.phone.left-2.in {
+    transition: all 0.9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.phone[data-pos="left-1"] {
+    transition-delay: 120ms;
+}
+
+.phone[data-pos="right-1"] {
+    transition-delay: 260ms;
+}
+
+.phone[data-pos="left-2"] {
+    transition-delay: 420ms;
+}
+
+.phone[data-pos="right-2"] {
+    transition-delay: 580ms;
+}
+
+/* ============================================
+   HERO ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-phone {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.2, .8, .2, 1),
+                transform 0.8s cubic-bezier(.2, .8, .2, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered reveal for grid items */
+.features-list .reveal:nth-child(1) { transition-delay: 0ms; }
+.features-list .reveal:nth-child(2) { transition-delay: 100ms; }
+.features-list .reveal:nth-child(3) { transition-delay: 200ms; }
+.features-list .reveal:nth-child(4) { transition-delay: 300ms; }
+.features-list .reveal:nth-child(5) { transition-delay: 400ms; }
+.features-list .reveal:nth-child(6) { transition-delay: 500ms; }
+
+.features-grid .reveal:nth-child(1) { transition-delay: 0ms; }
+.features-grid .reveal:nth-child(2) { transition-delay: 150ms; }
+
+.vbt-features .reveal:nth-child(1) { transition-delay: 0ms; }
+.vbt-features .reveal:nth-child(2) { transition-delay: 150ms; }
+.vbt-features .reveal:nth-child(3) { transition-delay: 300ms; }
+
+/* ============================================
+   SCROLL ANIMATIONS (keyframes)
+   ============================================ */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================================
+   HOVER EFFECTS
+   ============================================ */
+
+.feature-card:hover h3,
+.feature:hover h4 {
+    color: var(--primary-orange);
+    transition: color 0.3s ease;
+}
+
+.vbt-item:hover h4 {
+    color: var(--primary-orange);
+    transition: color 0.3s ease;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   SCROLL SNAP
+   ============================================ */
+
+html {
+    scroll-behavior: smooth;
+}
