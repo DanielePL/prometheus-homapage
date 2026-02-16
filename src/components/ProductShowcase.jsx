@@ -51,7 +51,7 @@ const tabs = [
       { icon: Bot, text: 'AI-assisted programming suggestions' },
     ],
     mockup: 'laptop',
-    screenshot: '/images/screenshots/statistics-framed.png',
+    screenshot: '/images/screenshots/coach-dashboard.png',
   },
   {
     id: 'enterprise',
@@ -66,7 +66,7 @@ const tabs = [
       { icon: Bot, text: 'Full CRM with analytics and AI assistants' },
     ],
     mockup: 'laptop',
-    screenshot: '/images/screenshots/insights-framed.png',
+    screenshot: '/images/screenshots/enterprise-dashboard.png',
   },
   {
     id: 'vbt',
