@@ -139,15 +139,15 @@ export default function Hero() {
                 />
               </div>
               {/* Floating badges */}
-              <div className="absolute -left-16 top-20 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite]">
+              <div className="absolute -left-16 xl:-left-20 top-20 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite] hidden lg:block">
                 <span className="text-accent font-semibold">AI Coach</span>
                 <span className="text-[#999] ml-1">Active</span>
               </div>
-              <div className="absolute -right-12 top-40 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_1s]">
+              <div className="absolute -right-12 xl:-right-16 top-40 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_1s] hidden lg:block">
                 <span className="text-accent font-semibold">VBT</span>
                 <span className="text-[#999] ml-1">0.85 m/s</span>
               </div>
-              <div className="absolute -left-8 bottom-32 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_0.5s]">
+              <div className="absolute -left-8 xl:-left-12 bottom-32 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_0.5s] hidden lg:block">
                 <span className="text-green-400 font-semibold">+12%</span>
                 <span className="text-[#999] ml-1">Progress</span>
               </div>

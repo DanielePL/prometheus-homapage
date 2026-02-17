@@ -65,15 +65,16 @@ export default function Technology() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`group bg-dark-card border border-dark-border rounded-2xl p-8 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1 ${
+              className={`group bg-dark-card border border-dark-border rounded-2xl p-5 sm:p-6 lg:p-8 text-center transition-all duration-500 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1 ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}
             >
-              <div className="w-14 h-14 bg-accent/10 border border-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
-                <f.icon size={24} className="text-accent" />
+              <div className="w-11 h-11 sm:w-14 sm:h-14 bg-accent/10 border border-accent/20 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 group-hover:bg-accent/20 group-hover:scale-110 transition-all duration-300">
+                <f.icon size={20} className="text-accent sm:hidden" />
+                <f.icon size={24} className="text-accent hidden sm:block" />
               </div>
               <h3 className="font-bold text-lg mb-2">{f.title}</h3>
               <p className="text-sm text-[#999] leading-relaxed">{f.desc}</p>

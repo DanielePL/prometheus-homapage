@@ -162,7 +162,7 @@ export default function ProductShowcase() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                 activeTab === tab.id
                   ? 'bg-accent text-white shadow-[0px_2px_18px_0px_#F2721B]'
                   : 'bg-dark-card text-[#999] hover:text-white border border-dark-border hover:border-accent/30'

@@ -113,7 +113,7 @@ export default function PrometheusLab() {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
           >
-            <div className="bg-dark-card border border-dark-border rounded-2xl overflow-hidden h-full min-h-[400px] flex flex-col">
+            <div className="bg-dark-card border border-dark-border rounded-2xl overflow-hidden h-full min-h-[300px] sm:min-h-[400px] flex flex-col">
               {/* Top bar */}
               <div className="flex items-center gap-1.5 px-4 py-3 border-b border-dark-border">
                 <div className="w-2 h-2 rounded-full bg-accent/50" />
@@ -124,7 +124,7 @@ export default function PrometheusLab() {
 
               {/* Content */}
               <div className="flex-1 p-6 flex flex-col items-center justify-center text-center">
-                <div className="grid grid-cols-3 gap-3 mb-6 w-full max-w-xs">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-6 w-full max-w-xs">
                   {[
                     { label: 'Acc X', value: '9.81', color: 'text-accent' },
                     { label: 'Acc Y', value: '0.02', color: 'text-accent' },

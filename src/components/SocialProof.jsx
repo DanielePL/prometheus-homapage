@@ -39,7 +39,7 @@ export default function SocialProof() {
   return (
     <section ref={ref} className="relative py-8 border-y border-dark-border bg-dark-light/30">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 divide-x divide-dark-border">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-y-2 sm:divide-x divide-dark-border">
           {stats.map((stat, i) => (
             <StatItem key={i} stat={stat} isVisible={isVisible} />
           ))}

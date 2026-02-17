@@ -76,13 +76,13 @@ export default function FreeTrial() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           {plans.map((plan, i) => (
             <div
               key={plan.name}
               className={`relative rounded-2xl p-6 transition-all duration-500 ${
                 plan.highlight
-                  ? 'bg-gradient-to-b from-accent/10 to-dark-card border-2 border-accent/30 shadow-lg shadow-accent/10 scale-105 z-10'
+                  ? 'bg-gradient-to-b from-accent/10 to-dark-card border-2 border-accent/30 shadow-lg shadow-accent/10 sm:scale-105 z-10'
                   : 'bg-dark-card border border-dark-border hover:border-dark-border/80'
               } ${
                 isVisible

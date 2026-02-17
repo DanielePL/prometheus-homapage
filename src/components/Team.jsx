@@ -52,7 +52,7 @@ const extendedTeam = [
 
 function TeamCard({ member, large }) {
   return (
-    <div className={`group bg-dark-card border border-dark-border rounded-2xl p-6 transition-all duration-300 hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 relative ${large ? 'lg:p-8' : ''}`}>
+    <div className={`group bg-dark-card border border-dark-border rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:border-accent/20 hover:shadow-lg hover:shadow-accent/5 relative ${large ? 'lg:p-8' : ''}`}>
       {/* Accent line */}
       <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${member.color} rounded-b opacity-50 group-hover:opacity-100 transition-opacity`} />
 
@@ -104,7 +104,7 @@ export default function Team() {
 
         {/* Core Team */}
         <div
-          className={`grid md:grid-cols-3 gap-6 mb-6 transition-all duration-700 delay-200 ${
+          className={`grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 transition-all duration-700 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -115,7 +115,7 @@ export default function Team() {
 
         {/* Extended Team & Advisors */}
         <div
-          className={`grid md:grid-cols-3 gap-6 transition-all duration-700 delay-300 ${
+          className={`grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
