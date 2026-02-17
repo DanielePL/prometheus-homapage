@@ -108,7 +108,7 @@ function PhoneMockup({ screens }) {
 
 function LaptopMockup({ title, screenshot }) {
   return (
-    <div className="bg-dark-light border border-dark-border rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-w-lg mx-auto">
+    <div className="bg-dark-light border border-dark-border rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] w-full mx-auto">
       <div className="flex items-center gap-1.5 px-4 py-2.5 bg-dark-card border-b border-dark-border">
         <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
@@ -125,29 +125,6 @@ function LaptopMockup({ title, screenshot }) {
           <p className="text-sm text-[#999]">{title} Dashboard</p>
         </div>
       )}
-    </div>
-  )
-}
-
-function AnalysisMockup() {
-  return (
-    <div className="bg-dark-light border border-dark-border rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] max-w-lg mx-auto">
-      <div className="p-6 flex flex-col items-center justify-center h-52">
-        <div className="w-full flex items-end justify-center gap-1 h-24 mb-4">
-          {[40, 65, 55, 80, 70, 90, 75, 85].map((h, i) => (
-            <div
-              key={i}
-              className="w-6 bg-accent/60 rounded-t"
-              style={{ height: `${h}%` }}
-            />
-          ))}
-        </div>
-        <div className="flex items-center gap-2 mb-2">
-          <Eye size={16} className="text-accent" />
-          <span className="text-sm font-semibold text-accent">0.99 Confidence</span>
-        </div>
-        <p className="text-xs text-[#999]">VBT Analysis Visualization</p>
-      </div>
     </div>
   )
 }
@@ -235,7 +212,6 @@ export default function ProductShowcase() {
             <div className="flex justify-center">
               {active.mockup === 'phone' && <PhoneMockup screens={active.screens} />}
               {active.mockup === 'laptop' && <LaptopMockup title={active.title} screenshot={active.screenshot} />}
-              {active.mockup === 'analysis' && <AnalysisMockup />}
             </div>
           </motion.div>
         </AnimatePresence>

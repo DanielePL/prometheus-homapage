@@ -8,7 +8,7 @@ const research = [
   },
   {
     icon: GraduationCap,
-    text: 'PhD-level sports science driving every algorithm',
+    text: 'Sports science research driving every algorithm',
   },
   {
     icon: BookCheck,

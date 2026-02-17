@@ -1,12 +1,5 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Shield, Beaker, GraduationCap } from 'lucide-react'
-
-const trustItems = [
-  { icon: Beaker, label: 'Swiss Science' },
-  { icon: Shield, label: 'EU GDPR Compliant' },
-  { icon: GraduationCap, label: 'PhD-Driven R&D' },
-]
 
 export default function Hero() {
   const canvasRef = useRef(null)
@@ -162,22 +155,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Trust Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 lg:mt-24 pt-8 border-t border-dark-border"
-        >
-          <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
-            {trustItems.map((item) => (
-              <div key={item.label} className="flex items-center gap-2 text-[#999]">
-                <item.icon size={16} className="text-accent/60" />
-                <span className="text-xs sm:text-sm font-medium">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

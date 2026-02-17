@@ -35,11 +35,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/images/logo.png" alt="Prometheus" className="w-8 h-8 rounded-lg" />
-              <span className="font-bold text-lg tracking-tight">
-                PROME<span className="text-accent">THEUS</span>
-              </span>
+            <div className="flex items-center mb-4">
+              <img src="/images/logo-white.png" alt="Prometheus" className="h-7" />
             </div>
             <p className="text-sm text-[#999] mb-6 max-w-sm">
               Where Science Meets Strength. AI-powered fitness and health ecosystem built by

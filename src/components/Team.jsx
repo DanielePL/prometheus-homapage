@@ -12,7 +12,7 @@ const coreTeam = [
     initials: 'BA',
     name: 'Dr. Basil Achermann',
     title: 'Chief Science Officer',
-    bio: 'Holds a PhD in Sport Science from the University of Zurich, specializing in measurement methodology for acceleration-based training. Combines a 4-year IT apprenticeship with deep academic research, making him the rare scientist who can both design the experiment and write the code. Leads the Prometheus Lab and drives our R&D pipeline.',
+    bio: 'Sport Science researcher from the University of Zurich, specializing in measurement methodology for acceleration-based training. Combines a 4-year IT apprenticeship with deep academic research, making him the rare scientist who can both design the experiment and write the code. Leads the Prometheus Lab and drives our R&D pipeline.',
     color: 'from-green-400 to-emerald-500',
   },
   {
@@ -44,7 +44,7 @@ const extendedTeam = [
     initials: 'KU',
     name: 'Dr. Kevin Uram',
     title: 'Early Investor & Technical Advisor',
-    bio: 'PhD in Physical Chemistry (University of Pittsburgh), former IBM Senior Technical Staff Member (12+ years), and Managing Director at Lumileds semiconductor manufacturing (11+ years). Holds multiple US patents in semiconductor fabrication technology.',
+    bio: 'Physical Chemistry background (University of Pittsburgh), former IBM Senior Technical Staff Member (12+ years), and Managing Director at Lumileds semiconductor manufacturing (11+ years). Holds multiple US patents in semiconductor fabrication technology.',
     color: 'from-rose-400 to-pink-500',
     badge: true,
   },

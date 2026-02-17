@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "prometheus.coach",
+      "sha256_cert_fingerprints": [
+        "5A:AC:C9:54:C1:55:07:3A:AB:8F:50:CF:5C:5E:65:10:43:A5:18:57:72:C6:04:DE:D6:71:15:0F:0D:84:3D:A0"
+      ]
+    }
+  }
+]
