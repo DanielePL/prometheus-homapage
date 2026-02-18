@@ -64,12 +64,14 @@ function AccessGate({ onAccess }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#141414] flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Gate brush gradient — warm glow from bottom-right */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-[-15%] right-[-5%] w-[800px] h-[800px] bg-[#E67E22]/[0.12] rounded-full blur-[180px]" />
-        <div className="absolute bottom-[-20%] left-[10%] w-[600px] h-[600px] bg-[#D35400]/[0.06] rounded-full blur-[160px]" />
-      </div>
+    <div
+      className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/gradient-bg-dark.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -227,10 +229,6 @@ function HeroSection() {
 
   return (
     <section ref={ref} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden z-10">
-      {/* Ambient glow — subtle center glow for hero */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-[#E67E22]/[0.08] rounded-full blur-[160px]" />
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-24">
         <motion.div
@@ -1622,12 +1620,16 @@ export default function GrowthPitch() {
           transition={{ duration: 0.6 }}
           className="min-h-screen bg-[#141414] text-white relative"
         >
-          {/* Brush gradient background — concentrated warm glow from bottom-right */}
-          <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-            <div className="absolute bottom-[-20%] right-[-10%] w-[1200px] h-[1200px] bg-[#E67E22]/[0.13] rounded-full blur-[200px]" />
-            <div className="absolute bottom-[-30%] right-[5%] w-[900px] h-[900px] bg-[#D35400]/[0.10] rounded-full blur-[180px]" />
-            <div className="absolute bottom-[-10%] left-[10%] w-[800px] h-[800px] bg-[#F39C12]/[0.06] rounded-full blur-[200px]" />
-          </div>
+          {/* Background gradient image — matching coaching software */}
+          <div
+            className="fixed inset-0 z-0 pointer-events-none"
+            style={{
+              backgroundImage: 'url(/images/gradient-bg-dark.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed',
+            }}
+          />
           <PitchNav />
           <HeroSection />
           <ProblemSection />
