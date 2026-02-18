@@ -65,10 +65,10 @@ function AccessGate({ onAccess }) {
 
   return (
     <div className="min-h-screen bg-[#141414] flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Gate mesh gradient */}
+      {/* Gate brush gradient — warm glow from bottom-right */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[30%] left-[20%] w-[500px] h-[500px] bg-[#E67E22]/[0.08] rounded-full blur-[150px]" />
-        <div className="absolute bottom-[20%] right-[25%] w-[400px] h-[400px] bg-[#D35400]/[0.06] rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-15%] right-[-5%] w-[800px] h-[800px] bg-[#E67E22]/[0.12] rounded-full blur-[180px]" />
+        <div className="absolute bottom-[-20%] left-[10%] w-[600px] h-[600px] bg-[#D35400]/[0.06] rounded-full blur-[160px]" />
       </div>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -227,11 +227,9 @@ function HeroSection() {
 
   return (
     <section ref={ref} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden z-10">
-      {/* Ambient glow */}
+      {/* Ambient glow — subtle center glow for hero */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#E67E22]/[0.12] rounded-full blur-[180px]" />
-        <div className="absolute top-[30%] left-[20%] w-[400px] h-[400px] bg-[#F39C12]/[0.07] rounded-full blur-[120px]" />
-        <div className="absolute bottom-[20%] right-[15%] w-[350px] h-[350px] bg-[#D35400]/[0.06] rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-[#E67E22]/[0.08] rounded-full blur-[160px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-24">
@@ -1624,13 +1622,11 @@ export default function GrowthPitch() {
           transition={{ duration: 0.6 }}
           className="min-h-screen bg-[#141414] text-white relative"
         >
-          {/* Mesh gradient background orbs */}
+          {/* Brush gradient background — concentrated warm glow from bottom-right */}
           <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-            <div className="absolute -top-[10%] left-[10%] w-[900px] h-[900px] bg-[#E67E22]/[0.07] rounded-full blur-[180px]" />
-            <div className="absolute top-[15%] right-[-5%] w-[700px] h-[700px] bg-[#F39C12]/[0.05] rounded-full blur-[150px]" />
-            <div className="absolute top-[45%] left-[-8%] w-[600px] h-[600px] bg-[#D35400]/[0.04] rounded-full blur-[140px]" />
-            <div className="absolute top-[65%] right-[15%] w-[800px] h-[800px] bg-[#E67E22]/[0.05] rounded-full blur-[160px]" />
-            <div className="absolute bottom-[-5%] left-[25%] w-[700px] h-[700px] bg-[#F39C12]/[0.04] rounded-full blur-[150px]" />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[1200px] h-[1200px] bg-[#E67E22]/[0.13] rounded-full blur-[200px]" />
+            <div className="absolute bottom-[-30%] right-[5%] w-[900px] h-[900px] bg-[#D35400]/[0.10] rounded-full blur-[180px]" />
+            <div className="absolute bottom-[-10%] left-[10%] w-[800px] h-[800px] bg-[#F39C12]/[0.06] rounded-full blur-[200px]" />
           </div>
           <PitchNav />
           <HeroSection />
