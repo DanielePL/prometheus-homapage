@@ -18,10 +18,12 @@ export default function Goodbye() {
           </p>
           <ul className="list-disc list-inside space-y-2">
             <li><strong className="text-white">Account information</strong> &mdash; Email, name, profile picture, authentication data</li>
-            <li><strong className="text-white">Training data</strong> &mdash; All workout logs, exercise history, and performance records</li>
-            <li><strong className="text-white">AI coaching data</strong> &mdash; Personalized models, conversation history, and recommendations</li>
-            <li><strong className="text-white">Personal information</strong> &mdash; Body measurements, fitness goals, and health-related data</li>
-            <li><strong className="text-white">Media</strong> &mdash; Any saved photos or videos from form analysis</li>
+            <li><strong className="text-white">Training data</strong> &mdash; All workout logs, exercise history, VBT metrics, and personal records</li>
+            <li><strong className="text-white">AI coaching data</strong> &mdash; Conversation history, recommendations, and personalized coaching data</li>
+            <li><strong className="text-white">Nutrition data</strong> &mdash; Food logs, meal photos, nutrition plans, and dietary preferences</li>
+            <li><strong className="text-white">Health data</strong> &mdash; Body measurements, medical conditions, injuries, and Health Connect data</li>
+            <li><strong className="text-white">Community data</strong> &mdash; Posts, comments, likes, and follower relationships</li>
+            <li><strong className="text-white">Media</strong> &mdash; Progress photos, form analysis videos, and any other saved media</li>
           </ul>
         </section>
 
@@ -45,25 +47,10 @@ export default function Goodbye() {
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-6">How to Delete Your Account</h2>
 
-          {/* Method 1: In-App */}
-          <div className="bg-dark/50 border border-dark-border rounded-lg p-5 mb-4">
-            <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-xs font-bold text-white">1</span>
-              In-App (Recommended)
-            </h3>
-            <ol className="list-decimal list-inside space-y-2 ml-1">
-              <li>Open the Prometheus Coach app</li>
-              <li>Go to <strong className="text-white">Settings</strong></li>
-              <li>Tap <strong className="text-white">Account</strong></li>
-              <li>Tap <strong className="text-white">Delete Account</strong></li>
-              <li>Confirm deletion when prompted</li>
-            </ol>
-          </div>
-
-          {/* Method 2: Email */}
+          {/* Method 1: Email */}
           <div className="bg-dark/50 border border-dark-border rounded-lg p-5">
             <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
-              <span className="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-xs font-bold text-white">2</span>
+              <span className="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-xs font-bold text-white">1</span>
               Via Email
             </h3>
             <p>
@@ -72,7 +59,8 @@ export default function Goodbye() {
                 hello@prometheus.coach
               </a>{' '}
               from the email address associated with your account. Include &quot;Account
-              Deletion Request&quot; in the subject line.
+              Deletion Request&quot; in the subject line. We will confirm receipt and process
+              your request within 30 days as required by GDPR.
             </p>
           </div>
         </section>
@@ -84,8 +72,8 @@ export default function Goodbye() {
             <h2 className="text-xl font-bold text-accent">Processing Time</h2>
           </div>
           <ul className="list-disc list-inside space-y-2">
-            <li><strong className="text-white">In-app deletion:</strong> Your account is deactivated immediately. Data is permanently deleted within 30 days.</li>
-            <li><strong className="text-white">Email request:</strong> We will process your request within 30 days, as required by GDPR.</li>
+            <li>We will confirm receipt of your deletion request within 48 hours.</li>
+            <li>Your data will be permanently deleted within <strong className="text-white">30 days</strong>, as required by GDPR.</li>
             <li>You will receive an email confirmation once the deletion is complete.</li>
           </ul>
         </section>

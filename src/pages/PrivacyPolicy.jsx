@@ -40,25 +40,53 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-bold text-accent mb-4">3. Data We Collect</h2>
 
           <h3 className="text-white font-semibold mt-4 mb-2">Account Data</h3>
-          <p>Email address, name, profile picture, authentication tokens.</p>
+          <p>Email address, name, age, gender, profile picture, and authentication tokens.</p>
 
-          <h3 className="text-white font-semibold mt-4 mb-2">Fitness &amp; Health Data</h3>
+          <h3 className="text-white font-semibold mt-4 mb-2">Physical &amp; Health Data</h3>
           <p>
-            Training logs, exercise performance, body measurements, fitness goals, and
-            AI-generated coaching data. This data is provided voluntarily by you to receive
-            personalized coaching.
+            Weight, height, body measurements (e.g. chest, waist, arms), body fat percentage,
+            activity level, training experience, and medical conditions or injuries you
+            voluntarily provide.
+          </p>
+
+          <h3 className="text-white font-semibold mt-4 mb-2">Fitness &amp; Training Data</h3>
+          <p>
+            Workout logs, exercise performance, personal records, velocity-based training (VBT)
+            metrics (velocity, power, force, range of motion), training goals, and AI-generated
+            coaching data.
+          </p>
+
+          <h3 className="text-white font-semibold mt-4 mb-2">Nutrition Data</h3>
+          <p>
+            Food logs, meal photos, macro- and micronutrient intake, dietary preferences,
+            food allergies, and nutrition plans.
           </p>
 
           <h3 className="text-white font-semibold mt-4 mb-2">Camera &amp; Media</h3>
           <p>
-            Photos taken for exercise form analysis (processed in real-time, stored only if
-            you explicitly save them).
+            Videos recorded for exercise form analysis and VBT tracking. Progress photos
+            (front, side, back) if you choose to take them. Media is stored in the cloud
+            only when you explicitly save it.
+          </p>
+
+          <h3 className="text-white font-semibold mt-4 mb-2">Wearable &amp; Health Connect Data</h3>
+          <p>
+            If you connect a wearable device or Health Connect, we may read heart rate,
+            sleep data (duration, stages), weight, body fat, and VO2max. This data is used
+            solely to personalize your coaching and recovery recommendations.
+          </p>
+
+          <h3 className="text-white font-semibold mt-4 mb-2">Community &amp; Social Data</h3>
+          <p>
+            If you use community features: display name, bio, posts, comments, likes, and
+            follower relationships. You control the visibility of your posts (public,
+            followers-only, or private).
           </p>
 
           <h3 className="text-white font-semibold mt-4 mb-2">Device &amp; Usage Data</h3>
           <p>
-            Device type, operating system, app version, crash logs, and general usage
-            analytics to improve the Service.
+            Device type, operating system, app version, crash logs (via Firebase Crashlytics),
+            and general usage analytics to improve the Service.
           </p>
         </section>
 
@@ -67,8 +95,11 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-bold text-accent mb-4">4. How We Use Your Data</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>Provide and personalize AI-powered fitness coaching</li>
-            <li>Process payments and manage subscriptions</li>
-            <li>Analyze exercise form via camera (real-time processing)</li>
+            <li>Analyze exercise form and velocity-based training via camera</li>
+            <li>Track nutrition, generate meal plans, and analyze meal photos</li>
+            <li>Sync health data from wearables and Health Connect for recovery insights</li>
+            <li>Process payments and manage subscriptions via Google Play Billing</li>
+            <li>Monitor app stability and fix crashes (Firebase Crashlytics)</li>
             <li>Improve and optimize the Service</li>
             <li>Communicate with you about your account or the Service</li>
             <li>Comply with legal obligations</li>
@@ -91,11 +122,11 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-bold text-accent mb-4">6. Third-Party Services</h2>
           <p className="mb-4">We share data with the following processors, all of whom are contractually bound to protect your data:</p>
           <ul className="list-disc list-inside space-y-2">
-            <li><strong className="text-white">Supabase</strong> (EU) &mdash; Database hosting and authentication</li>
-            <li><strong className="text-white">OpenAI</strong> (USA) &mdash; AI coaching engine (data sent with appropriate safeguards)</li>
-            <li><strong className="text-white">Anthropic</strong> (USA) &mdash; AI coaching engine (data sent with appropriate safeguards)</li>
-            <li><strong className="text-white">Google</strong> (USA) &mdash; Authentication (Google Sign-In), analytics, and Play Store services</li>
-            <li><strong className="text-white">RevenueCat</strong> &mdash; Subscription and payment management</li>
+            <li><strong className="text-white">Supabase</strong> (EU) &mdash; Database hosting, authentication, and file storage</li>
+            <li><strong className="text-white">Anthropic</strong> (USA) &mdash; AI coaching engine (text and image analysis, with appropriate safeguards)</li>
+            <li><strong className="text-white">Google</strong> (USA) &mdash; Play Store services, Google Play Billing (payments), ML Kit (on-device pose detection, barcode scanning, text recognition), Firebase Crashlytics (crash reporting), and Health Connect API</li>
+            <li><strong className="text-white">USDA FoodData Central</strong> (USA) &mdash; Public nutrition database for food lookups</li>
+            <li><strong className="text-white">Meta / Facebook SDK</strong> (USA) &mdash; Instagram Story sharing (only when you explicitly share content)</li>
           </ul>
           <p className="mt-4">
             For transfers outside the EU/EEA, we rely on Standard Contractual Clauses (SCCs) or
