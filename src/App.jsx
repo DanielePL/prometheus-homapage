@@ -5,11 +5,13 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import Impressum from './pages/Impressum'
 import Goodbye from './pages/Goodbye'
+import GrowthPitch from './pages/GrowthPitch'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/growth" element={<GrowthPitch />} />
       <Route element={<LegalLayout />}>
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />

@@ -4,19 +4,19 @@ import { Check, Circle } from 'lucide-react'
 const milestones = [
   {
     year: '2010',
-    title: 'First Fitness CRM Development',
+    title: 'Founder co-develops first fitness CRM',
     heritage: true,
     done: true,
   },
   {
     year: '2017',
-    title: '9-Axis VBT Prototype',
+    title: 'Founder builds 9-axis VBT prototype',
     heritage: true,
     done: true,
   },
   {
     year: '2024–25',
-    title: 'Prometheus R&D & Development',
+    title: 'Prometheus Ecosystem — R&D & Development',
     done: true,
   },
   {
