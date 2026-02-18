@@ -1,0 +1,102 @@
+export default function Impressum() {
+  return (
+    <article>
+      <h1 className="text-3xl font-bold font-heading mb-2">Impressum</h1>
+      <p className="text-sm text-[#666] mb-12">Legal Notice according to &sect; 5 TMG / EU E-Commerce Directive</p>
+
+      <div className="space-y-10 text-[#999] leading-relaxed">
+        {/* Company Information */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">Company Information</h2>
+          <ul className="space-y-2">
+            <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
+            <li><strong className="text-white">Legal Form:</strong> O&Uuml; (Osa&uuml;hing &mdash; Estonian Private Limited Company)</li>
+            <li><strong className="text-white">Registry Code:</strong> 17082451</li>
+            <li><strong className="text-white">Registered Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+            <li><strong className="text-white">Register:</strong> Estonian Commercial Register (Äriregister)</li>
+          </ul>
+        </section>
+
+        {/* Contact */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">Contact</h2>
+          <ul className="space-y-2">
+            <li><strong className="text-white">Email:</strong>{' '}
+              <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
+                hello@prometheus.coach
+              </a>
+            </li>
+            <li><strong className="text-white">Website:</strong>{' '}
+              <a href="https://prometheus.coach" className="text-accent hover:underline">
+                prometheus.coach
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        {/* Responsible Person */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">Responsible Person</h2>
+          <p>
+            Responsible for content according to &sect; 18 (2) MStV:
+          </p>
+          <ul className="mt-3 space-y-2">
+            <li><strong className="text-white">Name:</strong> Daniele Pauli</li>
+            <li><strong className="text-white">Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+          </ul>
+        </section>
+
+        {/* EU Dispute Resolution */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">EU Online Dispute Resolution</h2>
+          <p>
+            The European Commission provides a platform for online dispute resolution (ODR):{' '}
+            <a
+              href="https://ec.europa.eu/consumers/odr/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              https://ec.europa.eu/consumers/odr/
+            </a>
+          </p>
+          <p className="mt-3">
+            We are neither obligated nor willing to participate in dispute resolution
+            proceedings before a consumer arbitration board.
+          </p>
+        </section>
+
+        {/* Liability Disclaimer */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">Liability Disclaimer</h2>
+
+          <h3 className="text-white font-semibold mt-2 mb-2">Content</h3>
+          <p>
+            The content of our website and app has been created with the utmost care. However,
+            we cannot guarantee the accuracy, completeness, or timeliness of the content. As a
+            service provider, we are responsible for our own content on these pages according to
+            general laws. However, we are not obligated to monitor transmitted or stored
+            third-party information.
+          </p>
+
+          <h3 className="text-white font-semibold mt-4 mb-2">Links</h3>
+          <p>
+            Our website may contain links to external third-party websites over whose content
+            we have no control. We therefore cannot accept any liability for this third-party
+            content. The respective provider or operator of the linked pages is always
+            responsible for the content of those pages.
+          </p>
+        </section>
+
+        {/* VAT */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">VAT Information</h2>
+          <p>
+            VAT identification is not yet assigned. As a newly registered Estonian company, the
+            VAT ID will be listed here once obtained.
+          </p>
+        </section>
+      </div>
+    </article>
+  )
+}

@@ -1,3 +1,4 @@
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Instagram, Linkedin, Youtube, Twitter } from 'lucide-react'
 
 const navLinks = [
@@ -18,15 +19,22 @@ const socials = [
 ]
 
 const legal = [
-  { label: 'Privacy Policy', href: '#' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Impressum', href: '#' },
+  { label: 'Privacy Policy', to: '/privacy' },
+  { label: 'Terms of Service', to: '/terms' },
+  { label: 'Impressum', to: '/impressum' },
 ]
 
 export default function Footer() {
-  const handleClick = (e, href) => {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleNavClick = (e, href) => {
     e.preventDefault()
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    if (location.pathname === '/') {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/' + href)
+    }
   }
 
   return (
@@ -66,7 +74,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={(e) => handleClick(e, link.href)}
+                    onClick={(e) => handleNavClick(e, link.href)}
                     className="text-sm text-[#999] hover:text-white transition-colors"
                   >
                     {link.label}
@@ -90,12 +98,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {legal.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     className="text-sm text-[#999] hover:text-white transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
