@@ -30,7 +30,7 @@ const milestones = [
   },
   {
     year: '2027',
-    title: 'Wearable Integration & Global Expansion',
+    title: 'Global Expansion & Strategic Partnerships',
   },
   {
     year: '2028',

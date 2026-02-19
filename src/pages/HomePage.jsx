@@ -31,6 +31,16 @@ export default function HomePage() {
         <ProductShowcase />
         <PrometheusLab />
         <Chameleon />
+
+        {/* Cinematic background divider */}
+        <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: "url('/images/features/vbt.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/40 to-dark" />
+        </div>
+
         <FreeTrial />
         <Technology />
         <Team />
