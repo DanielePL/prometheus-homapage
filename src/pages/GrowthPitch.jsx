@@ -454,13 +454,11 @@ function EcosystemSection() {
                   const offset = si - activeIndex
                   const isActive = si === activeIndex
                   const absOffset = Math.abs(offset)
-                  const rotate = offset * 8
-                  const translateX = offset * 58
-                  const translateY = absOffset * 14
+                  const translateX = offset * 72
                   const isHovered = hoveredScreen === si
-                  const scale = isHovered ? 1.5 : isActive ? 1.08 : 1 - absOffset * 0.06
+                  const scale = isHovered ? 1.5 : isActive ? 1.05 : 0.95
                   const z = isHovered ? 30 : a.screens.length - absOffset
-                  const opacity = absOffset > 2 ? 0.3 : 1 - absOffset * 0.15
+                  const opacity = absOffset > 2 ? 0.3 : 1 - absOffset * 0.12
                   return (
                     <img
                       key={si}
@@ -470,7 +468,7 @@ function EcosystemSection() {
                       onMouseLeave={() => setHoveredScreen(null)}
                       className="absolute h-64 sm:h-[340px] w-auto rounded-[22px] cursor-pointer"
                       style={{
-                        transform: `translateX(${translateX}px) translateY(${isHovered ? -60 : translateY}px) rotate(${isHovered ? 0 : rotate}deg) scale(${scale})`,
+                        transform: `translateX(${translateX}px) translateY(${isHovered ? -40 : 0}px) scale(${scale})`,
                         zIndex: z,
                         opacity: isHovered ? 1 : opacity,
                         filter: isHovered || isActive ? 'none' : `brightness(${1 - absOffset * 0.12})`,
