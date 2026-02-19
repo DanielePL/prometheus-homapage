@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
@@ -12,7 +12,6 @@ import {
   Check,
   X,
   ChevronRight,
-  Cpu,
   Brain,
   Database,
   Users,
@@ -20,26 +19,17 @@ import {
   Mail,
   ExternalLink,
   Bot,
-  Utensils,
   BarChart3,
-  ScanLine,
   Gauge,
   LayoutDashboard,
-  CalendarDays,
-  Wifi,
   Circle,
   Trophy,
   Award,
   MessageSquare,
   ShoppingCart,
   ScanBarcode,
-  Watch,
-  Dumbbell,
-  Heart,
   Target,
-  Sparkles,
   MessageCircle,
-  Phone,
   Gift,
 } from 'lucide-react'
 
@@ -223,9 +213,6 @@ function SectionHeader({ label, title, titleAccent, subtitle }) {
 function HeroSection() {
   const [ref, isVisible] = useScrollAnimation(0.05)
   const products = useCountUp(4, 1500, false, isVisible)
-  const tam = useCountUp(6, 1500, false, isVisible)
-  const sports = useCountUp(135, 2000, false, isVisible)
-  const exercises = useCountUp(800, 2000, false, isVisible)
 
   return (
     <section ref={ref} className="relative min-h-[80vh] flex items-center justify-center overflow-hidden z-10">
@@ -249,21 +236,13 @@ function HeroSection() {
             The first platform that unifies AI Coaching, Velocity-Based Training, Nutrition, Community, and Wearables — from golfer to weightlifter, without any hardware.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            {[
-              { value: products, suffix: '', label: 'Products' },
-              { value: tam, prefix: '$', suffix: 'B+', label: 'TAM' },
-              { value: sports, suffix: '+', label: 'Sports' },
-              { value: exercises, suffix: '+', label: 'Exercises' },
-              { value: '$0', label: 'Hardware', raw: true },
-            ].map((m, i) => (
-              <div key={i} className="text-center">
-                <div className="text-3xl sm:text-4xl font-extrabold text-accent font-['Arimo']">
-                  {m.raw ? m.value : `${m.prefix || ''}${m.value}${m.suffix}`}
-                </div>
-                <div className="text-[#999] text-sm mt-1">{m.label}</div>
+          <div className="flex justify-center">
+            <div className="text-center">
+              <div className="text-3xl sm:text-4xl font-extrabold text-accent font-['Arimo']">
+                {products}
               </div>
-            ))}
+              <div className="text-[#999] text-sm mt-1">Products, One Ecosystem</div>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -274,33 +253,6 @@ function HeroSection() {
 // ─── 2. The Problem ─────────────────────────────────────────────────────────────
 
 function ProblemSection() {
-  const problems = [
-    {
-      icon: Smartphone,
-      title: 'Tracking Apps',
-      stat: '93%',
-      statLabel: 'offer zero AI feedback',
-      gaps: ['No AI coaching', 'No velocity tracking', 'No nutrition', 'No periodization'],
-      summary: 'Digital notebooks. They log — but never analyze, adapt, or coach.',
-    },
-    {
-      icon: Users,
-      title: 'Coaching Platforms',
-      stat: '0',
-      statLabel: 'churn warnings before clients leave',
-      gaps: ['No churn prediction', 'No revenue analytics', 'No engagement alerts', 'No interaction index'],
-      summary: 'Built for athletes, not for the coach\'s business. Zero business intelligence.',
-    },
-    {
-      icon: Gauge,
-      title: 'VBT Hardware',
-      stat: '$2,499',
-      statLabel: 'for a linear encoder',
-      gaps: ['Expensive hardware required', 'Bluetooth friction', 'No ecosystem integration', 'No coaching UX'],
-      summary: 'Science-grade data locked behind $2K devices and terrible UX.',
-    },
-  ]
-
   return (
     <Section id="problem">
       <SectionHeader
@@ -309,38 +261,105 @@ function ProblemSection() {
         titleAccent="Still Broken."
       />
 
-      <div className="grid md:grid-cols-3 gap-4 sm:gap-5">
-        {problems.map((p) => (
-          <div key={p.title} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 sm:p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 bg-red-500/10 rounded-lg flex items-center justify-center">
-                <p.icon size={18} className="text-red-400" />
-              </div>
-              <h3 className="font-['Arimo'] text-base font-bold uppercase">{p.title}</h3>
-            </div>
-
-            <p className="text-[#999] text-sm leading-relaxed mb-4">{p.summary}</p>
-
-            <div className="space-y-1.5 mb-5">
-              {p.gaps.map((g, i) => (
-                <div key={i} className="flex items-center gap-2 text-xs">
-                  <X size={12} className="text-red-400/70 shrink-0" />
-                  <span className="text-[#999]">{g}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3 text-center mt-auto">
-              <div className="text-2xl font-extrabold text-red-400 font-['Arimo'] mb-0.5">{p.stat}</div>
-              <div className="text-[#999] text-[11px]">{p.statLabel}</div>
-            </div>
-          </div>
-        ))}
+      {/* Opening Statement */}
+      <div className="max-w-3xl mx-auto text-center mb-14">
+        <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Arimo'] uppercase leading-tight mb-6">
+          The biggest fitness apps in the world have one thing in common.{' '}
+          <span className="text-red-400">They sell cars without engines.</span>
+        </p>
       </div>
 
-      <p className="text-center text-xl sm:text-2xl font-bold mt-10 font-['Arimo'] uppercase">
-        No single platform connects all three. <span className="text-accent">Until now.</span>
-      </p>
+      {/* Three Broken Segments — Side by Side */}
+      <div className="grid md:grid-cols-3 gap-4 mb-10">
+        {/* Athletes — Consumer Apps */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-red-400/20 rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-9 h-9 bg-red-500/10 border border-red-400/20 rounded-lg flex items-center justify-center">
+              <Smartphone size={18} className="text-red-400" />
+            </div>
+            <h3 className="font-['Arimo'] text-sm font-bold uppercase">Athletes</h3>
+          </div>
+          <p className="text-[#ccc] text-sm leading-relaxed mb-3">
+            MyFitnessPal had <span className="text-white font-semibold">20 years</span> and <span className="text-white font-semibold">200M users</span> to build a workout tracker. They didn't — because subscriptions kept coming anyway.
+          </p>
+          <p className="text-[#999] text-xs leading-relaxed mb-4">
+            A business model built on the minimum viable product that keeps people subscribed. Not one feature more.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {['No AI coaching', 'No VBT', 'No periodization', 'No nutrition'].map((gap, i) => (
+              <span key={i} className="px-2.5 py-1 bg-red-400/[0.06] border border-red-400/15 rounded-full text-[10px] font-semibold text-red-400">
+                {gap}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Coaches — Coaching Platforms */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-red-400/20 rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-9 h-9 bg-red-500/10 border border-red-400/20 rounded-lg flex items-center justify-center">
+              <Users size={18} className="text-red-400" />
+            </div>
+            <h3 className="font-['Arimo'] text-sm font-bold uppercase">Coaches</h3>
+          </div>
+          <p className="text-[#ccc] text-sm leading-relaxed mb-3">
+            A client misses two sessions. The coach finds out when they cancel. Hevy tracks sets. Trainerize tracks check-ins. <span className="text-white font-semibold">None of them track what actually matters.</span>
+          </p>
+          <p className="text-[#999] text-xs leading-relaxed mb-4">
+            They're flying blind because their tools were built by people who never coached.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {['No readiness scores', 'No workload ratio', 'No churn signals', 'No VBT trends'].map((gap, i) => (
+              <span key={i} className="px-2.5 py-1 bg-red-400/[0.06] border border-red-400/15 rounded-full text-[10px] font-semibold text-red-400">
+                {gap}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Gyms — Enterprise Software */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-red-400/20 rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-9 h-9 bg-red-500/10 border border-red-400/20 rounded-lg flex items-center justify-center">
+              <Building2 size={18} className="text-red-400" />
+            </div>
+            <h3 className="font-['Arimo'] text-sm font-bold uppercase">Gyms</h3>
+          </div>
+          <p className="text-[#ccc] text-sm leading-relaxed mb-3">
+            Mindbody was built in 2001. Gymdesk for martial arts. Glofox for yoga. Gym owners use these to run a performance facility. They see payments, bookings, attendance. <span className="text-white font-semibold">That's it.</span>
+          </p>
+          <p className="text-[#999] text-xs leading-relaxed mb-4">
+            Accounting dressed in fitness language. Running a performance business with software that doesn't know what performance is.
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {['No coach transparency', 'No AI', 'No churn signal', 'No cross-data intelligence'].map((gap, i) => (
+              <span key={i} className="px-2.5 py-1 bg-red-400/[0.06] border border-red-400/15 rounded-full text-[10px] font-semibold text-red-400">
+                {gap}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Industry Truth */}
+      <div className="max-w-3xl mx-auto text-center mb-10">
+        <p className="text-[#999] text-sm sm:text-base leading-relaxed">
+          And everyone pays — month after month — for <span className="text-white font-medium">digital notebooks dressed up as coaching platforms</span>.
+        </p>
+        <p className="text-white font-bold text-lg sm:text-xl mt-4 font-['Arimo'] uppercase">
+          The industry isn't broken by accident. <span className="text-red-400">It's profitable that way.</span>
+        </p>
+      </div>
+
+      {/* Prometheus Closing */}
+      <div className="bg-white/[0.04] backdrop-blur-xl border border-accent/20 rounded-2xl p-6 sm:p-8 max-w-3xl mx-auto text-center shadow-[0_8px_40px_rgba(230,126,34,0.06)]">
+        <p className="text-xl sm:text-2xl font-extrabold font-['Arimo'] uppercase">
+          Prometheus 1.0 already offers more than <span className="text-accent">all of them combined.</span>
+        </p>
+        <p className="text-[#999] text-sm mt-3">
+          Imagine version 4.0.
+        </p>
+      </div>
     </Section>
   )
 }
@@ -353,14 +372,16 @@ function EcosystemSection() {
       icon: Smartphone,
       label: 'Athlete App',
       subtitle: 'The Most Complete Training Companion Ever Built',
-      desc: 'AI Coach that builds individual workout plans for 135+ sports with periodization. Nutrition planning with macro tracking, barcode scanner, and AI-generated shopping lists. VBT (Velocity Based Training) — our phone camera tracks barbell speed in real time using computer vision, replacing $2,000+ lab equipment with zero hardware. Community challenges, badges, and social feed. Wearable sync for sleep, heart rate, and recovery. All in one app.',
+      desc: 'AI Coaching, Nutrition, VBT, Community, and Wearables — everything an athlete needs in one app.',
       mockup: 'phoneFan',
       screens: [
-        '/images/screenshots/nutrition-framed.png',
+        '/images/screenshots/nutrition-daily-log.png',
         '/images/screenshots/workout-session-framed.png',
-        '/images/screenshots/community-post-framed.png',
+        '/images/screenshots/coach-chat-full.png',
         '/images/screenshots/training-framed.png',
         '/images/screenshots/statistics-framed.png',
+        '/images/screenshots/add-food-search.png',
+        '/images/screenshots/challenge-bench-press.png',
       ],
       demoUrl: 'https://play.google.com/store/apps/details?id=prometheus.coach&pcampaignid=web_share',
       demoLabel: 'Google Play',
@@ -369,7 +390,7 @@ function EcosystemSection() {
       icon: Monitor,
       label: 'Coach Software',
       subtitle: 'Professional Coaching Tools',
-      desc: 'Professional tools to program, monitor, and analyze clients — free full-version mobile app for every coach included',
+      desc: 'Program, monitor, and analyze clients — free full-version mobile app for every coach included.',
       mockup: 'laptopWithPhone',
       screenshot: '/images/screenshots/coach-dashboard.png',
       mobileScreenshot: '/images/screenshots/coach-mobile-framed.png',
@@ -380,7 +401,7 @@ function EcosystemSection() {
       icon: Building2,
       label: 'Enterprise',
       subtitle: 'Studio & Clinic Management',
-      desc: 'White-label studio & clinic management with full CRM, scheduling, analytics — and full oversight of every coach on the platform',
+      desc: 'White-label studio and clinic management with CRM, scheduling, and full coach oversight.',
       mockup: 'laptop',
       screenshot: '/images/screenshots/enterprise-dashboard.png',
       demoUrl: 'https://enterprise.prometheus.coach',
@@ -390,7 +411,7 @@ function EcosystemSection() {
       icon: Database,
       label: 'Prometheus Lab',
       subtitle: 'Science-Driven Insights for Coaches & Gyms',
-      desc: 'Your coaches and gyms deliver training data — we deliver research-backed insights that drive client results',
+      desc: 'Coaches deliver training data — we return research-backed cross-performance insights that drive results.',
       mockup: 'laptop',
       screenshot: '/images/screenshots/vbt-lab-dashboard.png',
     },
@@ -483,7 +504,7 @@ function EcosystemSection() {
           >
             <div className="relative bg-gradient-to-b from-white/[0.03] to-transparent">
               <div className={`p-5 pt-6 ${p.mockup === 'laptopWithPhone' ? 'pb-2' : ''}`}>
-                <div className="relative group-hover:scale-[2.5] group-hover:-translate-y-[30%] transition-all duration-500 ease-out origin-bottom">
+                <div className={`relative group-hover:scale-[2.5] group-hover:-translate-y-[30%] transition-all duration-500 ease-out origin-bottom ${i === 0 ? 'group-hover:translate-x-[33%]' : i === 2 ? 'group-hover:-translate-x-[33%]' : ''}`}>
                   <div className="bg-white/[0.03] border border-white/[0.08] rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.4)] group-hover:shadow-[0_24px_60px_rgba(0,0,0,0.6),0_0_30px_rgba(230,126,34,0.1)] transition-shadow duration-500">
                     <div className="flex items-center gap-1.5 px-3 py-2 bg-white/[0.03] border-b border-white/[0.06]">
                       <div className="w-2 h-2 rounded-full bg-red-500/50" />
@@ -531,179 +552,6 @@ function EcosystemSection() {
         ))}
       </div>
 
-    </Section>
-  )
-}
-
-// ─── 4. Product Deep Dive ───────────────────────────────────────────────────────
-
-const productTabs = [
-  {
-    id: 'athlete',
-    label: 'Athlete App',
-    icon: Smartphone,
-    title: 'Prometheus Athlete App',
-    description: 'The most complete training companion ever built. AI coaching creates individual workout plans for any sport — from golf to weightlifting. Nutrition planning with shopping lists. VBT tracking. Community challenges. Wearable sync. All in one app.',
-    metrics: ['135+ Sports', '800+ Exercises', '4.5M+ Food DB', 'Wearables Integrated'],
-    features: [
-      { icon: Bot, text: 'AI Coach creates individual workout plans for any sport — from golfer to weightlifter — with periodization and progressive overload' },
-      { icon: Utensils, text: 'AI-generated nutrition plans with shopping lists, macro tracking, and meal planning' },
-      { icon: ScanBarcode, text: 'Barcode scanner, food label scanner, and community-powered custom food database with all major restaurant chains for quick adds' },
-      { icon: Eye, text: 'Real-time VBT via phone camera — no hardware needed' },
-      { icon: Trophy, text: 'Community challenges, badge & achievement system, social feed, and athlete profiles' },
-      { icon: Watch, text: 'Wearable integration already live — sleep, heart rate, and recovery data synced in real time' },
-    ],
-    mockup: 'phone',
-    screens: [
-      { label: 'VBT Workout', img: '/images/screenshots/workout-session-framed.png' },
-      { label: 'VBT Community Post', img: '/images/screenshots/community-post-framed.png' },
-      { label: 'Statistics', img: '/images/screenshots/statistics-framed.png' },
-    ],
-  },
-  {
-    id: 'coach',
-    label: 'Coach Software',
-    icon: Monitor,
-    title: 'Prometheus Coach Software',
-    description: 'Professional-grade tools for coaches to program, monitor, and analyze their athletes. Every Coach Software subscriber gets a free full-version Prometheus mobile app — not a stripped-down lite version, the real deal.',
-    metrics: ['$29–229/month', 'Free Mobile App Included', 'AI-Assisted Programming'],
-    features: [
-      { icon: Gift, text: 'Free full-version Prometheus Athlete App for every subscribing coach — complete access, no limits' },
-      { icon: Users, text: 'Unlimited client management & program design' },
-      { icon: BarChart3, text: 'Progress analytics, VBT reporting, and readiness monitoring' },
-      { icon: Bot, text: 'AI-assisted programming suggestions tailored to each athlete' },
-    ],
-    mockup: 'laptop',
-    screenshot: '/images/screenshots/coach-dashboard.png',
-  },
-  {
-    id: 'enterprise',
-    label: 'Enterprise',
-    icon: Building2,
-    title: 'Prometheus Enterprise',
-    description: 'End-to-end studio and clinic management. White-label ready with full CRM, member management, scheduling, and AI-powered insights for gyms, physio clinics, and rehab centers.',
-    metrics: ['$149–599/month', 'White-Label Ready', 'Full CRM'],
-    features: [
-      { icon: LayoutDashboard, text: 'Managed coaching software & member CRM' },
-      { icon: Smartphone, text: 'Studio entry management via phone' },
-      { icon: CalendarDays, text: 'Group course scheduling & organization' },
-      { icon: Bot, text: 'Full CRM with analytics and AI assistants' },
-    ],
-    mockup: 'laptop',
-    screenshot: '/images/screenshots/enterprise-dashboard.png',
-  },
-  {
-    id: 'vbt',
-    label: 'Prometheus Lab',
-    icon: Database,
-    title: 'Prometheus Lab',
-    description: 'A two-way intelligence loop between the field and the lab. Coaches and gyms deliver real-world training data — Prometheus Lab returns research-backed insights, Load-Velocity Profiles, and adaptive recommendations that help every client reach their goals faster.',
-    metrics: ['Real-Time Insights', 'Research-Grade Data', '$0 Hardware'],
-    features: [
-      { icon: Database, text: 'Continuous data pipeline from every session into the research lab' },
-      { icon: TrendingUp, text: 'Load-Velocity Profiles, e1RM estimation, and velocity trend analysis' },
-      { icon: Brain, text: 'Research-backed insights delivered to coaches and gyms in real time' },
-      { icon: Wifi, text: 'Phone camera VBT — replaces $2,000+ devices with $0 hardware' },
-    ],
-    mockup: 'laptop',
-    screenshot: '/images/screenshots/vbt-lab-dashboard.png',
-  },
-]
-
-function ProductDeepDive() {
-  const [activeTab, setActiveTab] = useState('athlete')
-  const active = productTabs.find((t) => t.id === activeTab)
-
-  return (
-    <Section id="products">
-      <SectionHeader
-        label="Products"
-        title="Deep Dive:"
-        titleAccent="The Product Suite"
-      />
-
-      {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-12">
-        {productTabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2.5 sm:py-3 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
-              activeTab === tab.id
-                ? 'bg-accent text-white shadow-[0px_2px_18px_0px_#E67E22]'
-                : 'bg-white/[0.04] backdrop-blur-lg text-[#999] hover:text-white border border-white/[0.08] hover:border-accent/30 hover:bg-white/[0.06]'
-            }`}
-          >
-            <tab.icon size={16} />
-            {tab.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Content */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
-          className="grid lg:grid-cols-2 gap-12 items-center"
-        >
-          {/* Info */}
-          <div>
-            <h3 className="font-['Arimo'] text-2xl sm:text-3xl font-bold mb-4 uppercase">{active.title}</h3>
-            <p className="text-[#999] mb-6">{active.description}</p>
-
-            {/* Key Metrics */}
-            <div className="flex flex-wrap gap-3 mb-8">
-              {active.metrics.map((m, i) => (
-                <span key={i} className="px-3 py-1.5 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-full text-xs font-semibold text-accent shadow-[0_0_12px_rgba(230,126,34,0.06)]">
-                  {m}
-                </span>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              {active.features.map((f, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-9 h-9 bg-accent/[0.08] backdrop-blur-sm border border-accent/15 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                    <f.icon size={18} className="text-accent" />
-                  </div>
-                  <span className="text-gray-300 text-sm leading-relaxed pt-1.5">{f.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mockup */}
-          <div className="flex justify-center">
-            {active.mockup === 'phone' && active.screens && (
-              <div className="flex justify-center items-end">
-                {active.screens.map((screen, i) => (
-                  <div
-                    key={screen.label}
-                    className={`transition-all duration-500 ease-out cursor-pointer hover:scale-[1.5] hover:z-30 hover:-translate-y-8 ${
-                      i === 1 ? 'w-48 z-10' : 'w-36 opacity-70 hover:opacity-100 hidden sm:block -mx-2'
-                    }`}
-                  >
-                    <img
-                      src={screen.img}
-                      alt={screen.label}
-                      className="w-full h-auto rounded-[30px]"
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
-            {active.mockup === 'laptop' && (
-              <div className="w-full transition-all duration-500 ease-out cursor-pointer hover:scale-[2.5] hover:-translate-y-[30%] hover:shadow-[0_40px_80px_rgba(230,126,34,0.15)] rounded-2xl">
-                <LaptopMockup title={active.title} screenshot={active.screenshot} />
-              </div>
-            )}
-          </div>
-        </motion.div>
-      </AnimatePresence>
     </Section>
   )
 }
@@ -760,25 +608,25 @@ function CommunitySection() {
         </div>
 
         {/* Right — Community Screenshots */}
-        <div className="flex justify-center items-end">
-          <div className="w-36 opacity-70 hidden sm:block -mr-2">
+        <div className="flex justify-center items-end group/phones">
+          <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/community-profile-framed.png"
               alt="Community Profile"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-48 z-10">
+          <div className="w-48 z-10 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/community-feed-framed.png"
               alt="Community Feed"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-36 opacity-70 hidden sm:block -ml-2">
+          <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
             <img
-              src="/images/screenshots/community-post-framed.png"
-              alt="Community Post"
+              src="/images/screenshots/challenge-bench-press.png"
+              alt="Community Challenge"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
@@ -818,24 +666,24 @@ function NutritionSection() {
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left — Screenshots */}
         <div className="flex justify-center items-end">
-          <div className="w-36 opacity-70 hidden sm:block -mr-2">
+          <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/nutrition-framed.png"
               alt="Nutrition Tracking"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-48 z-10">
+          <div className="w-48 z-10 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
             <img
-              src="/images/screenshots/meal-plans-framed.png"
-              alt="Meal Plans"
+              src="/images/screenshots/nutrition-daily-log.png"
+              alt="Daily Nutrition Log"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-36 opacity-70 hidden sm:block -ml-2">
+          <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
             <img
-              src="/images/screenshots/insights-framed.png"
-              alt="Nutrition Insights"
+              src="/images/screenshots/add-food-search.png"
+              alt="Food Search"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
@@ -847,10 +695,9 @@ function NutritionSection() {
             {[
               { icon: ScanBarcode, title: 'Barcode & Label Scanner', desc: 'Scan any product barcode or nutrition label with your camera. Instant macro tracking — no manual entry needed.' },
               { icon: Database, title: '4.5M+ Food Database', desc: 'The largest integrated food database in any training app. All major restaurant chains pre-loaded for quick adds — McDonald\'s, Subway, Starbucks, and hundreds more.' },
-              { icon: Users, title: 'Community Food Database', desc: 'Users contribute custom foods, local products, and restaurant meals. Every new entry makes the platform better for everyone — a self-growing data moat.' },
-              { icon: Bot, title: 'AI Nutrition Plans', desc: 'The AI coach creates individualized nutrition plans based on training goals, body composition targets, and dietary preferences — with full macro breakdowns.' },
+              { icon: Bot, title: 'AI Nutrition Plans', desc: 'Individualized nutrition plans based on training goals, body composition targets, and dietary preferences — with full macro breakdowns.' },
               { icon: ShoppingCart, title: 'AI Shopping Lists', desc: 'Auto-generated shopping lists based on your meal plan. One tap to see exactly what to buy for the week.' },
-              { icon: Target, title: 'Goal-Adaptive Tracking', desc: 'Cut, bulk, maintain, or sport-specific fuel. The system adapts calorie and macro targets based on training load, VBT data, and recovery metrics.' },
+              { icon: Target, title: 'Goal-Adaptive Tracking', desc: 'Cut, bulk, maintain, or sport-specific fuel. The system adapts calorie and macro targets based on training load and recovery metrics.' },
             ].map((f, i) => (
               <div key={i} className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(230,126,34,0.06)]">
@@ -872,6 +719,145 @@ function NutritionSection() {
 // ─── 7. AI Coach Deep Dive ──────────────────────────────────────────────────────
 
 function AICoachSection() {
+  const chatRef = useRef(null)
+  const [chatVisible, setChatVisible] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(0)
+  const [typingIndex, setTypingIndex] = useState(-1)
+
+  // Observe chat container entering viewport
+  useEffect(() => {
+    const el = chatRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setChatVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Chat message definitions
+  const messages = [
+    {
+      sender: 'coach',
+      content: (
+        <p className="text-sm text-gray-300 leading-relaxed">
+          Hey! I'm your <span className="text-white font-semibold">Prometheus Coach</span>. I analyze your training, nutrition, sleep, velocity data, and periodization — all in real time. Here's what I can do:
+        </p>
+      ),
+    },
+    {
+      sender: 'coach',
+      content: (
+        <div className="flex flex-wrap gap-2">
+          {['Individual plans for 135+ sports', 'Adaptive periodization', 'Weekly performance reviews', 'Recovery-aware adjustments', 'Real-time advice'].map((tag, i) => (
+            <span key={i} className="px-3 py-1.5 bg-accent/[0.08] border border-accent/20 rounded-full text-[11px] font-semibold text-accent">
+              {tag}
+            </span>
+          ))}
+        </div>
+      ),
+    },
+    {
+      sender: 'user',
+      content: (
+        <p className="text-sm leading-relaxed">
+          I've been stuck on my bench press for 3 weeks. My 1RM hasn't moved. What should I change?
+        </p>
+      ),
+    },
+    {
+      sender: 'coach',
+      content: (
+        <p className="text-sm text-gray-300 leading-relaxed">
+          Looking at your data: your bar velocity on working sets dropped <span className="text-white font-semibold">12% this week</span>, and your sleep averaged <span className="text-white font-semibold">5.8h</span> — well below your 7.2h baseline. This isn't a strength plateau — it's <span className="text-accent font-semibold">accumulated fatigue</span>. Here's my plan:
+        </p>
+      ),
+    },
+    {
+      sender: 'coach',
+      content: (
+        <div>
+          <div className="space-y-2.5 mb-3">
+            {[
+              { num: '1', text: 'Deload this week — reduce volume by 40%, keep intensity at RPE 6' },
+              { num: '2', text: 'Velocity-target reintroduction next week — only add load when bar speed exceeds 0.5 m/s' },
+              { num: '3', text: '+200 kcal on training days — your deficit is stalling recovery' },
+            ].map((step) => (
+              <div key={step.num} className="flex gap-3 items-start">
+                <span className="w-6 h-6 bg-accent/[0.15] border border-accent/25 rounded-full flex items-center justify-center shrink-0 text-[11px] font-bold text-accent">{step.num}</span>
+                <p className="text-sm text-gray-300 leading-relaxed">{step.text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-accent font-medium">Your updated meal plan and shopping list are ready.</p>
+        </div>
+      ),
+    },
+  ]
+
+  // Animate messages sequentially when chat becomes visible
+  useEffect(() => {
+    if (!chatVisible) return
+    let cancelled = false
+    const timers = []
+
+    const schedule = (fn, delay) => {
+      const id = setTimeout(() => { if (!cancelled) fn() }, delay)
+      timers.push(id)
+    }
+
+    let elapsed = 400 // initial delay before first message
+    messages.forEach((msg, i) => {
+      if (msg.sender === 'coach') {
+        // Show typing indicator
+        const typingStart = elapsed
+        schedule(() => setTypingIndex(i), typingStart)
+        elapsed += 800 // typing duration
+        // Show message
+        const showTime = elapsed
+        schedule(() => {
+          setTypingIndex(-1)
+          setVisibleCount(i + 1)
+        }, showTime)
+      } else {
+        // User message — just a pause, no typing
+        const showTime = elapsed
+        schedule(() => setVisibleCount(i + 1), showTime)
+      }
+      elapsed += 1200 // gap between messages
+    })
+
+    return () => {
+      cancelled = true
+      timers.forEach(clearTimeout)
+    }
+  }, [chatVisible])
+
+  const TypingIndicator = () => (
+    <div className="flex items-end gap-3 max-w-[85%]">
+      <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white/[0.06] flex items-center justify-center">
+        <img src="/images/flame.png" alt="" className="w-5 h-5 object-contain" />
+      </div>
+      <div className="bg-white/[0.06] rounded-2xl rounded-bl-md px-4 py-3">
+        <div className="flex gap-1.5">
+          {[0, 1, 2].map((d) => (
+            <span
+              key={d}
+              className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"
+              style={{ animationDelay: `${d * 150}ms`, animationDuration: '0.8s' }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <Section id="ai-coach" className="bg-white/[0.01]">
       <SectionHeader
@@ -881,82 +867,85 @@ function AICoachSection() {
         subtitle="From golf swing optimization to powerlifting periodization — the AI coach builds individual plans for 135+ sports and reviews your progress every week."
       />
 
-      {/* Weekly Review Highlight */}
-      <div className="bg-white/[0.04] backdrop-blur-xl border border-accent/20 rounded-2xl p-6 sm:p-8 mb-12 max-w-4xl mx-auto shadow-[0_8px_40px_rgba(230,126,34,0.06)]">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(230,126,34,0.1)]">
-            <BarChart3 size={24} className="text-accent" />
+      {/* Chat Roleplay */}
+      <div
+        ref={chatRef}
+        className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl max-w-3xl mx-auto mb-12 overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
+      >
+        {/* Chat header */}
+        <div className="px-5 py-3.5 border-b border-white/[0.06] flex items-center gap-3">
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white/[0.06] flex items-center justify-center">
+            <img src="/images/flame.png" alt="" className="w-5 h-5 object-contain" />
           </div>
           <div>
-            <h3 className="font-['Arimo'] font-bold uppercase text-lg mb-2">Weekly AI Performance Review</h3>
-            <p className="text-[#999] text-sm leading-relaxed mb-4">
-              Every week, the AI coach delivers a personalized summary of your achievements, progress trends, and areas for improvement. It analyzes your training volume, velocity trends, nutrition adherence, recovery patterns, and goal progress — then tells you exactly what to focus on next week. Like having a world-class coach review your training journal every Sunday.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {['Achievements Summary', 'Improvement Areas', 'Next Week Focus', 'Trend Analysis', 'Goal Progress'].map((tag, i) => (
-                <span key={i} className="px-3 py-1 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-full text-[11px] font-semibold text-accent">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <div className="text-sm font-semibold">Prometheus Coach</div>
+            <div className="text-[11px] text-green-400">Online</div>
           </div>
         </div>
-      </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        {[
-          { icon: Dumbbell, title: 'Individual Workout Plans', desc: 'AI-generated programs tailored to sport, experience, goals, equipment, and schedule. Not templates — truly individual plans that evolve weekly.' },
-          { icon: Utensils, title: 'Individual Nutrition Plans', desc: 'Meal plans matched to training phase, caloric needs, and dietary preferences. Vegetarian, keto, high-protein — the AI adapts to any diet.' },
-          { icon: ShoppingCart, title: 'Shopping Lists', desc: 'Weekly shopping lists auto-generated from your meal plan. Organized by store section. Tap and shop.' },
-          { icon: Sparkles, title: '135+ Sports', desc: 'Golf, weightlifting, CrossFit, swimming, martial arts, climbing, running, cycling, yoga — and more.' },
-        ].map((f, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-            <div className="w-11 h-11 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(230,126,34,0.06)]">
-              <f.icon size={20} className="text-accent" />
-            </div>
-            <h3 className="font-bold text-sm mb-2">{f.title}</h3>
-            <p className="text-[#999] text-xs leading-relaxed">{f.desc}</p>
-          </div>
-        ))}
-      </div>
+        {/* Chat messages */}
+        <div className="px-4 sm:px-6 py-5 space-y-4 min-h-[120px]">
+          {messages.map((msg, i) => {
+            if (i >= visibleCount && typingIndex !== i) return null
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-        {[
-          { icon: TrendingUp, title: 'Adaptive Periodization', desc: 'Adjusts volume, intensity, and exercises based on real-time VBT velocity trends, performance data, and recovery signals.' },
-          { icon: Heart, title: 'Recovery-Aware', desc: 'Integrates sleep, HRV, and readiness scores from wearables. Knows when to push hard and when to pull back.' },
-          { icon: MessageCircle, title: 'Real-Time Streaming', desc: 'Chat with your AI coach anytime. Contextual advice streams live from 5 simultaneous data sources. Ask anything about your training.' },
-          { icon: Target, title: 'Goal Tracking', desc: 'Set strength, body composition, or sport-specific goals. The AI tracks progress and adjusts the plan to keep you on target.' },
-        ].map((f, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-            <div className="w-11 h-11 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(230,126,34,0.06)]">
-              <f.icon size={20} className="text-accent" />
-            </div>
-            <h3 className="font-bold text-sm mb-2">{f.title}</h3>
-            <p className="text-[#999] text-xs leading-relaxed">{f.desc}</p>
-          </div>
-        ))}
+            if (typingIndex === i && i >= visibleCount) {
+              return <TypingIndicator key={`typing-${i}`} />
+            }
+
+            if (msg.sender === 'coach') {
+              return (
+                <div
+                  key={i}
+                  className="flex items-end gap-3 max-w-[85%] animate-[fadeSlideIn_0.3s_ease-out]"
+                >
+                  <div className="w-8 h-8 rounded-full overflow-hidden shrink-0 bg-white/[0.06] flex items-center justify-center">
+                    <img src="/images/flame.png" alt="" className="w-5 h-5 object-contain" />
+                  </div>
+                  <div className="bg-white/[0.06] rounded-2xl rounded-bl-md px-4 py-3">
+                    {msg.content}
+                  </div>
+                </div>
+              )
+            }
+
+            // User message
+            return (
+              <div
+                key={i}
+                className="flex justify-end animate-[fadeSlideIn_0.3s_ease-out]"
+              >
+                <div className="bg-accent/[0.15] border border-accent/20 rounded-2xl rounded-br-md px-4 py-3 max-w-[85%] text-white">
+                  {msg.content}
+                </div>
+              </div>
+            )
+          })}
+
+          {/* Show typing indicator at the end if it's for a future message */}
+          {typingIndex >= visibleCount && typingIndex < messages.length && visibleCount === typingIndex && null}
+        </div>
       </div>
 
       {/* Screenshots */}
       <div className="flex justify-center items-end">
-        <div className="w-36 opacity-70 hidden sm:block -mr-2">
+        <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
           <img
-            src="/images/screenshots/workout-session-framed.png"
-            alt="Workout Session"
+            src="/images/screenshots/vbt-video-analysis.png"
+            alt="VBT Video Analysis"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
-        <div className="w-48 z-10">
+        <div className="w-48 z-10 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
           <img
-            src="/images/screenshots/coach-framed.png"
+            src="/images/screenshots/coach-ai.png"
             alt="AI Coach"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
-        <div className="w-36 opacity-70 hidden sm:block -ml-2">
+        <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
           <img
-            src="/images/screenshots/insights-framed.png"
-            alt="Weekly Insights"
+            src="/images/screenshots/vbt-statistics.png"
+            alt="VBT Statistics"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
@@ -1042,7 +1031,7 @@ function CommandCenterSection() {
                 </div>
               </div>
               <p className="text-[#999] text-sm leading-relaxed mb-5">
-                Coaches and gyms deliver training data from the field. Prometheus Lab transforms it into research-grade insights — Load-Velocity Profiles, velocity trends, e1RM estimation, and R² regression analysis — then delivers actionable recommendations back so every client reaches their goals faster.
+                Coaches and gyms deliver training data from the field. Prometheus Lab transforms it into research-grade insights — Load-Velocity Profiles, velocity trends, e1RM estimation, and R² regression analysis. Beyond VBT, it analyzes cross-performance between training, nutrition, and periodization/recovery — then delivers actionable recommendations back so every client reaches their goals faster.
               </p>
               <div className="space-y-2">
                 {[
@@ -1050,6 +1039,7 @@ function CommandCenterSection() {
                   'Velocity trend analysis across sessions',
                   'R² correlation values for scientific validation',
                   'Per-athlete e1RM estimation and MVT tracking',
+                  'Cross-performance analysis: training × nutrition × periodization/recovery',
                   'CSV export for external research collaboration',
                   'Tracking error monitoring for continuous improvement',
                 ].map((p, j) => (
@@ -1077,71 +1067,91 @@ function CommandCenterSection() {
   )
 }
 
-// ─── 9. Technology Moat ─────────────────────────────────────────────────────────
+// ─── 9. Why We Win (Moat + Competition merged) ──────────────────────────────────
 
-function MoatSection() {
+function WhyWeWinSection() {
   const moats = [
-    {
-      icon: Eye,
-      gradient: 'from-accent to-orange-400',
-      title: 'Phone Camera VBT',
-      desc: 'YOLO-based object detection + OpenCV tracking runs entirely on-device. No linear encoders, no sensors, no Bluetooth. Just a phone camera delivering science-grade velocity data at 7 FPS with 0.99 confidence.',
-      points: ['On-Device ML', 'YOLO + OpenCV', '$0 Hardware Cost'],
-    },
-    {
-      icon: Brain,
-      gradient: 'from-[#F39C12] to-[#E67E22]',
-      title: 'AI Coaching Engine',
-      desc: 'Claude-powered coaching that creates individual workout plans, nutrition plans, and shopping lists from 5 simultaneous data sources: training history, velocity trends, nutrition logs, sleep/recovery, and periodization phase.',
-      points: ['Individual Plans for 135+ Sports', '5 Data Sources', 'Nutrition + Shopping Lists'],
-    },
-    {
-      icon: Database,
-      gradient: 'from-cyan-400 to-teal-500',
-      title: 'Community Data Moat',
-      desc: 'Community-powered food database with barcode scans, restaurant chains, and custom entries. Every new user makes the data better. Sleep, HR, velocity, nutrition, and RPE converge into a single Readiness Score.',
-      points: ['Self-Growing Food DB', 'Unified Readiness Score', 'Network Effects on Data'],
-    },
-    {
-      icon: Trophy,
-      gradient: 'from-yellow-400 to-amber-500',
-      title: 'Engagement & Retention',
-      desc: 'Community challenges, badge system, social feed, and gamification create daily engagement loops. Athletes don\'t just track — they compete, share, and belong. Switching costs compound with every badge earned.',
-      points: ['Challenges & Leaderboards', 'Badge & Achievement System', 'Social Feed & Profiles'],
-    },
+    { icon: Eye, gradient: 'from-accent to-orange-400', title: 'On-Device VBT', desc: 'Science-grade velocity tracking via phone camera — no hardware, no Bluetooth, no competition.' },
+    { icon: Brain, gradient: 'from-[#F39C12] to-[#E67E22]', title: 'AI Coaching Engine', desc: 'Five simultaneous data sources feeding one adaptive coaching model — a compounding intelligence advantage.' },
+    { icon: Database, gradient: 'from-cyan-400 to-teal-500', title: 'Community Data Moat', desc: 'Every user makes the platform smarter — a self-reinforcing data network that can\'t be bought or replicated.' },
+    { icon: Trophy, gradient: 'from-yellow-400 to-amber-500', title: 'Engagement Lock-In', desc: 'Switching costs compound with every badge, challenge, and social connection — retention by design.' },
+  ]
+
+  const features = ['AI Coach', 'Individual Plans', 'VBT', 'No Hardware', 'Nutrition + Scanner', 'Shopping Lists', 'Community', 'Wearables', 'Coach Tools', 'Enterprise']
+  const competitors = [
+    { name: 'Prometheus', checks: [true, true, true, true, true, true, true, true, true, true], highlight: true },
+    { name: 'Strong', checks: [false, false, false, true, false, false, false, false, false, false] },
+    { name: 'Hevy', checks: [false, false, false, true, false, false, true, false, false, false] },
+    { name: 'Fitbod', checks: [true, true, false, true, false, false, false, true, false, false] },
+    { name: 'TrainHeroic', checks: [false, false, false, true, false, false, false, false, true, false] },
+    { name: 'RepCount', checks: [false, false, true, false, false, false, false, false, false, false] },
+    { name: 'MyFitnessPal', checks: [false, false, false, true, true, false, true, false, false, false] },
   ]
 
   return (
-    <Section id="moat" className="bg-white/[0.01]">
+    <Section id="why-we-win" className="bg-white/[0.01]">
       <SectionHeader
-        label="The Moat"
-        title="Technology That Can't Be"
-        titleAccent="Copied Overnight."
+        label="Why We Win"
+        title="Defensible Moats."
+        titleAccent="Zero Overlap."
       />
 
-      <div className="grid sm:grid-cols-2 gap-6">
+      {/* Moat Pillars — compact */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
         {moats.map((m, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300">
-            {/* Gradient top accent */}
+          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <div className={`h-1 bg-gradient-to-r ${m.gradient}`} />
-            <div className="p-6 sm:p-8">
-              <div className={`w-12 h-12 bg-gradient-to-br ${m.gradient} rounded-xl flex items-center justify-center mb-5 shadow-[0_0_20px_rgba(230,126,34,0.12)]`}>
-                <m.icon size={24} className="text-dark" />
+            <div className="p-5">
+              <div className={`w-10 h-10 bg-gradient-to-br ${m.gradient} rounded-xl flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(230,126,34,0.12)]`}>
+                <m.icon size={20} className="text-dark" />
               </div>
-              <h3 className="font-['Arimo'] text-lg font-bold uppercase mb-3">{m.title}</h3>
-              <p className="text-[#999] text-sm leading-relaxed mb-5">{m.desc}</p>
-              <div className="space-y-2">
-                {m.points.map((p, j) => (
-                  <div key={j} className="flex items-center gap-2 text-sm">
-                    <Check size={14} className="text-accent shrink-0" />
-                    <span className="text-gray-300">{p}</span>
-                  </div>
-                ))}
-              </div>
+              <h3 className="font-['Arimo'] text-sm font-bold uppercase mb-2">{m.title}</h3>
+              <p className="text-[#999] text-xs leading-relaxed">{m.desc}</p>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Competition Matrix */}
+      <div className="overflow-x-auto -mx-4 sm:mx-0 bg-white/[0.03] backdrop-blur-xl rounded-2xl border border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        <table className="w-full min-w-[800px] text-sm">
+          <thead>
+            <tr className="border-b border-white/[0.08]">
+              <th className="text-left py-4 px-4 text-[#999] font-medium">Feature</th>
+              {competitors.map((c, i) => (
+                <th
+                  key={i}
+                  className={`py-4 px-3 text-center font-bold ${
+                    c.highlight ? 'text-accent' : 'text-[#999] font-medium'
+                  }`}
+                >
+                  {c.name}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {features.map((f, fi) => (
+              <tr key={fi} className="border-b border-white/[0.05]">
+                <td className="py-3.5 px-4 text-gray-300">{f}</td>
+                {competitors.map((c, ci) => (
+                  <td key={ci} className="py-3.5 px-3 text-center">
+                    {c.checks[fi] ? (
+                      <Check size={18} className={`mx-auto ${c.highlight ? 'text-accent' : 'text-green-400'}`} />
+                    ) : (
+                      <X size={18} className="mx-auto text-[#444]" />
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="text-center text-lg sm:text-xl font-bold mt-10 font-['Arimo'] uppercase">
+        10 out of 10 features. <span className="text-accent">Nobody else comes close.</span>
+      </p>
     </Section>
   )
 }
@@ -1213,74 +1223,7 @@ function MarketSection() {
   )
 }
 
-// ─── 10. Competitive Landscape ──────────────────────────────────────────────────
-
-function CompetitionSection() {
-  const features = ['AI Coach', 'Individual Plans', 'VBT', 'No Hardware', 'Nutrition + Scanner', 'Shopping Lists', 'Community', 'Wearables', 'Coach Tools', 'Enterprise']
-  const competitors = [
-    { name: 'Prometheus', checks: [true, true, true, true, true, true, true, true, true, true], highlight: true },
-    { name: 'Strong', checks: [false, false, false, true, false, false, false, false, false, false] },
-    { name: 'Hevy', checks: [false, false, false, true, false, false, true, false, false, false] },
-    { name: 'Fitbod', checks: [true, true, false, true, false, false, false, true, false, false] },
-    { name: 'TrainHeroic', checks: [false, false, false, true, false, false, false, false, true, false] },
-    { name: 'RepCount', checks: [false, false, true, false, false, false, false, false, false, false] },
-    { name: 'MyFitnessPal', checks: [false, false, false, true, true, false, true, false, false, false] },
-  ]
-
-  return (
-    <Section id="competition" className="bg-white/[0.01]">
-      <SectionHeader
-        label="Competition"
-        title="The Only"
-        titleAccent="Complete Platform."
-        subtitle="No competitor covers even half of what Prometheus delivers. We don't compete in a single category — we own all of them."
-      />
-
-      <div className="overflow-x-auto -mx-4 sm:mx-0 bg-white/[0.03] backdrop-blur-xl rounded-2xl border border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-        <table className="w-full min-w-[800px] text-sm">
-          <thead>
-            <tr className="border-b border-white/[0.08]">
-              <th className="text-left py-4 px-4 text-[#999] font-medium">Feature</th>
-              {competitors.map((c, i) => (
-                <th
-                  key={i}
-                  className={`py-4 px-3 text-center font-bold ${
-                    c.highlight ? 'text-accent' : 'text-[#999] font-medium'
-                  }`}
-                >
-                  {c.name}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {features.map((f, fi) => (
-              <tr key={fi} className="border-b border-white/[0.05]">
-                <td className="py-3.5 px-4 text-gray-300">{f}</td>
-                {competitors.map((c, ci) => (
-                  <td key={ci} className="py-3.5 px-3 text-center">
-                    {c.checks[fi] ? (
-                      <Check size={18} className={`mx-auto ${c.highlight ? 'text-accent' : 'text-green-400'}`} />
-                    ) : (
-                      <X size={18} className="mx-auto text-[#444]" />
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Punchline */}
-      <p className="text-center text-lg sm:text-xl font-bold mt-10 font-['Arimo'] uppercase">
-        10 out of 10 features. <span className="text-accent">Nobody else comes close.</span>
-      </p>
-    </Section>
-  )
-}
-
-// ─── 11. Business Model ─────────────────────────────────────────────────────────
+// ─── 10. Business Model ─────────────────────────────────────────────────────────
 
 function BusinessModelSection() {
   const streams = [
@@ -2064,14 +2007,13 @@ export default function GrowthPitch() {
           <HeroSection />
           <ProblemSection />
           <EcosystemSection />
-          <ProductDeepDive />
           <CommunitySection />
           <NutritionSection />
           <AICoachSection />
           <CommandCenterSection />
+          <WhyWeWinSection />
 
           <MarketSection />
-          <CompetitionSection />
           <BusinessModelSection />
           <FlywheelSection />
           <GrowthProjectionSection />

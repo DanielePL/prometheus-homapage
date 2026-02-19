@@ -18,6 +18,10 @@ const research = [
     icon: Gauge,
     text: 'Proprietary VBT measurement pipeline — in development since 2017',
   },
+  {
+    icon: BookCheck,
+    text: 'Cross-performance analysis across training, nutrition, and periodization/recovery',
+  },
 ]
 
 export default function PrometheusLab() {
