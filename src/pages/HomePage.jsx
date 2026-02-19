@@ -29,7 +29,7 @@ export default function HomePage() {
         <Hero />
         <SocialProof />
         <ProductShowcase />
-        <PrometheusLab />
+        {/* <PrometheusLab /> */}
 
         {/* Cinematic background divider — gym phone */}
         <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
