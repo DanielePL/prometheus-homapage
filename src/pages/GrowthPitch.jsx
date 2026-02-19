@@ -68,9 +68,9 @@ function AccessGate({ onAccess }) {
         transition={{ duration: 0.6 }}
         className="text-center max-w-sm w-full"
       >
-        <img src="/images/flame.png" alt="Prometheus" className="w-16 h-16 mx-auto mb-6" />
-        <h1 className="font-['Arimo'] text-2xl font-bold uppercase mb-1">Prometheus</h1>
-        <p className="text-[#999] text-sm mb-10">Investor Deck</p>
+        <img src="/images/flame.png" alt="Prometheus" className="w-28 h-28 mx-auto mb-8" />
+        <h1 className="font-['Arimo'] text-4xl font-bold uppercase mb-2">Prometheus</h1>
+        <p className="text-[#999] text-base mb-10">Investor Deck</p>
 
         <form onSubmit={handleSubmit}>
           <div
