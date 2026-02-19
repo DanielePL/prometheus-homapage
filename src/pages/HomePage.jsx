@@ -30,6 +30,16 @@ export default function HomePage() {
         <SocialProof />
         <ProductShowcase />
         <PrometheusLab />
+
+        {/* Cinematic background divider — gym phone */}
+        <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: "url('/images/features/fitness-1.jpg')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/40 to-dark" />
+        </div>
+
         <Chameleon />
 
         {/* Cinematic background divider */}
@@ -44,6 +54,16 @@ export default function HomePage() {
         <FreeTrial />
         {/* <Technology /> */}
         <Team />
+
+        {/* Cinematic background divider — community */}
+        <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-fixed"
+            style={{ backgroundImage: "url('/images/features/campus-2.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/40 to-dark" />
+        </div>
+
         <Roadmap />
         {/* <Testimonials /> */}
         <Footer />
