@@ -35,7 +35,6 @@ const extendedTeam = [
     name: 'Karin Känel',
     title: 'Executive Assistant & Project Manager',
     bio: '2× Swiss Champion U15/U17 Handball, 1× Vice Champion. Golf handicap 1. Trained Polymechanikerin (EFZ) with hands-on experience in precision scientific instrumentation. Certified Technische Kauffrau, combining engineering discipline with business acumen. Keeps Prometheus running with Swiss clockwork efficiency.',
-    bioExpanded: 'Golf handicap 1. 2× Swiss Champion (U15/U17 Handball), 1× Vice Champion. Most average Olympic distance triathlon finisher. Countless glorious victories in family-internal table tennis matches.',
     color: 'from-purple-400 to-violet-500',
     image: '/images/team/karin-kaenel.png',
   },
