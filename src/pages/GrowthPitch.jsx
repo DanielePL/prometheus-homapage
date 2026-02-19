@@ -1082,9 +1082,10 @@ function WhyWeWinSection() {
     { name: 'Prometheus', checks: [true, true, true, true, true, true, true, true, true, true], highlight: true },
     { name: 'Strong', checks: [false, false, false, true, false, false, false, false, false, false] },
     { name: 'Hevy', checks: [false, false, false, true, false, false, true, false, false, false] },
-    { name: 'Fitbod', checks: [true, true, false, true, false, false, false, true, false, false] },
+    { name: 'Fitbod', checks: [true, true, false, true, false, false, false, true, false, false], note: 'ML-based, not conversational AI' },
     { name: 'TrainHeroic', checks: [false, false, false, true, false, false, false, false, true, false] },
-    { name: 'RepCount', checks: [false, false, true, false, false, false, false, false, false, false] },
+    { name: 'Metric VBT', checks: [false, false, true, true, false, false, false, true, true, false] },
+    { name: 'RepCount', checks: [false, false, false, false, false, false, false, false, false, false] },
     { name: 'MyFitnessPal', checks: [false, false, false, true, true, false, true, false, false, false] },
   ]
 
