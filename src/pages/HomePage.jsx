@@ -45,7 +45,7 @@ export default function HomePage() {
         <Technology />
         <Team />
         <Roadmap />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Footer />
       </div>
     </div>
