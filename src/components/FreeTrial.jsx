@@ -26,8 +26,7 @@ const plans = [
     features: [
       'Everything in Free',
       'AI coaching engine',
-      'Barbell tracking (computer vision)',
-      'Nutrition tracking',
+      'Nutrition OR Barbell tracking (computer vision)',
       'AI meal plans & shopping lists',
       'Priority support',
     ],
