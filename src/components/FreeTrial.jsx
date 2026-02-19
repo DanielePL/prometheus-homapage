@@ -1,50 +1,62 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { Check, Building2 } from 'lucide-react'
+import { Check } from 'lucide-react'
 
 const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=prometheus.coach&pcampaignid=web_share'
 
 const plans = [
   {
-    name: 'Free Trial',
+    name: 'Free',
     price: '$0',
-    period: '14 days',
-    desc: 'Full access to everything',
-    highlight: true,
+    period: '',
+    desc: 'Core tracking',
     features: [
-      'All Prometheus apps',
-      'AI coaching engine',
-      'VBT analysis',
-      'Nutrition tracking',
-      'Coach dashboard',
+      'Training logging',
+      'Basic nutrition tracking',
+      'Community access',
       'No credit card required',
     ],
   },
   {
-    name: 'Athlete Pro',
-    price: '$19',
+    name: 'Premium',
+    price: '$5.90',
     period: '/month',
+    yearlyPrice: '$59/year',
     desc: 'For serious athletes',
+    highlight: true,
     features: [
-      'Everything in Free Trial',
-      'Unlimited AI coaching',
-      'Advanced VBT analytics',
+      'Everything in Free',
+      'AI coaching engine',
+      'VBT analysis',
+      'Nutrition tracking & meal plans',
+      'AI shopping lists',
       'Priority support',
-      'Training history export',
     ],
   },
   {
-    name: 'Enterprise',
-    price: 'Custom',
-    period: '',
-    desc: 'For gyms, clinics & studios',
-    icon: Building2,
+    name: 'Elite',
+    price: '$9.90',
+    period: '/month',
+    yearlyPrice: '$99/year',
+    desc: 'For competitive athletes',
     features: [
-      'Everything in Athlete Pro',
-      'Multi-client management',
-      'Studio CRM & scheduling',
-      'White-label options',
-      'API access',
-      'Dedicated support',
+      'Everything in Premium',
+      'Advanced VBT analytics',
+      'Coach dashboard',
+      'Training history export',
+      'Wearable integrations',
+    ],
+  },
+  {
+    name: 'Titan',
+    price: '$199',
+    period: 'lifetime',
+    desc: 'Limited to 500 users',
+    accent: true,
+    features: [
+      'Everything in Elite — forever',
+      'All future features included',
+      'Founding member status',
+      'No recurring payments',
     ],
   },
 ]
@@ -76,14 +88,16 @@ export default function FreeTrial() {
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
           {plans.map((plan, i) => (
             <div
               key={plan.name}
               className={`relative rounded-2xl p-6 transition-all duration-500 ${
                 plan.highlight
                   ? 'bg-gradient-to-b from-accent/10 to-dark-card border-2 border-accent/30 shadow-lg shadow-accent/10 sm:scale-105 z-10'
-                  : 'bg-dark-card border border-dark-border hover:border-dark-border/80'
+                  : plan.accent
+                    ? 'bg-gradient-to-b from-accent/5 to-dark-card border border-accent/20 hover:border-accent/40'
+                    : 'bg-dark-card border border-dark-border hover:border-dark-border/80'
               } ${
                 isVisible
                   ? 'opacity-100 translate-y-0'
@@ -97,15 +111,25 @@ export default function FreeTrial() {
                 </div>
               )}
 
+              {plan.accent && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent/20 border border-accent/30 text-accent text-xs font-semibold rounded-full whitespace-nowrap">
+                  Limited Edition
+                </div>
+              )}
+
               <div className="mb-6">
                 <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
                 <p className="text-sm text-[#999]">{plan.desc}</p>
               </div>
 
-              <div className="mb-6">
+              <div className="mb-1">
                 <span className="text-4xl font-extrabold">{plan.price}</span>
                 <span className="text-[#999] text-sm ml-1">{plan.period}</span>
               </div>
+              {plan.yearlyPrice && (
+                <p className="text-xs text-accent mb-5">{plan.yearlyPrice}</p>
+              )}
+              {!plan.yearlyPrice && <div className="mb-5" />}
 
               <ul className="space-y-3 mb-8">
                 {plan.features.map((f) => (
@@ -116,27 +140,18 @@ export default function FreeTrial() {
                 ))}
               </ul>
 
-              {plan.name === 'Enterprise' ? (
-                <a
-                  href="mailto:hello@prometheus.coach"
-                  className="block w-full py-3 rounded-lg font-semibold text-sm text-center transition-all bg-dark-light border border-dark-border text-white hover:border-accent/30 hover:bg-accent/5"
-                >
-                  Contact Sales
-                </a>
-              ) : (
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block w-full py-3 rounded-lg font-semibold text-sm text-center transition-all ${
-                    plan.highlight
-                      ? 'bg-accent text-white hover:shadow-[0px_2px_18px_0px_#F2721B]'
-                      : 'bg-dark-light border border-dark-border text-white hover:border-accent/30 hover:bg-accent/5'
-                  }`}
-                >
-                  Start Free Trial
-                </a>
-              )}
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block w-full py-3 rounded-lg font-semibold text-sm text-center transition-all ${
+                  plan.highlight || plan.accent
+                    ? 'bg-accent text-white hover:shadow-[0px_2px_18px_0px_#F2721B]'
+                    : 'bg-dark-light border border-dark-border text-white hover:border-accent/30 hover:bg-accent/5'
+                }`}
+              >
+                {plan.price === '$0' ? 'Get Started' : 'Start Free Trial'}
+              </a>
             </div>
           ))}
         </div>
