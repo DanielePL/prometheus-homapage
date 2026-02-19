@@ -91,7 +91,7 @@ function TeamCard({ member, large }) {
 
       {member.bioExpanded && (
         <>
-          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expanded ? 'max-h-[600px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expanded ? 'max-h-[1200px] opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
             <p className={`text-[#999] leading-relaxed whitespace-pre-line ${large ? 'text-sm' : 'text-xs'}`}>{member.bioExpanded}</p>
           </div>
           <button
