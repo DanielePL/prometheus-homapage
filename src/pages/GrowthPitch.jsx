@@ -1708,9 +1708,39 @@ function TheAskSection() {
 
 // ─── 15. Team ───────────────────────────────────────────────────────────────────
 
+function TeamCard({ m }) {
+  const [expanded, setExpanded] = useState(false)
+  return (
+    <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 relative group hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+      <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${m.gradient} rounded-b opacity-50 group-hover:opacity-100 transition-opacity`} />
+      {m.badge && (
+        <div className="absolute top-4 right-4 px-2.5 py-1 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-full">
+          <span className="text-[10px] text-accent font-semibold uppercase tracking-wider">Advisor & Investor</span>
+        </div>
+      )}
+      <div className="w-14 h-14 rounded-full overflow-hidden mb-3 ring-2 ring-dark-border group-hover:ring-accent/30 transition-all">
+        <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
+      </div>
+      <h4 className="font-bold">{m.name}</h4>
+      <p className="text-accent text-xs font-medium mb-2">{m.title}</p>
+      <p className="text-[#999] text-xs leading-relaxed">{m.bio}</p>
+      {m.bioExpanded && (
+        <>
+          <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expanded ? 'max-h-[1200px] opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+            <p className="text-[#999] text-xs leading-relaxed whitespace-pre-line">{m.bioExpanded}</p>
+          </div>
+          <button onClick={() => setExpanded(!expanded)} className="mt-2 text-accent text-xs font-medium hover:text-accent/80 transition-colors cursor-pointer">
+            {expanded ? '← Show less' : 'Read full story →'}
+          </button>
+        </>
+      )}
+    </div>
+  )
+}
+
 function TeamSection() {
   const team = [
-    { name: 'Daniele Pauli', title: 'CEO & Founder', bio: 'IPF World Champion. First Swiss gold in powerlifting — ever. 10× Swiss National Champion. 2× European Champion. Vice World Champion in weightlifting. #1 in the world — Supertotal Masters. Ranked 3rd globally in Strength Wars League. 32 years, 14,000+ sessions. Built first fitness CRM in 2010, developed 9-axis VBT prototype in 2017.', gradient: 'from-accent to-orange-400', image: '/images/team/daniele-pauli.png' },
+    { name: 'Daniele Pauli', title: 'CEO & Founder', bio: 'IPF World Champion. First Swiss gold in powerlifting — ever. 10× Swiss National Champion. 2× European Champion. Vice World Champion in weightlifting. #1 in the world — Supertotal Masters. Ranked 3rd globally in Strength Wars League.', bioExpanded: 'National records in three different countries. Marathon finisher. #1 in the world — Supertotal Masters, all weight classes combined. Unchallenged. Ranked 3rd globally in Strength Wars League — the largest internet battle series in strength sports history, with over 200 million views.\n\nOver 32 years and 14,000+ sessions, Daniele Pauli has trained Olympic bob teams, ZSC Lions — Switzerland\'s most decorated hockey franchise — the country\'s top recording artists, its most celebrated supermodels, and the executive leadership of Credit Suisse, UBS, and Bank Leumi — alongside individuals connected to the highest circles of global politics and philanthropy.\n\nHe built his first fitness CRM in 2010. Developed the world\'s first 9-axis bar acceleration VBT prototype in 2017. A master metalworker who mastered precision with his hands before he applied it to code.\n\nPrometheus is not a startup idea. It is 32 years of elite knowledge, forged in iron, finally unleashed on the world.', gradient: 'from-accent to-orange-400', image: '/images/team/daniele-pauli.png' },
     { name: 'Dr. Basil Achermann', title: 'Chief Science Officer', bio: 'Sport Science researcher from the University of Zurich, specializing in measurement methodology for acceleration-based training. Combines a 4-year IT apprenticeship with deep academic research — the rare scientist who can both design the experiment and write the code. Leads Prometheus Lab & R&D pipeline.', gradient: 'from-green-400 to-emerald-500', image: '/images/team/basil-achermann.png' },
     { name: 'Sjoerd Joosten', title: 'Chief Operating Officer', bio: 'Sport psychologist by training, hybrid athlete by nature — golf handicap 0, serious numbers in weightlifting and WOD training. Extensive experience leading talent sport schools and training high-level athletes. B2B specialist driving Prometheus into gyms, clinics, and enterprises across Europe.', gradient: 'from-accent to-orange-400', image: '/images/team/sjoerd-joosten.png' },
   ]
@@ -1743,36 +1773,11 @@ function TeamSection() {
       </div>
 
       <div className="grid sm:grid-cols-3 gap-4 mb-4">
-        {team.map((m, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 relative group hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-            <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${m.gradient} rounded-b opacity-50 group-hover:opacity-100 transition-opacity`} />
-            <div className="w-14 h-14 rounded-full overflow-hidden mb-3 ring-2 ring-dark-border group-hover:ring-accent/30 transition-all">
-              <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
-            </div>
-            <h4 className="font-bold">{m.name}</h4>
-            <p className="text-accent text-xs font-medium mb-2">{m.title}</p>
-            <p className="text-[#999] text-xs leading-relaxed">{m.bio}</p>
-          </div>
-        ))}
+        {team.map((m, i) => <TeamCard key={i} m={m} />)}
       </div>
 
       <div className="grid sm:grid-cols-3 gap-4">
-        {extended.map((m, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 relative group hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-            <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${m.gradient} rounded-b opacity-50 group-hover:opacity-100 transition-opacity`} />
-            {m.badge && (
-              <div className="absolute top-4 right-4 px-2.5 py-1 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-full">
-                <span className="text-[10px] text-accent font-semibold uppercase tracking-wider">Advisor & Investor</span>
-              </div>
-            )}
-            <div className="w-14 h-14 rounded-full overflow-hidden mb-3 ring-2 ring-dark-border group-hover:ring-accent/30 transition-all">
-              <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
-            </div>
-            <h4 className="font-bold">{m.name}</h4>
-            <p className="text-accent text-xs font-medium mb-2">{m.title}</p>
-            <p className="text-[#999] text-xs leading-relaxed">{m.bio}</p>
-          </div>
-        ))}
+        {extended.map((m, i) => <TeamCard key={i} m={m} />)}
       </div>
 
       <p className="text-center mt-8">
