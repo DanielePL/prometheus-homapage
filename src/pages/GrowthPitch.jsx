@@ -931,15 +931,6 @@ function AICoachSection() {
 // ─── 8. The Forge ──────────────────────────────────────────────────────────
 
 function CommandCenterSection() {
-  const modules = [
-    { icon: LayoutDashboard, title: 'Real-Time Dashboard', desc: 'Revenue MTD, MRR, active users, break-even progress, cost breakdown — all live. Auto-generated alerts for churn risk, payment anomalies, and growth milestones.' },
-    { icon: BarChart3, title: 'Cost & Revenue Analytics', desc: 'Per-service cost tracking: AI Coach, Photo Analysis, VBT, Storage. Revenue sharing, Stripe integration, and break-even modeling with scenario planning.' },
-    { icon: TrendingUp, title: 'Performance & Trends', desc: 'Retention curves, acquisition channels, churn risk scoring, creator performance rankings, and month-over-month growth charts.' },
-    { icon: Target, title: 'Project & Goal Management', desc: 'Kanban-style project boards with task tracking, timelines, and goal progress. "Road to 50K" milestones across Coach, Enterprise, and Marketing workstreams.' },
-    { icon: Gauge, title: 'Play Console & Reviews', desc: 'Google Play ratings, review management, and user sentiment tracking — all inside The Forge. Respond to reviews without leaving the dashboard.' },
-    { icon: Users, title: 'Creator & Collaborator CRM', desc: 'Employee management, revenue sharing models, collaborator onboarding, and creator performance tracking with referral attribution.' },
-  ]
-
   return (
     <Section id="command-center">
       <SectionHeader
@@ -960,34 +951,20 @@ function CommandCenterSection() {
         </p>
       </div>
 
-      {/* Unit Economics Highlight */}
-      <div className="grid sm:grid-cols-4 gap-4 mb-12">
+      {/* Forge Screenshots */}
+      <div className="grid lg:grid-cols-3 gap-4 mb-12">
         {[
-          { value: '$0.002', label: 'Per AI Message', desc: '68 messages = $0.13' },
-          { value: '$0.004', label: 'Per Photo Scan', desc: '114 scans = $0.42' },
-          { value: '$0.00', label: 'Per VBT Session', desc: 'On-device, zero cloud cost' },
-          { value: '~$0.01', label: 'Variable Cost / User / Day', desc: 'Near-zero marginal cost' },
-        ].map((m, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-accent/20 rounded-2xl p-5 text-center shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-            <div className="text-2xl font-extrabold text-accent font-['Arimo'] mb-1">{m.value}</div>
-            <div className="text-white text-xs font-semibold uppercase tracking-wider mb-1">{m.label}</div>
-            <div className="text-[#999] text-[11px]">{m.desc}</div>
+          { title: 'Dashboard & Cost Analytics', src: '/images/screenshots/forge-dashboard.png' },
+          { title: 'Play Console & Reviews', src: '/images/screenshots/forge-play-console.png' },
+          { title: 'Supabase Health Monitor', src: '/images/screenshots/forge-supabase-health.png' },
+        ].map((s, i) => (
+          <div key={i} className="bg-white/[0.04] border border-white/[0.08] rounded-xl overflow-hidden hover:border-accent/20 transition-all duration-300">
+            <img src={s.src} alt={s.title} className="w-full h-auto" />
+            <p className="text-center text-[10px] text-[#999] font-medium py-2 uppercase tracking-wider">{s.title}</p>
           </div>
         ))}
       </div>
 
-      {/* Module Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {modules.map((m, i) => (
-          <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
-            <div className="w-11 h-11 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(230,126,34,0.06)]">
-              <m.icon size={20} className="text-accent" />
-            </div>
-            <h3 className="font-bold text-sm mb-2">{m.title}</h3>
-            <p className="text-[#999] text-xs leading-relaxed">{m.desc}</p>
-          </div>
-        ))}
-      </div>
 
       {/* Prometheus Lab */}
       <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden mb-12 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
