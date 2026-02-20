@@ -255,8 +255,8 @@ function ProblemSection() {
       {/* Opening Statement */}
       <div className="max-w-3xl mx-auto text-center mb-14">
         <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Arimo'] uppercase leading-tight mb-6">
-          A massive market — yet no single platform{' '}
-          <span className="text-red-400">connects the full picture.</span>
+          The biggest fitness apps in the world have one thing in common.{' '}
+          <span className="text-red-400">They sell cars without engines.</span>
         </p>
       </div>
 
@@ -271,10 +271,10 @@ function ProblemSection() {
             <h3 className="font-['Arimo'] text-sm font-bold uppercase">Athletes</h3>
           </div>
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
-            Athletes juggle separate apps for training, nutrition, and tracking — none of which talk to each other. Progress stays siloed, insights get lost.
+            MyFitnessPal had <span className="text-white font-semibold">20 years</span> and <span className="text-white font-semibold">200M users</span> to build a workout tracker. They didn't — because subscriptions kept coming anyway.
           </p>
           <p className="text-[#999] text-xs leading-relaxed">
-            Most consumer fitness apps optimize for subscription retention, not for actual athlete progress.
+            A business model built on the minimum viable product that keeps people subscribed. Not one feature more.
           </p>
         </div>
 
@@ -287,10 +287,10 @@ function ProblemSection() {
             <h3 className="font-['Arimo'] text-sm font-bold uppercase">Coaches</h3>
           </div>
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
-            A client misses two sessions. The coach finds out when they cancel. Current tools track sets and check-ins — <span className="text-white font-semibold">but not what actually matters.</span>
+            A client misses two sessions. The coach finds out when they cancel. Hevy tracks sets. Trainerize tracks check-ins. <span className="text-white font-semibold">None of them track what actually matters.</span>
           </p>
           <p className="text-[#999] text-xs leading-relaxed">
-            Coaching platforms lack readiness data, workload monitoring, and early warning signals for client churn.
+            They're flying blind because their tools were built by people who never coached.
           </p>
         </div>
 
@@ -303,10 +303,10 @@ function ProblemSection() {
             <h3 className="font-['Arimo'] text-sm font-bold uppercase">Gyms</h3>
           </div>
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
-            Gym management software handles payments, bookings, and attendance — but knows nothing about the training happening on the floor. <span className="text-white font-semibold">Zero performance intelligence.</span>
+            Mindbody was built in 2001. Gymdesk for martial arts. Glofox for yoga. They see payments, bookings, attendance. <span className="text-white font-semibold">That's it.</span>
           </p>
           <p className="text-[#999] text-xs leading-relaxed">
-            Facilities run performance businesses with tools that don't understand performance.
+            Accounting dressed in fitness language — running a performance business with software that doesn't know what performance is.
           </p>
         </div>
       </div>
@@ -314,10 +314,10 @@ function ProblemSection() {
       {/* Industry Truth */}
       <div className="max-w-3xl mx-auto text-center mb-10">
         <p className="text-[#999] text-sm sm:text-base leading-relaxed">
-          Individual solutions exist for each segment — but <span className="text-white font-medium">no single platform connects training, nutrition, coaching, and facility management</span> into one ecosystem.
+          Everyone pays — month after month — for <span className="text-white font-medium">digital notebooks dressed up as coaching platforms</span>.
         </p>
         <p className="text-white font-bold text-lg sm:text-xl mt-4 font-['Arimo'] uppercase">
-          That's the gap. <span className="text-accent">That's the opportunity.</span>
+          The industry isn't broken by accident. <span className="text-red-400">It's profitable that way.</span>
         </p>
       </div>
 
