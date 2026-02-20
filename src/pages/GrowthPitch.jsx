@@ -273,16 +273,9 @@ function ProblemSection() {
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
             Athletes juggle separate apps for training, nutrition, and tracking — none of which talk to each other. Progress stays siloed, insights get lost.
           </p>
-          <p className="text-[#999] text-xs leading-relaxed mb-4">
+          <p className="text-[#999] text-xs leading-relaxed">
             Most consumer fitness apps optimize for subscription retention, not for actual athlete progress.
           </p>
-          <div className="flex flex-wrap gap-1.5">
-            {['No AI coaching', 'No VBT', 'No periodization', 'No nutrition'].map((gap, i) => (
-              <span key={i} className="px-2.5 py-1 bg-red-400/[0.06] border border-red-400/15 rounded-full text-[10px] font-semibold text-red-400">
-                {gap}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* Coaches — Coaching Platforms */}
@@ -296,16 +289,9 @@ function ProblemSection() {
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
             A client misses two sessions. The coach finds out when they cancel. Current tools track sets and check-ins — <span className="text-white font-semibold">but not what actually matters.</span>
           </p>
-          <p className="text-[#999] text-xs leading-relaxed mb-4">
+          <p className="text-[#999] text-xs leading-relaxed">
             Coaching platforms lack readiness data, workload monitoring, and early warning signals for client churn.
           </p>
-          <div className="flex flex-wrap gap-1.5">
-            {['No readiness scores', 'No workload ratio', 'No churn signals', 'No VBT trends'].map((gap, i) => (
-              <span key={i} className="px-2.5 py-1 bg-red-400/[0.06] border border-red-400/15 rounded-full text-[10px] font-semibold text-red-400">
-                {gap}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* Gyms — Enterprise Software */}
@@ -319,26 +305,19 @@ function ProblemSection() {
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
             Gym management software handles payments, bookings, and attendance — but knows nothing about the training happening on the floor. <span className="text-white font-semibold">Zero performance intelligence.</span>
           </p>
-          <p className="text-[#999] text-xs leading-relaxed mb-4">
+          <p className="text-[#999] text-xs leading-relaxed">
             Facilities run performance businesses with tools that don't understand performance.
           </p>
-          <div className="flex flex-wrap gap-1.5">
-            {['No coach transparency', 'No AI', 'No churn signal', 'No cross-data intelligence'].map((gap, i) => (
-              <span key={i} className="px-2.5 py-1 bg-red-400/[0.06] border border-red-400/15 rounded-full text-[10px] font-semibold text-red-400">
-                {gap}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
 
       {/* Industry Truth */}
       <div className="max-w-3xl mx-auto text-center mb-10">
         <p className="text-[#999] text-sm sm:text-base leading-relaxed">
-          And everyone pays — month after month — for <span className="text-white font-medium">digital notebooks dressed up as coaching platforms</span>.
+          Individual solutions exist for each segment — but <span className="text-white font-medium">no single platform connects training, nutrition, coaching, and facility management</span> into one ecosystem.
         </p>
         <p className="text-white font-bold text-lg sm:text-xl mt-4 font-['Arimo'] uppercase">
-          The industry isn't broken by accident. <span className="text-red-400">It's profitable that way.</span>
+          That's the gap. <span className="text-accent">That's the opportunity.</span>
         </p>
       </div>
 
