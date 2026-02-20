@@ -928,7 +928,7 @@ function AICoachSection() {
   )
 }
 
-// ─── 8. Command Center ──────────────────────────────────────────────────────────
+// ─── 8. The Forge ──────────────────────────────────────────────────────────
 
 function CommandCenterSection() {
   const modules = [
@@ -936,7 +936,7 @@ function CommandCenterSection() {
     { icon: BarChart3, title: 'Cost & Revenue Analytics', desc: 'Per-service cost tracking: AI Coach, Photo Analysis, VBT, Storage. Revenue sharing, Stripe integration, and break-even modeling with scenario planning.' },
     { icon: TrendingUp, title: 'Performance & Trends', desc: 'Retention curves, acquisition channels, churn risk scoring, creator performance rankings, and month-over-month growth charts.' },
     { icon: Target, title: 'Project & Goal Management', desc: 'Kanban-style project boards with task tracking, timelines, and goal progress. "Road to 50K" milestones across Coach, Enterprise, and Marketing workstreams.' },
-    { icon: Gauge, title: 'Play Console & Reviews', desc: 'Google Play ratings, review management, and user sentiment tracking — all inside the admin tool. Respond to reviews without leaving the dashboard.' },
+    { icon: Gauge, title: 'Play Console & Reviews', desc: 'Google Play ratings, review management, and user sentiment tracking — all inside The Forge. Respond to reviews without leaving the dashboard.' },
     { icon: Users, title: 'Creator & Collaborator CRM', desc: 'Employee management, revenue sharing models, collaborator onboarding, and creator performance tracking with referral attribution.' },
   ]
 
@@ -944,9 +944,9 @@ function CommandCenterSection() {
     <Section id="command-center">
       <SectionHeader
         label="Operational Control"
-        title="The Prometheus"
-        titleAccent="Command Center."
-        subtitle="Our proprietary admin platform at admin.prometheus.coach — full real-time visibility into every metric that matters. Built on Supabase with live data streaming."
+        title="The"
+        titleAccent="Forge."
+        subtitle="Our proprietary operations platform at admin.prometheus.coach — full real-time visibility into every metric that matters. Built on Supabase with live data streaming."
       />
 
       {/* Hero Statement */}
@@ -1001,7 +1001,7 @@ function CommandCenterSection() {
                 </div>
                 <div>
                   <h3 className="font-['Arimo'] font-bold uppercase text-lg">Prometheus Lab</h3>
-                  <p className="text-[#999] text-xs">Integrated into the Admin Tool</p>
+                  <p className="text-[#999] text-xs">Integrated into The Forge</p>
                 </div>
               </div>
               <p className="text-[#999] text-sm leading-relaxed mb-5">
@@ -1035,7 +1035,7 @@ function CommandCenterSection() {
       </div>
 
       <p className="text-center text-[#999] text-sm">
-        Built with <span className="text-white font-medium">Supabase</span> real-time subscriptions, <span className="text-white font-medium">Stripe</span> payment integration, and <span className="text-white font-medium">Recharts</span> analytics. Live at admin.prometheus.coach.
+        Built with <span className="text-white font-medium">Supabase</span> real-time subscriptions, <span className="text-white font-medium">Stripe</span> payment integration, and <span className="text-white font-medium">Recharts</span> analytics. The Forge is live at admin.prometheus.coach.
       </p>
     </Section>
   )
