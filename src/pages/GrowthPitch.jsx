@@ -254,73 +254,55 @@ function ProblemSection() {
         titleAccent="Still Broken."
       />
 
-      {/* Opening Statement */}
-      <div className="max-w-3xl mx-auto text-center mb-14">
-        <p className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-['Arimo'] uppercase leading-tight mb-6">
-          The biggest fitness apps in the world have one thing in common.{' '}
-          <span className="text-red-400">They sell cars without engines.</span>
-        </p>
-      </div>
-
       {/* Three Broken Segments — Side by Side */}
       <div className="grid md:grid-cols-3 gap-4 mb-10">
-        {/* Athletes — Consumer Apps */}
-        <div className="bg-white/[0.04] backdrop-blur-xl border border-red-400/20 rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        {/* Athletes */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 bg-red-500/10 border border-red-400/20 rounded-lg flex items-center justify-center">
-              <Smartphone size={18} className="text-red-400" />
+            <div className="w-9 h-9 bg-accent/[0.08] border border-accent/20 rounded-lg flex items-center justify-center">
+              <Smartphone size={18} className="text-accent" />
             </div>
             <h3 className="font-['Arimo'] text-sm font-bold uppercase">Athletes</h3>
           </div>
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
-            MyFitnessPal had <span className="text-white font-semibold">20 years</span> and <span className="text-white font-semibold">200M users</span> to build a workout tracker. They didn't — because subscriptions kept coming anyway.
+            Consumer fitness apps focus on <span className="text-white font-semibold">tracking repetitions and calories</span> — but none combine AI coaching, nutrition planning, velocity-based training, and community in one platform.
           </p>
           <p className="text-[#999] text-xs leading-relaxed">
-            A business model built on the minimum viable product that keeps people subscribed. Not one feature more.
+            Athletes are forced to use 3–5 separate apps to cover what should be one integrated experience.
           </p>
         </div>
 
-        {/* Coaches — Coaching Platforms */}
-        <div className="bg-white/[0.04] backdrop-blur-xl border border-red-400/20 rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        {/* Coaches */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 bg-red-500/10 border border-red-400/20 rounded-lg flex items-center justify-center">
-              <Users size={18} className="text-red-400" />
+            <div className="w-9 h-9 bg-accent/[0.08] border border-accent/20 rounded-lg flex items-center justify-center">
+              <Users size={18} className="text-accent" />
             </div>
             <h3 className="font-['Arimo'] text-sm font-bold uppercase">Coaches</h3>
           </div>
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
-            A client misses two sessions. The coach finds out when they cancel. Hevy tracks sets. Trainerize tracks check-ins. <span className="text-white font-semibold">None of them track what actually matters.</span>
+            Coaching platforms track check-ins and sets — but <span className="text-white font-semibold">lack real performance data</span>. No velocity metrics, no cross-analysis between training and nutrition, no science-grade insights.
           </p>
           <p className="text-[#999] text-xs leading-relaxed">
-            They're flying blind because their tools were built by people who never coached.
+            Coaches can't optimize what they can't measure — and current tools don't measure what matters.
           </p>
         </div>
 
-        {/* Gyms — Enterprise Software */}
-        <div className="bg-white/[0.04] backdrop-blur-xl border border-red-400/20 rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
+        {/* Gyms */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-5 sm:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 bg-red-500/10 border border-red-400/20 rounded-lg flex items-center justify-center">
-              <Building2 size={18} className="text-red-400" />
+            <div className="w-9 h-9 bg-accent/[0.08] border border-accent/20 rounded-lg flex items-center justify-center">
+              <Building2 size={18} className="text-accent" />
             </div>
             <h3 className="font-['Arimo'] text-sm font-bold uppercase">Gyms</h3>
           </div>
           <p className="text-[#ccc] text-sm leading-relaxed mb-3">
-            Mindbody was built in 2001. Gymdesk for martial arts. Glofox for yoga. They see payments, bookings, attendance. <span className="text-white font-semibold">That's it.</span>
+            Enterprise gym software handles <span className="text-white font-semibold">payments, bookings, and attendance</span> — but has zero insight into actual training outcomes or member performance.
           </p>
           <p className="text-[#999] text-xs leading-relaxed">
-            Accounting dressed in fitness language — running a performance business with software that doesn't know what performance is.
+            Studios and clinics run performance businesses with software that doesn't understand performance.
           </p>
         </div>
-      </div>
-
-      {/* Industry Truth */}
-      <div className="max-w-3xl mx-auto text-center mb-10">
-        <p className="text-[#999] text-sm sm:text-base leading-relaxed">
-          Everyone pays — month after month — for <span className="text-white font-medium">digital notebooks dressed up as coaching platforms</span>.
-        </p>
-        <p className="text-white font-bold text-lg sm:text-xl mt-4 font-['Arimo'] uppercase">
-          The industry isn't broken by accident. <span className="text-red-400">It's profitable that way.</span>
-        </p>
       </div>
 
       {/* Prometheus Closing */}
