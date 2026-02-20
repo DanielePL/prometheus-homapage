@@ -421,7 +421,7 @@ function EcosystemSection() {
         }
 
         return (
-          <div className="relative z-20 bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-visible hover:border-accent/25 transition-all duration-300 hover:shadow-[0_8px_40px_rgba(230,126,34,0.1)] shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-6">
+          <div className="relative z-20 bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden hover:border-accent/25 transition-all duration-300 hover:shadow-[0_8px_40px_rgba(230,126,34,0.1)] shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-6">
             <div className="grid lg:grid-cols-[1fr_1.8fr] items-center">
               <div className="p-8 lg:p-10 order-2 lg:order-1">
                 <div className="w-11 h-11 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(230,126,34,0.08)]">
@@ -442,7 +442,7 @@ function EcosystemSection() {
                   const offset = si - activeIndex
                   const isActive = si === activeIndex
                   const absOffset = Math.abs(offset)
-                  const translateX = offset * 72
+                  const translateX = offset * 52
                   const isSelected = selectedScreen === si
                   const scale = isSelected ? 1.15 : isActive ? 1.05 : 0.95
                   const z = isSelected ? 30 : a.screens.length - absOffset
