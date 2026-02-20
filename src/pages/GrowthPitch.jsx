@@ -330,13 +330,13 @@ function EcosystemSection() {
       desc: 'AI Coaching, Nutrition, VBT, Community, and Wearables — everything an athlete needs in one app.',
       mockup: 'phoneFan',
       screens: [
-        '/images/screenshots/nutrition-daily-log.png',
+        '/images/screenshots/nutrition-daily-log-framed.png',
         '/images/screenshots/workout-session-framed.png',
-        '/images/screenshots/coach-chat-full.png',
+        '/images/screenshots/coach-chat-full-framed.png',
         '/images/screenshots/training-framed.png',
         '/images/screenshots/statistics-framed.png',
-        '/images/screenshots/add-food-search.png',
-        '/images/screenshots/challenge-bench-press.png',
+        '/images/screenshots/add-food-search-framed.png',
+        '/images/screenshots/challenge-bench-press-framed.png',
       ],
       demoUrl: 'https://play.google.com/store/apps/details?id=prometheus.coach&pcampaignid=web_share',
       demoLabel: 'Google Play',
@@ -584,7 +584,7 @@ function CommunitySection() {
           </div>
           <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
-              src="/images/screenshots/challenge-bench-press.png"
+              src="/images/screenshots/challenge-bench-press-framed.png"
               alt="Community Challenge"
               className="w-full h-auto rounded-[30px]"
             />
@@ -634,14 +634,14 @@ function NutritionSection() {
           </div>
           <div className="w-48 z-10 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
-              src="/images/screenshots/nutrition-daily-log.png"
+              src="/images/screenshots/nutrition-daily-log-framed.png"
               alt="Daily Nutrition Log"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
           <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
-              src="/images/screenshots/add-food-search.png"
+              src="/images/screenshots/add-food-search-framed.png"
               alt="Food Search"
               className="w-full h-auto rounded-[30px]"
             />
@@ -891,21 +891,21 @@ function AICoachSection() {
       <div className="flex justify-center items-end">
         <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
           <img
-            src="/images/screenshots/vbt-video-analysis.png"
+            src="/images/screenshots/vbt-video-analysis-framed.png"
             alt="VBT Video Analysis"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
         <div className="w-48 z-10 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
           <img
-            src="/images/screenshots/coach-ai.png"
+            src="/images/screenshots/coach-ai-framed.png"
             alt="AI Coach"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
         <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
           <img
-            src="/images/screenshots/vbt-statistics.png"
+            src="/images/screenshots/vbt-statistics-framed.png"
             alt="VBT Statistics"
             className="w-full h-auto rounded-[30px]"
           />
