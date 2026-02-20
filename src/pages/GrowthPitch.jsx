@@ -1488,28 +1488,28 @@ function TheAskSection() {
   const [ref, isVisible] = useScrollAnimation(0.1)
 
   const equityTiers = [
-    { invest: 'CHF 20K', equity: '2%', valuation: 'CHF 1.0M' },
-    { invest: 'CHF 50K', equity: '4%', valuation: 'CHF 1.25M' },
-    { invest: 'CHF 100K', equity: '7%', valuation: 'CHF 1.43M' },
-    { invest: 'CHF 150K', equity: '9%', valuation: 'CHF 1.67M' },
-    { invest: 'CHF 250K', equity: '12%', valuation: 'CHF 2.08M', highlight: true },
+    { invest: '$20K', equity: '2%', valuation: '$1.0M' },
+    { invest: '$50K', equity: '4%', valuation: '$1.25M' },
+    { invest: '$100K', equity: '7%', valuation: '$1.43M' },
+    { invest: '$150K', equity: '9%', valuation: '$1.67M' },
+    { invest: '$250K', equity: '12%', valuation: '$2.08M', highlight: true },
   ]
 
-  // Investment allocation (CHF 250K)
+  // Investment allocation ($250K)
   const investmentFunds = [
-    { label: 'Operations', amount: 'CHF 171K', pct: 68, desc: '18mo × CHF 9,500', color: 'bg-accent' },
-    { label: 'Initial Marketing', amount: 'CHF 40K', pct: 16, desc: 'Launch campaigns, ads', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: 'CHF 24K', pct: 10, desc: 'Gyms, trade shows, partners', color: 'bg-purple-400' },
-    { label: 'Tech & Infra', amount: 'CHF 15K', pct: 6, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
+    { label: 'Operations', amount: '$171K', pct: 68, desc: '18mo × $9,500', color: 'bg-accent' },
+    { label: 'Initial Marketing', amount: '$40K', pct: 16, desc: 'Launch campaigns, ads', color: 'bg-blue-400' },
+    { label: 'Field Sales & Travel', amount: '$24K', pct: 10, desc: 'Gyms, trade shows, partners', color: 'bg-purple-400' },
+    { label: 'Tech & Infra', amount: '$15K', pct: 6, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
   ]
 
-  // Revenue reinvestment model (conservative: ~CHF 450K cumulative over 18mo)
+  // Revenue reinvestment model (conservative: ~$450K cumulative over 18mo)
   const revenueAllocation = [
-    { label: 'Performance Marketing', amount: 'CHF 135K', pct: 30, desc: 'Paid acquisition, retargeting', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: 'CHF 90K', pct: 20, desc: 'Gym visits, trade shows, Messen', color: 'bg-purple-400' },
-    { label: 'Content & Influencer', amount: 'CHF 45K', pct: 10, desc: 'Creator partnerships', color: 'bg-pink-400' },
-    { label: 'Risk Reserve', amount: 'CHF 68K', pct: 15, desc: 'Buffer for volatility', color: 'bg-yellow-400' },
-    { label: 'Ops Contribution', amount: 'CHF 112K', pct: 25, desc: 'Reduces burn on investment', color: 'bg-accent/50' },
+    { label: 'Performance Marketing', amount: '$135K', pct: 30, desc: 'Paid acquisition, retargeting', color: 'bg-blue-400' },
+    { label: 'Field Sales & Travel', amount: '$90K', pct: 20, desc: 'Gym visits, trade shows, Messen', color: 'bg-purple-400' },
+    { label: 'Content & Influencer', amount: '$45K', pct: 10, desc: 'Creator partnerships', color: 'bg-pink-400' },
+    { label: 'Risk Reserve', amount: '$68K', pct: 15, desc: 'Buffer for volatility', color: 'bg-yellow-400' },
+    { label: 'Ops Contribution', amount: '$112K', pct: 25, desc: 'Reduces burn on investment', color: 'bg-accent/50' },
   ]
 
   const milestones = [
@@ -1526,16 +1526,16 @@ function TheAskSection() {
           label="The Ask"
           title="Pre-Seed Round."
           titleAccent="SAFE Note."
-          subtitle="CHF 20K – 250K to fund 18 months of growth. Revenue reinvestment turns CHF 250K into CHF 350K+ growth budget."
+          subtitle="$20K – $250K to fund 18 months of growth. Revenue reinvestment turns $250K into $334K+ growth budget."
         />
 
         {/* Key Numbers Banner */}
         <div className="grid sm:grid-cols-4 gap-4 mb-12">
           {[
-            { value: 'CHF 9.5K', label: 'Monthly Burn', desc: 'Lean operations' },
-            { value: '18 Mo', label: 'Runway', desc: 'At CHF 250K + revenue' },
+            { value: '$9.5K', label: 'Monthly Burn', desc: 'Lean operations' },
+            { value: '18 Mo', label: 'Runway', desc: 'At $250K + revenue' },
             { value: '60%', label: 'Revenue → Growth', desc: 'Reinvested into expansion' },
-            { value: 'CHF 350K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
+            { value: '$334K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
           ].map((m, i) => (
             <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-4 text-center shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
               <div className="text-xl font-extrabold text-accent font-['Arimo'] mb-0.5">{m.value}</div>
@@ -1575,7 +1575,7 @@ function TheAskSection() {
           <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <div className="flex items-center justify-between mb-1">
               <h3 className="font-['Arimo'] font-bold uppercase text-lg">Investment Capital</h3>
-              <span className="text-accent font-extrabold font-['Arimo']">CHF 250K</span>
+              <span className="text-accent font-extrabold font-['Arimo']">$250K</span>
             </div>
             <p className="text-[#999] text-xs mb-6">Covers operations + launch runway before revenue kicks in</p>
 
@@ -1618,8 +1618,8 @@ function TheAskSection() {
             <span className="text-accent text-xs font-semibold uppercase tracking-wider">The Compound Effect</span>
           </div>
           <p className="text-[#999] text-sm mb-8 max-w-3xl">
-            60% of all revenue flows directly back into growth. Conservative estimate: ~CHF 450K cumulative revenue over 18 months.
-            Combined with investment capital, this creates a <span className="text-white font-medium">CHF 350K+ total growth budget</span> — from a CHF 250K raise.
+            60% of all revenue flows directly back into growth. Conservative estimate: ~$450K cumulative revenue over 18 months.
+            Combined with investment capital, this creates a <span className="text-white font-medium">$334K+ total growth budget</span> — from a $250K raise.
           </p>
 
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-start">
@@ -1664,9 +1664,9 @@ function TheAskSection() {
             <div className="space-y-4">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#999] mb-4">Total 18-Month Spend Power</h4>
               {[
-                { label: 'Marketing & Ads', from: 'CHF 40K', plus: 'CHF 135K', total: 'CHF 175K', color: 'text-blue-400' },
-                { label: 'Field Sales & Travel', from: 'CHF 24K', plus: 'CHF 90K', total: 'CHF 114K', color: 'text-purple-400' },
-                { label: 'Content & Influencer', from: '—', plus: 'CHF 45K', total: 'CHF 45K', color: 'text-pink-400' },
+                { label: 'Marketing & Ads', from: '$40K', plus: '$135K', total: '$175K', color: 'text-blue-400' },
+                { label: 'Field Sales & Travel', from: '$24K', plus: '$90K', total: '$114K', color: 'text-purple-400' },
+                { label: 'Content & Influencer', from: '—', plus: '$45K', total: '$45K', color: 'text-pink-400' },
               ].map((t, i) => (
                 <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3">
                   <div className="flex items-center justify-between mb-1">
@@ -1681,9 +1681,9 @@ function TheAskSection() {
               <div className="bg-accent/[0.1] border border-accent/25 rounded-xl p-3 mt-2">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-white">Total Growth Budget</span>
-                  <span className="text-accent font-extrabold text-lg font-['Arimo']">CHF 350K+</span>
+                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$334K+</span>
                 </div>
-                <div className="text-[11px] text-accent/70">From CHF 250K investment — 1.4x multiplier through revenue reinvestment</div>
+                <div className="text-[11px] text-accent/70">From $250K investment — 1.3x multiplier through revenue reinvestment</div>
               </div>
             </div>
           </div>
