@@ -419,18 +419,25 @@ function EcosystemSection() {
       {/* Athlete App — full-width card with carousel */}
       {(() => {
         const a = products[0]
-        const [hoveredScreen, setHoveredScreen] = useState(null)
+        const [selectedScreen, setSelectedScreen] = useState(null)
         const [autoIndex, setAutoIndex] = useState(2)
+        const pauseRef = useRef(null)
 
         useEffect(() => {
-          if (hoveredScreen !== null) return
+          if (selectedScreen !== null) return
           const timer = setInterval(() => {
             setAutoIndex((prev) => (prev + 1) % a.screens.length)
           }, 3000)
           return () => clearInterval(timer)
-        }, [hoveredScreen, a.screens.length])
+        }, [selectedScreen, a.screens.length])
 
-        const activeIndex = hoveredScreen !== null ? hoveredScreen : autoIndex
+        const activeIndex = selectedScreen !== null ? selectedScreen : autoIndex
+
+        const handleScreenClick = (si) => {
+          setSelectedScreen(si)
+          clearTimeout(pauseRef.current)
+          pauseRef.current = setTimeout(() => setSelectedScreen(null), 5000)
+        }
 
         return (
           <div className="relative z-20 bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-visible hover:border-accent/25 transition-all duration-300 hover:shadow-[0_8px_40px_rgba(230,126,34,0.1)] shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-6">
@@ -455,25 +462,24 @@ function EcosystemSection() {
                   const isActive = si === activeIndex
                   const absOffset = Math.abs(offset)
                   const translateX = offset * 72
-                  const isHovered = hoveredScreen === si
-                  const scale = isHovered ? 1.5 : isActive ? 1.05 : 0.95
-                  const z = isHovered ? 30 : a.screens.length - absOffset
+                  const isSelected = selectedScreen === si
+                  const scale = isSelected ? 1.4 : isActive ? 1.05 : 0.95
+                  const z = isSelected ? 30 : a.screens.length - absOffset
                   const opacity = absOffset > 2 ? 0.3 : 1 - absOffset * 0.12
                   return (
                     <img
                       key={si}
                       src={src}
                       alt={`Screen ${si + 1}`}
-                      onMouseEnter={() => setHoveredScreen(si)}
-                      onMouseLeave={() => setHoveredScreen(null)}
+                      onClick={() => handleScreenClick(si)}
                       className="absolute h-64 sm:h-[340px] w-auto rounded-[22px] cursor-pointer"
                       style={{
-                        transform: `translateX(${translateX}px) translateY(${isHovered ? -40 : 0}px) scale(${scale})`,
+                        transform: `translateX(${translateX}px) translateY(${isSelected ? -40 : 0}px) scale(${scale})`,
                         zIndex: z,
-                        opacity: isHovered ? 1 : opacity,
-                        filter: isHovered || isActive ? 'none' : `brightness(${1 - absOffset * 0.12})`,
+                        opacity: isSelected ? 1 : opacity,
+                        filter: isSelected || isActive ? 'none' : `brightness(${1 - absOffset * 0.12})`,
                         boxShadow: 'none',
-                        transition: 'all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                        transition: 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                       }}
                     />
                   )
