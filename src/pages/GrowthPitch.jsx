@@ -33,6 +33,7 @@ import {
   Gift,
   RefreshCw,
   Flame,
+  Bell,
 } from 'lucide-react'
 
 const ACCESS_CODE = 'PROMETHEUS2026'
@@ -656,6 +657,8 @@ function NutritionSection() {
               { icon: Bot, title: 'AI Nutrition Plans', desc: 'Individualized nutrition plans based on training goals, body composition targets, and dietary preferences — with full macro breakdowns.' },
               { icon: ShoppingCart, title: 'AI Shopping Lists', desc: 'Auto-generated shopping lists based on your meal plan. One tap to see exactly what to buy for the week.' },
               { icon: Target, title: 'Goal-Adaptive Tracking', desc: 'Cut, bulk, maintain, or sport-specific fuel. The system adapts calorie and macro targets based on training load and recovery metrics.' },
+              { icon: Eye, title: 'UPF Tracking', desc: 'Logs ultra-processed food intake automatically. See exactly how much of your diet is real food vs. industrial products — a metric no other app tracks.' },
+              { icon: Bell, title: 'Anabolic Window Reminder', desc: 'Post-workout push notification reminding you to eat within the optimal recovery window. Connects training sessions to nutrition timing automatically.' },
             ].map((f, i) => (
               <div key={i} className="flex items-start gap-4">
                 <div className="w-10 h-10 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-xl flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(230,126,34,0.06)]">
