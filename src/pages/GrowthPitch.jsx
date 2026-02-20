@@ -1710,14 +1710,15 @@ function TheAskSection() {
 
 function TeamSection() {
   const team = [
-    { initials: 'DP', name: 'Daniele Pauli', title: 'CEO & Founder', bio: 'IPF World Champion, 20+ years coaching, 14,000+ sessions. Co-developed a fitness CRM in 2010 and a VBT prototype in 2017 — the experience that led to Prometheus.', gradient: 'from-accent to-orange-400' },
-    { initials: 'BA', name: 'Dr. Basil Achermann', title: 'Chief Science Officer', bio: 'Sport Science, University of Zurich. IT apprenticeship + deep research. Leads Prometheus Lab & R&D pipeline.', gradient: 'from-green-400 to-emerald-500' },
-    { initials: 'SJ', name: 'Sjoerd Joosten', title: 'Chief Operating Officer', bio: 'Sport psychologist, hybrid athlete. B2B specialist driving gym & enterprise expansion across Europe.', gradient: 'from-accent to-orange-400' },
+    { name: 'Daniele Pauli', title: 'CEO & Founder', bio: 'IPF World Champion. First Swiss gold in powerlifting — ever. 10× Swiss National Champion. 2× European Champion. Vice World Champion in weightlifting. #1 in the world — Supertotal Masters. Ranked 3rd globally in Strength Wars League. 32 years, 14,000+ sessions. Built first fitness CRM in 2010, developed 9-axis VBT prototype in 2017.', gradient: 'from-accent to-orange-400', image: '/images/team/daniele-pauli.png' },
+    { name: 'Dr. Basil Achermann', title: 'Chief Science Officer', bio: 'Sport Science researcher from the University of Zurich, specializing in measurement methodology for acceleration-based training. Combines a 4-year IT apprenticeship with deep academic research — the rare scientist who can both design the experiment and write the code. Leads Prometheus Lab & R&D pipeline.', gradient: 'from-green-400 to-emerald-500', image: '/images/team/basil-achermann.png' },
+    { name: 'Sjoerd Joosten', title: 'Chief Operating Officer', bio: 'Sport psychologist by training, hybrid athlete by nature — golf handicap 0, serious numbers in weightlifting and WOD training. Extensive experience leading talent sport schools and training high-level athletes. B2B specialist driving Prometheus into gyms, clinics, and enterprises across Europe.', gradient: 'from-accent to-orange-400', image: '/images/team/sjoerd-joosten.png' },
   ]
 
-  const advisors = [
-    { initials: 'ST', name: 'Sascha Tarone', title: 'Advisor & Early Investor', bio: '20 years in financial analytics. Strategic consultant shaping business model to exit.', gradient: 'from-cyan-400 to-teal-500' },
-    { initials: 'KU', name: 'Dr. Kevin Uram', title: 'Early Investor & Technical Advisor', bio: 'Physical Chemistry (Univ. Pittsburgh), ex-IBM Sr. Staff, MD at Lumileds. Multiple US patents.', gradient: 'from-rose-400 to-pink-500' },
+  const extended = [
+    { name: 'Karin Känel', title: 'Executive Assistant & Project Manager', bio: '2× Swiss Champion U15/U17 Handball, 1× Vice Champion. Golf handicap 1. Trained Polymechanikerin (EFZ) with precision scientific instrumentation experience. Certified Technische Kauffrau — engineering discipline meets business acumen.', gradient: 'from-purple-400 to-violet-500', image: '/images/team/karin-kaenel.png' },
+    { name: 'Sascha Tarone', title: 'Advisor & Early Investor', bio: 'Versatile entrepreneur with 20 years in financial analytics. Strategic consultant and early investor shaping Prometheus from business model to exit strategy.', gradient: 'from-cyan-400 to-teal-500', badge: true, image: '/images/team/sascha-tarone.png' },
+    { name: 'Dr. Kevin Uram', title: 'Early Investor & Technical Advisor', bio: 'Physical Chemistry (University of Pittsburgh), former IBM Senior Technical Staff Member (12+ years), Managing Director at Lumileds semiconductor manufacturing (11+ years). Holds multiple US patents.', gradient: 'from-rose-400 to-pink-500', badge: true, image: '/images/team/kevin-uram.png' },
   ]
 
   return (
@@ -1745,8 +1746,8 @@ function TeamSection() {
         {team.map((m, i) => (
           <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 relative group hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${m.gradient} rounded-b opacity-50 group-hover:opacity-100 transition-opacity`} />
-            <div className={`w-14 h-14 bg-gradient-to-br ${m.gradient} rounded-full flex items-center justify-center mb-3 shadow-[0_0_20px_rgba(230,126,34,0.12)]`}>
-              <span className="font-bold text-dark">{m.initials}</span>
+            <div className="w-14 h-14 rounded-full overflow-hidden mb-3 ring-2 ring-dark-border group-hover:ring-accent/30 transition-all">
+              <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
             </div>
             <h4 className="font-bold">{m.name}</h4>
             <p className="text-accent text-xs font-medium mb-2">{m.title}</p>
@@ -1755,15 +1756,17 @@ function TeamSection() {
         ))}
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-        {advisors.map((m, i) => (
+      <div className="grid sm:grid-cols-3 gap-4">
+        {extended.map((m, i) => (
           <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 relative group hover:border-accent/20 hover:bg-white/[0.06] transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${m.gradient} rounded-b opacity-50 group-hover:opacity-100 transition-opacity`} />
-            <div className="absolute top-4 right-4 px-2.5 py-1 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-full">
-              <span className="text-[10px] text-accent font-semibold uppercase tracking-wider">Advisor</span>
-            </div>
-            <div className={`w-14 h-14 bg-gradient-to-br ${m.gradient} rounded-full flex items-center justify-center mb-3`}>
-              <span className="font-bold text-dark">{m.initials}</span>
+            {m.badge && (
+              <div className="absolute top-4 right-4 px-2.5 py-1 bg-accent/[0.08] backdrop-blur-sm border border-accent/20 rounded-full">
+                <span className="text-[10px] text-accent font-semibold uppercase tracking-wider">Advisor & Investor</span>
+              </div>
+            )}
+            <div className="w-14 h-14 rounded-full overflow-hidden mb-3 ring-2 ring-dark-border group-hover:ring-accent/30 transition-all">
+              <img src={m.image} alt={m.name} className="w-full h-full object-cover" />
             </div>
             <h4 className="font-bold">{m.name}</h4>
             <p className="text-accent text-xs font-medium mb-2">{m.title}</p>
