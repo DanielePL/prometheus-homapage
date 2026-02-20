@@ -31,6 +31,8 @@ import {
   Target,
   MessageCircle,
   Gift,
+  RefreshCw,
+  Flame,
 } from 'lucide-react'
 
 const ACCESS_CODE = 'PROMETHEUS2026'
@@ -232,7 +234,7 @@ function HeroSection() {
           </h1>
 
           <p className="text-[#999] text-lg sm:text-xl max-w-3xl mx-auto mb-16 leading-relaxed">
-            The first platform that unifies AI Coaching, Velocity-Based Training, Nutrition, Community, and Wearables — from golfer to weightlifter, without any hardware.
+            The first platform that unifies AI Coaching, Computer Vision Barbell Tracking, Nutrition, Community, and Wearables — from golfer to weightlifter, no extra hardware required.
           </p>
 
         </motion.div>
@@ -1281,6 +1283,27 @@ function BusinessModelSection() {
 // ─── 12. Flywheel ───────────────────────────────────────────────────────────────
 
 function FlywheelSection() {
+  const loops = [
+    {
+      name: 'Growth',
+      color: 'accent',
+      steps: ['Athletes Join', 'Coaches Adopt', 'Gyms Integrate', 'More Athletes'],
+      icons: [Users, Monitor, Building2, TrendingUp],
+    },
+    {
+      name: 'Data',
+      color: 'cyan-400',
+      steps: ['More Data', 'Better AI', 'Better Coaching', 'More Retention'],
+      icons: [Database, Brain, Bot, TrendingUp],
+    },
+    {
+      name: 'Community',
+      color: 'emerald-400',
+      steps: ['Challenges', 'Badges Earned', 'Content Shared', 'Organic Growth'],
+      icons: [Trophy, Award, MessageSquare, Users],
+    },
+  ]
+
   return (
     <Section id="flywheel" className="bg-white/[0.01]">
       <SectionHeader
@@ -1289,74 +1312,80 @@ function FlywheelSection() {
         titleAccent="Compounds."
       />
 
-      <div className="max-w-3xl mx-auto">
-        {/* Outer loop */}
-        <div className="mb-12">
-          <h4 className="text-center text-sm font-semibold uppercase tracking-wider text-[#999] mb-6">Growth Loop</h4>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { icon: Users, label: 'Athletes Join' },
-              { icon: Monitor, label: 'Coaches Adopt' },
-              { icon: Building2, label: 'Gyms Integrate' },
-              { icon: TrendingUp, label: 'More Athletes' },
-            ].map((n, i) => (
-              <div key={i} className="text-center">
-                <div className="w-16 h-16 bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-[0_4px_16px_rgba(0,0,0,0.15)]">
-                  <n.icon size={24} className="text-accent" />
-                </div>
-                <span className="text-xs text-gray-300">{n.label}</span>
-                {i < 3 && (
-                  <ChevronRight size={16} className="text-accent/40 mx-auto mt-2 hidden sm:block" />
-                )}
+      {/* Concentric flywheel visualization */}
+      <div className="relative max-w-4xl mx-auto mb-16">
+        {/* Center core */}
+        <div className="flex justify-center mb-12">
+          <div className="relative">
+            <div className="w-28 h-28 rounded-full bg-gradient-to-br from-accent to-orange-500 flex items-center justify-center shadow-[0_0_60px_rgba(242,114,27,0.3)]">
+              <div className="text-center">
+                <Flame size={28} className="text-white mx-auto mb-1" />
+                <span className="text-[10px] font-bold text-white/90 uppercase tracking-wider">Prometheus</span>
               </div>
-            ))}
+            </div>
+            {/* Pulse rings */}
+            <div className="absolute inset-0 rounded-full border border-accent/20 animate-ping" style={{ animationDuration: '3s' }} />
+            <div className="absolute -inset-4 rounded-full border border-accent/10 animate-ping" style={{ animationDuration: '4s', animationDelay: '1s' }} />
           </div>
         </div>
 
-        {/* Inner loop */}
-        <div className="mb-12">
-          <h4 className="text-center text-sm font-semibold uppercase tracking-wider text-[#999] mb-6">Data Loop</h4>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { icon: Database, label: 'More Data' },
-              { icon: Brain, label: 'Better AI' },
-              { icon: Bot, label: 'Better Coaching' },
-              { icon: TrendingUp, label: 'More Retention' },
-            ].map((n, i) => (
-              <div key={i} className="text-center">
-                <div className="w-16 h-16 bg-white/[0.04] backdrop-blur-xl border border-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-[0_4px_16px_rgba(0,0,0,0.15)]">
-                  <n.icon size={24} className="text-accent" />
+        {/* Three loops as connected cards */}
+        <div className="grid lg:grid-cols-3 gap-6">
+          {loops.map((loop, li) => {
+            const borderColor = li === 0 ? 'border-accent/30 hover:border-accent/50' : li === 1 ? 'border-cyan-400/30 hover:border-cyan-400/50' : 'border-emerald-400/30 hover:border-emerald-400/50'
+            const labelColor = li === 0 ? 'text-accent' : li === 1 ? 'text-cyan-400' : 'text-emerald-400'
+            const bgGlow = li === 0 ? 'from-accent/10' : li === 1 ? 'from-cyan-400/10' : 'from-emerald-400/10'
+            const iconBorder = li === 0 ? 'border-accent/20' : li === 1 ? 'border-cyan-400/20' : 'border-emerald-400/20'
+            const iconColor = li === 0 ? 'text-accent' : li === 1 ? 'text-cyan-400' : 'text-emerald-400'
+            const lineColor = li === 0 ? 'bg-accent/30' : li === 1 ? 'bg-cyan-400/30' : 'bg-emerald-400/30'
+            const topBar = li === 0 ? 'from-accent to-orange-400' : li === 1 ? 'from-cyan-400 to-teal-500' : 'from-emerald-400 to-green-500'
+
+            return (
+              <div key={li} className={`relative bg-gradient-to-b ${bgGlow} to-transparent border ${borderColor} rounded-2xl p-6 transition-all duration-300`}>
+                {/* Top accent bar */}
+                <div className={`absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r ${topBar} rounded-b`} />
+
+                <h4 className={`text-sm font-bold uppercase tracking-wider ${labelColor} mb-6 text-center`}>
+                  {loop.name} Loop
+                </h4>
+
+                <div className="space-y-0">
+                  {loop.steps.map((step, si) => {
+                    const Icon = loop.icons[si]
+                    return (
+                      <div key={si}>
+                        <div className="flex items-center gap-3 py-3">
+                          <div className={`w-10 h-10 shrink-0 bg-white/[0.04] border ${iconBorder} rounded-xl flex items-center justify-center`}>
+                            <Icon size={18} className={iconColor} />
+                          </div>
+                          <span className="text-sm text-gray-300 font-medium">{step}</span>
+                        </div>
+                        {si < 3 && (
+                          <div className="flex justify-center py-1">
+                            <div className={`w-0.5 h-4 ${lineColor} rounded-full`} />
+                          </div>
+                        )}
+                      </div>
+                    )
+                  })}
                 </div>
-                <span className="text-xs text-gray-300">{n.label}</span>
-                {i < 3 && (
-                  <ChevronRight size={16} className="text-accent/40 mx-auto mt-2 hidden sm:block" />
-                )}
+
+                {/* Loop arrow indicator */}
+                <div className="flex justify-center mt-4">
+                  <div className={`px-3 py-1.5 rounded-full border ${iconBorder} bg-white/[0.02]`}>
+                    <RefreshCw size={14} className={`${iconColor} animate-spin`} style={{ animationDuration: '8s' }} />
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
 
-        {/* Community loop */}
-        <div>
-          <h4 className="text-center text-sm font-semibold uppercase tracking-wider text-[#999] mb-6">Community Loop</h4>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[
-              { icon: Trophy, label: 'Challenges' },
-              { icon: Award, label: 'Badges Earned' },
-              { icon: MessageSquare, label: 'Content Shared' },
-              { icon: Users, label: 'Organic Growth' },
-            ].map((n, i) => (
-              <div key={i} className="text-center">
-                <div className="w-16 h-16 bg-white/[0.04] backdrop-blur-xl border border-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-[0_4px_16px_rgba(0,0,0,0.15)]">
-                  <n.icon size={24} className="text-accent" />
-                </div>
-                <span className="text-xs text-gray-300">{n.label}</span>
-                {i < 3 && (
-                  <ChevronRight size={16} className="text-accent/40 mx-auto mt-2 hidden sm:block" />
-                )}
-              </div>
-            ))}
-          </div>
+        {/* Bottom summary */}
+        <div className="mt-10 text-center">
+          <p className="text-[#999] text-sm max-w-2xl mx-auto">
+            Three self-reinforcing loops — each one accelerates the others. More users generate more data, better AI drives retention, and community engagement fuels organic growth. <span className="text-white font-medium">A compounding moat that widens with every session.</span>
+          </p>
         </div>
       </div>
     </Section>
