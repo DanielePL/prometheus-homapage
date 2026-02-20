@@ -12,7 +12,7 @@ const navLinks = [
 ]
 
 const socials = [
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/prometheuscoach/', label: 'Instagram' },
   { icon: Linkedin, href: '#', label: 'LinkedIn' },
   { icon: Youtube, href: '#', label: 'YouTube' },
   { icon: Twitter, href: '#', label: 'X' },
