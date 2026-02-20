@@ -444,7 +444,7 @@ function EcosystemSection() {
                   const absOffset = Math.abs(offset)
                   const translateX = offset * 72
                   const isSelected = selectedScreen === si
-                  const scale = isSelected ? 1.4 : isActive ? 1.05 : 0.95
+                  const scale = isSelected ? 1.15 : isActive ? 1.05 : 0.95
                   const z = isSelected ? 30 : a.screens.length - absOffset
                   const opacity = absOffset > 2 ? 0.3 : 1 - absOffset * 0.12
                   return (
@@ -455,7 +455,7 @@ function EcosystemSection() {
                       onClick={() => handleScreenClick(si)}
                       className="absolute h-64 sm:h-[340px] w-auto rounded-[22px] cursor-pointer"
                       style={{
-                        transform: `translateX(${translateX}px) translateY(${isSelected ? -40 : 0}px) scale(${scale})`,
+                        transform: `translateX(${translateX}px) translateY(${isSelected ? -10 : 0}px) scale(${scale})`,
                         zIndex: z,
                         opacity: isSelected ? 1 : opacity,
                         filter: isSelected || isActive ? 'none' : `brightness(${1 - absOffset * 0.12})`,
@@ -480,7 +480,7 @@ function EcosystemSection() {
           >
             <div className="relative bg-gradient-to-b from-white/[0.03] to-transparent">
               <div className={`p-5 pt-6 ${p.mockup === 'laptopWithPhone' ? 'pb-2' : ''}`}>
-                <div className={`relative group-hover:scale-[2.5] group-hover:-translate-y-[30%] transition-all duration-500 ease-out origin-bottom ${i === 0 ? 'group-hover:translate-x-[33%]' : i === 2 ? 'group-hover:-translate-x-[33%]' : ''}`}>
+                <div className={`relative group-hover:scale-[1.5] group-hover:-translate-y-[10%] transition-all duration-500 ease-out origin-bottom ${i === 0 ? 'group-hover:translate-x-[33%]' : i === 2 ? 'group-hover:-translate-x-[33%]' : ''}`}>
                   <div className="bg-white/[0.03] border border-white/[0.08] rounded-xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.4)] group-hover:shadow-[0_24px_60px_rgba(0,0,0,0.6),0_0_30px_rgba(230,126,34,0.1)] transition-shadow duration-500">
                     <div className="flex items-center gap-1.5 px-3 py-2 bg-white/[0.03] border-b border-white/[0.06]">
                       <div className="w-2 h-2 rounded-full bg-red-500/50" />
@@ -585,21 +585,21 @@ function CommunitySection() {
 
         {/* Right — Community Screenshots */}
         <div className="flex justify-center items-end group/phones">
-          <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+          <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/community-profile-framed.png"
               alt="Community Profile"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-48 z-10 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+          <div className="w-48 z-10 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/community-feed-framed.png"
               alt="Community Feed"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+          <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/challenge-bench-press.png"
               alt="Community Challenge"
@@ -642,21 +642,21 @@ function NutritionSection() {
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left — Screenshots */}
         <div className="flex justify-center items-end">
-          <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+          <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/nutrition-framed.png"
               alt="Nutrition Tracking"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-48 z-10 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+          <div className="w-48 z-10 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/nutrition-daily-log.png"
               alt="Daily Nutrition Log"
               className="w-full h-auto rounded-[30px]"
             />
           </div>
-          <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+          <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
             <img
               src="/images/screenshots/add-food-search.png"
               alt="Food Search"
@@ -904,21 +904,21 @@ function AICoachSection() {
 
       {/* Screenshots */}
       <div className="flex justify-center items-end">
-        <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+        <div className="w-36 opacity-70 hidden sm:block -mr-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
           <img
             src="/images/screenshots/vbt-video-analysis.png"
             alt="VBT Video Analysis"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
-        <div className="w-48 z-10 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+        <div className="w-48 z-10 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
           <img
             src="/images/screenshots/coach-ai.png"
             alt="AI Coach"
             className="w-full h-auto rounded-[30px]"
           />
         </div>
-        <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[2.2] hover:z-20 hover:-translate-y-[20%] transition-all duration-500 ease-out origin-bottom">
+        <div className="w-36 opacity-70 hidden sm:block -ml-2 hover:opacity-100 hover:scale-[1.4] hover:z-20 hover:-translate-y-[8%] transition-all duration-500 ease-out origin-bottom">
           <img
             src="/images/screenshots/vbt-statistics.png"
             alt="VBT Statistics"
