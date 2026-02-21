@@ -1501,10 +1501,10 @@ function TheAskSection() {
 
   // Investment allocation ($250K)
   const investmentFunds = [
-    { label: 'Operations', amount: '$171K', pct: 68, desc: '18mo × $9,500', color: 'bg-accent' },
-    { label: 'Initial Marketing', amount: '$40K', pct: 16, desc: 'Launch campaigns, ads', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: '$24K', pct: 10, desc: 'Gyms, trade shows, partners', color: 'bg-purple-400' },
-    { label: 'Tech & Infra', amount: '$15K', pct: 6, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
+    { label: 'Operations', amount: '$150K', pct: 60, desc: '18mo × $15K, partially revenue-funded', color: 'bg-accent' },
+    { label: 'Initial Marketing', amount: '$50K', pct: 20, desc: 'Launch campaigns, ads', color: 'bg-blue-400' },
+    { label: 'Field Sales & Travel', amount: '$30K', pct: 12, desc: 'Gyms, trade shows, partners', color: 'bg-purple-400' },
+    { label: 'Tech & Infra', amount: '$20K', pct: 8, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
   ]
 
   // Revenue reinvestment model (conservative: ~$600K cumulative over 18mo, S-curve from $0→$74K MRR)
@@ -1530,16 +1530,16 @@ function TheAskSection() {
           label="The Ask"
           title="Pre-Seed Round."
           titleAccent="SAFE Note."
-          subtitle="$20K – $250K to fund 18 months of growth. Revenue reinvestment turns $250K into $424K+ growth budget."
+          subtitle="$20K – $250K to fund 18 months of growth. Revenue reinvestment turns $250K into $440K+ growth budget."
         />
 
         {/* Key Numbers Banner */}
         <div className="grid sm:grid-cols-4 gap-4 mb-12">
           {[
-            { value: '$9.5K', label: 'Monthly Burn', desc: 'Lean operations' },
+            { value: '$15K', label: 'Monthly Burn', desc: 'Lean operations' },
             { value: '18 Mo', label: 'Runway', desc: 'At $250K + revenue' },
             { value: '60%', label: 'Revenue → Growth', desc: 'Reinvested into expansion' },
-            { value: '$424K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
+            { value: '$440K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
           ].map((m, i) => (
             <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-4 text-center shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
               <div className="text-xl font-extrabold text-accent font-['Arimo'] mb-0.5">{m.value}</div>
@@ -1623,7 +1623,7 @@ function TheAskSection() {
           </div>
           <p className="text-[#999] text-sm mb-8 max-w-3xl">
             60% of all revenue flows directly back into growth. Conservative estimate: ~$600K cumulative revenue over 18 months (S-curve from $0 to $74K MRR).
-            Combined with investment capital, this creates a <span className="text-white font-medium">$424K+ total growth budget</span> — from a $250K raise.
+            Combined with investment capital, this creates a <span className="text-white font-medium">$440K+ total growth budget</span> — from a $250K raise.
           </p>
 
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-start">
@@ -1668,8 +1668,8 @@ function TheAskSection() {
             <div className="space-y-4">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#999] mb-4">Total 18-Month Spend Power</h4>
               {[
-                { label: 'Marketing & Ads', from: '$40K', plus: '$180K', total: '$220K', color: 'text-blue-400' },
-                { label: 'Field Sales & Travel', from: '$24K', plus: '$120K', total: '$144K', color: 'text-purple-400' },
+                { label: 'Marketing & Ads', from: '$50K', plus: '$180K', total: '$230K', color: 'text-blue-400' },
+                { label: 'Field Sales & Travel', from: '$30K', plus: '$120K', total: '$150K', color: 'text-purple-400' },
                 { label: 'Content & Influencer', from: '—', plus: '$60K', total: '$60K', color: 'text-pink-400' },
               ].map((t, i) => (
                 <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3">
@@ -1685,9 +1685,9 @@ function TheAskSection() {
               <div className="bg-accent/[0.1] border border-accent/25 rounded-xl p-3 mt-2">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-white">Total Growth Budget</span>
-                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$424K+</span>
+                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$440K+</span>
                 </div>
-                <div className="text-[11px] text-accent/70">From $250K investment — 1.7x multiplier through revenue reinvestment</div>
+                <div className="text-[11px] text-accent/70">From $250K investment — 1.8x multiplier through revenue reinvestment</div>
               </div>
             </div>
           </div>
