@@ -938,16 +938,17 @@ function CommandCenterSection() {
         </p>
       </div>
 
-      {/* Forge Screenshots */}
-      <div className="grid lg:grid-cols-3 gap-4 mb-12">
+      {/* Forge Screenshots — 4-up */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
         {[
-          { title: 'Dashboard & Cost Analytics', src: '/images/screenshots/forge-dashboard.png' },
-          { title: 'Play Console & Reviews', src: '/images/screenshots/forge-play-console.png' },
-          { title: 'Supabase Health Monitor', src: '/images/screenshots/forge-supabase-health.png' },
+          { title: 'Cost Analytics', src: '/images/screenshots/forge-cost-analytics.png' },
+          { title: 'Supabase Health', src: '/images/screenshots/forge-supabase-health.png' },
+          { title: 'Creators CRM', src: '/images/screenshots/forge-creators.png' },
+          { title: 'Projects', src: '/images/screenshots/forge-projects.png' },
         ].map((s, i) => (
-          <div key={i} className="bg-white/[0.04] border border-white/[0.08] rounded-xl overflow-hidden hover:border-accent/20 transition-all duration-300">
+          <div key={i} className="bg-white/[0.04] border border-white/[0.08] rounded-xl overflow-hidden">
             <img src={s.src} alt={s.title} className="w-full h-auto" />
-            <p className="text-center text-[10px] text-[#999] font-medium py-2 uppercase tracking-wider">{s.title}</p>
+            <p className="text-center text-[10px] text-[#666] font-medium py-1.5 uppercase tracking-wider">{s.title}</p>
           </div>
         ))}
       </div>
