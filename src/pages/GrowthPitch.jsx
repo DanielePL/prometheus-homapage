@@ -34,6 +34,12 @@ import {
   RefreshCw,
   Flame,
   Bell,
+  Shield,
+  Activity,
+  Video,
+  Layers,
+  Dumbbell,
+  Heart,
 } from 'lucide-react'
 
 const ACCESS_CODE = 'PROMETHEUS2026'
@@ -1487,7 +1493,373 @@ function GrowthProjectionSection() {
   )
 }
 
-// ─── 14. The Ask ─────────────────────────────────────────────────────────────────
+// ─── 14. Data Asset ──────────────────────────────────────────────────────────────
+
+function DataAssetSection() {
+  const [ref, isVisible] = useScrollAnimation(0.1)
+  const [activeTier, setActiveTier] = useState(null)
+
+  const dataCategories = [
+    { icon: Users, label: 'User Profile & Medical', points: '25+ fields', detail: 'Injuries, allergies, conditions, goals', color: 'text-blue-400' },
+    { icon: Dumbbell, label: 'Workout Sessions & Sets', points: '27+ fields', detail: 'Volume, RPE, mood, energy per session + weight, reps, video per set', color: 'text-accent' },
+    { icon: Activity, label: 'VBT Velocity & Load', points: '~65 metrics', detail: 'Velocity, power, ROM, bar path, fatigue, auto 1RM, ACWR', color: 'text-green-400' },
+    { icon: Eye, label: 'Biomechanical / Golf', points: '6+ kinematic metrics', detail: 'Hip/shoulder rotation, X-factor, spine angle — markerless', color: 'text-purple-400' },
+    { icon: ShoppingCart, label: 'Nutrition', points: '30+ micro/macros', detail: 'Per meal tracking, UPF scoring, hydration, anabolic window', color: 'text-cyan-400' },
+    { icon: Bot, label: 'AI Coach', points: 'Full history', detail: 'Conversations, attachments (DEXA, lab results), recommendations', color: 'text-pink-400' },
+    { icon: Video, label: 'Video & Media', points: '6 storage buckets', detail: 'VBT videos, form analysis, meal photos, progress photos (4 angles)', color: 'text-yellow-400' },
+    { icon: Heart, label: 'Health Connect', points: 'HRV, VO2Max, sleep', detail: 'Heart rate, body fat, sleep phases — wearable integration', color: 'text-red-400' },
+    { icon: Trophy, label: 'Competition', points: '4 tables', detail: 'Attempts, judge decisions, IPF GL / Wilks / Dots / Sinclair scoring', color: 'text-amber-400' },
+    { icon: MessageCircle, label: 'Coach Feedback', points: '5 tables', detail: 'Reviews, set feedback, video annotations, audio notes', color: 'text-indigo-400' },
+    { icon: Gift, label: 'Referral & Social', points: '6 tables', detail: 'Conversion funnel, platform tracking, partner commissions', color: 'text-teal-400' },
+    { icon: Gauge, label: 'Pre-Workout Readiness', points: '6 scores', detail: 'Energy, sleep quality, nutrition, stress — subjective + objective', color: 'text-lime-400' },
+  ]
+
+  const dataTiers = [
+    {
+      tier: 'Tier 1',
+      label: 'Commodity',
+      color: 'from-gray-500 to-gray-600',
+      borderColor: 'border-gray-500/30',
+      bgColor: 'bg-gray-500/10',
+      value: '$5–$25',
+      type: 'Workout logs, calories, steps',
+      prometheus: 'Nutrition logs, basic sets',
+    },
+    {
+      tier: 'Tier 2',
+      label: 'Behavioral',
+      color: 'from-blue-400 to-blue-500',
+      borderColor: 'border-blue-400/30',
+      bgColor: 'bg-blue-400/10',
+      value: '$50–$200',
+      type: 'Adherence patterns, AI chat logs',
+      prometheus: 'AI Coach conversations, engagement data',
+    },
+    {
+      tier: 'Tier 3',
+      label: 'Biometric',
+      color: 'from-accent to-orange-400',
+      borderColor: 'border-accent/30',
+      bgColor: 'bg-accent/10',
+      value: '$50–$500',
+      type: 'HRV, power output, recovery scores',
+      prometheus: 'VBT velocity, readiness, ACWR',
+    },
+    {
+      tier: 'Tier 4',
+      label: 'Biomechanical',
+      color: 'from-purple-400 to-violet-500',
+      borderColor: 'border-purple-400/30',
+      bgColor: 'bg-purple-400/10',
+      value: '$500–$2,000',
+      type: '3D motion capture, swing kinematics',
+      prometheus: 'MOSSE tracking, golf pose, video form analysis',
+      highlight: true,
+    },
+  ]
+
+  const comparables = [
+    { name: 'MyFitnessPal', metric: '$5.94/user', context: 'Acquisition 2015 — food logging only', tier: 1 },
+    { name: 'Peloton', metric: '$443/user', context: 'Implied valuation (public market)', tier: 2 },
+    { name: 'Whoop', metric: '$300/user/yr', context: 'Subscription ARPU + $2K implied (Oura)', tier: 3 },
+    { name: 'TrackMan', metric: '$750M biz', context: 'Golf swing radar data alone', tier: 4 },
+  ]
+
+  const buyerSegments = [
+    { buyer: 'Pharma (GLP-1 Trials)', want: 'Strength adaptation + nutrition compliance', pay: '$75K–$100K/yr license' },
+    { buyer: 'Insurance', want: 'Injury risk prediction', pay: '$1,000+/user incentive' },
+    { buyer: 'AI Companies', want: 'Labeled video + pose training data', pay: '$500K+ for datasets' },
+    { buyer: 'Corporate Wellness', want: 'Employee readiness (Whoop Unite model)', pay: '$300–$500/seat/yr' },
+    { buyer: 'Equipment OEMs', want: 'Aggregated swing/lift biomechanics', pay: 'Research partnerships' },
+    { buyer: 'Sports Federations', want: 'Performance monitoring at scale', pay: 'Government contracts' },
+  ]
+
+  const scenarios = [
+    {
+      label: 'Conservative',
+      desc: 'Subscription + data licensing',
+      color: 'text-gray-400',
+      borderColor: 'border-gray-500/20',
+      tiers: [
+        { users: '10K', value: '$50', monthly: '$42K', annual: '$500K', valuation: '$2.5M' },
+        { users: '100K', value: '$75', monthly: '$625K', annual: '$7.5M', valuation: '$37.5M' },
+        { users: '500K', value: '$90', monthly: '$3.75M', annual: '$45M', valuation: '$225M' },
+        { users: '1M', value: '$100', monthly: '$8.3M', annual: '$100M', valuation: '$500M' },
+      ],
+    },
+    {
+      label: 'Medium',
+      desc: 'B2B data licensing + pharma/insurance',
+      color: 'text-accent',
+      borderColor: 'border-accent/20',
+      tiers: [
+        { users: '10K', value: '$200', monthly: '$167K', annual: '$2M', valuation: '$10M' },
+        { users: '100K', value: '$300', monthly: '$2.5M', annual: '$30M', valuation: '$150M' },
+        { users: '500K', value: '$350', monthly: '$14.6M', annual: '$175M', valuation: '$875M' },
+        { users: '1M', value: '$400', monthly: '$33.3M', annual: '$400M', valuation: '$2B' },
+      ],
+    },
+    {
+      label: 'Aggressive',
+      desc: 'Full biomechanical + AI training data + corporate',
+      color: 'text-purple-400',
+      borderColor: 'border-purple-400/20',
+      tiers: [
+        { users: '10K', value: '$500', monthly: '$417K', annual: '$5M', valuation: '$25M' },
+        { users: '100K', value: '$750', monthly: '$6.25M', annual: '$75M', valuation: '$375M' },
+        { users: '500K', value: '$900', monthly: '$37.5M', annual: '$450M', valuation: '$2.25B' },
+        { users: '1M', value: '$1,000', monthly: '$83.3M', annual: '$1B', valuation: '$5B' },
+      ],
+    },
+  ]
+
+  return (
+    <section id="data-asset" ref={ref} className="py-24 lg:py-32 relative z-10">
+      <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <SectionHeader
+          label="The Data Moat"
+          title="Every User Builds a"
+          titleAccent="200+ Datapoint Asset."
+          subtitle="50+ Supabase tables, 6 storage buckets, and the richest biomechanical dataset in consumer fitness — collected from every user, not just coaches."
+        />
+
+        {/* ── Total Stats ── */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
+          {[
+            { value: '50+', label: 'Database Tables', icon: Database },
+            { value: '200+', label: 'Datapoints/User', icon: Layers },
+            { value: '6', label: 'Storage Buckets', icon: Video },
+            { value: '~65', label: 'VBT Metrics Alone', icon: Activity },
+          ].map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1 + i * 0.1 }}
+              className="text-center p-4 bg-white/[0.03] border border-white/[0.06] rounded-xl"
+            >
+              <s.icon size={20} className="text-accent mx-auto mb-2" />
+              <div className="text-2xl font-extrabold text-white">{s.value}</div>
+              <div className="text-xs text-[#999]">{s.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ── What We Track ── */}
+        <div className="mb-20">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">What We Track</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {dataCategories.map((cat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.2 + i * 0.04 }}
+                className="flex items-start gap-3 p-3 bg-white/[0.02] border border-white/[0.06] rounded-lg hover:border-white/[0.12] transition-colors"
+              >
+                <cat.icon size={16} className={`${cat.color} shrink-0 mt-0.5`} />
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-sm font-semibold text-white">{cat.label}</span>
+                    <span className="text-[10px] text-accent font-medium bg-accent/10 px-1.5 py-0.5 rounded">{cat.points}</span>
+                  </div>
+                  <p className="text-xs text-[#777] mt-0.5">{cat.detail}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Data Value Tiers ── */}
+        <div className="mb-20">
+          <h3 className="text-xl font-bold text-white mb-2 text-center">Data Value by Tier</h3>
+          <p className="text-sm text-[#999] text-center mb-8">Not all fitness data is created equal. Prometheus collects across all four tiers.</p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-8">
+            {dataTiers.map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                onMouseEnter={() => setActiveTier(i)}
+                onMouseLeave={() => setActiveTier(null)}
+                className={`relative p-5 rounded-xl border transition-all duration-300 cursor-default ${
+                  t.highlight
+                    ? `${t.borderColor} ${t.bgColor} shadow-lg shadow-purple-500/10`
+                    : `${t.borderColor} bg-white/[0.02] hover:bg-white/[0.04]`
+                } ${activeTier === i ? 'scale-[1.02] shadow-xl' : ''}`}
+              >
+                {t.highlight && (
+                  <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-purple-500/20 border border-purple-400/30 rounded-full">
+                    <span className="text-[10px] text-purple-400 font-bold uppercase">Prometheus Sweet Spot</span>
+                  </div>
+                )}
+                <div className="mb-3">
+                  <span className={`text-[10px] font-bold uppercase tracking-wider bg-gradient-to-r ${t.color} bg-clip-text text-transparent`}>{t.tier}</span>
+                  <h4 className="text-lg font-bold text-white">{t.label}</h4>
+                </div>
+                <div className="text-2xl font-extrabold text-white mb-3">{t.value}<span className="text-xs text-[#999] font-normal ml-1">/user/yr</span></div>
+                <p className="text-xs text-[#999] mb-1"><span className="text-[#666]">Industry:</span> {t.type}</p>
+                <p className="text-xs text-accent"><span className="text-[#666]">Prometheus:</span> {t.prometheus}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Comparables */}
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            {comparables.map((c, i) => (
+              <div key={i} className="flex items-center gap-2 px-3 py-2 bg-white/[0.03] border border-white/[0.06] rounded-lg">
+                <span className="text-sm font-bold text-white">{c.name}</span>
+                <span className="text-xs text-accent font-semibold">{c.metric}</span>
+                <span className="text-[10px] text-[#666]">{c.context}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Valuation Scenarios ── */}
+        <div className="mb-20">
+          <h3 className="text-xl font-bold text-white mb-2 text-center">Data Asset Valuation Scenarios</h3>
+          <p className="text-sm text-[#999] text-center mb-8">Implied valuation at 5x annual data revenue — conservative by SaaS standards.</p>
+
+          <div className="space-y-6 max-w-5xl mx-auto">
+            {scenarios.map((s, si) => (
+              <motion.div
+                key={si}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.4 + si * 0.15 }}
+                className={`border ${s.borderColor} rounded-xl overflow-hidden`}
+              >
+                <div className="px-5 py-3 bg-white/[0.02] border-b border-white/[0.06] flex items-center justify-between">
+                  <div>
+                    <span className={`text-sm font-bold ${s.color}`}>{s.label}</span>
+                    <span className="text-xs text-[#666] ml-2">{s.desc}</span>
+                  </div>
+                </div>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-white/[0.05]">
+                        <th className="text-left py-2.5 px-5 text-[#999] font-medium text-xs">Users</th>
+                        <th className="text-center py-2.5 px-3 text-[#999] font-medium text-xs">Value/User/Yr</th>
+                        <th className="text-center py-2.5 px-3 text-[#999] font-medium text-xs">Monthly</th>
+                        <th className="text-center py-2.5 px-3 text-[#999] font-medium text-xs">Annual</th>
+                        <th className="text-right py-2.5 px-5 text-[#999] font-medium text-xs">Implied Valuation (5x)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {s.tiers.map((t, ti) => (
+                        <tr key={ti} className={`border-b border-white/[0.03] ${ti === 2 ? 'bg-white/[0.02]' : ''}`}>
+                          <td className="py-2.5 px-5 font-medium text-white">{t.users}</td>
+                          <td className="py-2.5 px-3 text-center text-[#999]">{t.value}</td>
+                          <td className="py-2.5 px-3 text-center text-[#999]">{t.monthly}</td>
+                          <td className="py-2.5 px-3 text-center font-semibold text-white">{t.annual}</td>
+                          <td className={`py-2.5 px-5 text-right font-bold ${s.color}`}>{t.valuation}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Why Prometheus Data Is Uniquely Valuable ── */}
+        <div className="mb-20">
+          <h3 className="text-xl font-bold text-white mb-8 text-center">Why This Data Is Uniquely Valuable</h3>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {[
+              {
+                title: 'Biomechanical data is extremely rare',
+                desc: 'TrackMan built a $750M business on golf radar data alone. Prometheus captures similar kinematics — markerless, via smartphone, without $25K hardware.',
+                icon: Eye,
+                color: 'text-purple-400',
+              },
+              {
+                title: 'VBT data barely exists in consumer fitness',
+                desc: 'GymAware/Perch cost $2K–$3.5K per device and only serve pro sports. Prometheus democratizes this data — longitudinal, AI-linked, with performance outcomes.',
+                icon: Activity,
+                color: 'text-green-400',
+              },
+              {
+                title: 'The combination is unprecedented',
+                desc: 'No other provider has VBT + nutrition (30+ micros) + AI coaching conversations + video form analysis + readiness + competition scoring in one dataset per user.',
+                icon: Database,
+                color: 'text-cyan-400',
+              },
+              {
+                title: 'Exponential value through cross-linking',
+                desc: 'Each data layer makes the others more valuable. Nutrition × VBT × readiness × AI coaching creates a dataset no single-vertical app can replicate.',
+                icon: Layers,
+                color: 'text-accent',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.5 + i * 0.1 }}
+                className="p-5 bg-white/[0.03] border border-white/[0.06] rounded-xl hover:border-white/[0.12] transition-colors"
+              >
+                <item.icon size={20} className={`${item.color} mb-3`} />
+                <h4 className="text-sm font-bold text-white mb-2">{item.title}</h4>
+                <p className="text-xs text-[#999] leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Buyer Segments ── */}
+        <div className="mb-16">
+          <h3 className="text-xl font-bold text-white mb-2 text-center">Concrete Buyer Segments</h3>
+          <p className="text-sm text-[#999] text-center mb-8">Who pays for this data — and what they pay.</p>
+
+          <div className="overflow-x-auto -mx-4 sm:mx-0">
+            <table className="w-full min-w-[600px] text-sm max-w-4xl mx-auto">
+              <thead>
+                <tr className="border-b border-white/[0.08]">
+                  <th className="text-left py-3 px-4 text-[#999] font-medium">Buyer</th>
+                  <th className="text-left py-3 px-4 text-[#999] font-medium">What They Want</th>
+                  <th className="text-right py-3 px-4 text-[#999] font-medium">What They Pay</th>
+                </tr>
+              </thead>
+              <tbody>
+                {buyerSegments.map((b, i) => (
+                  <tr key={i} className="border-b border-white/[0.05]">
+                    <td className="py-3 px-4 font-semibold text-white">{b.buyer}</td>
+                    <td className="py-3 px-4 text-[#999]">{b.want}</td>
+                    <td className="py-3 px-4 text-right text-accent font-medium">{b.pay}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* ── Bottom Line ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.7 }}
+          className="max-w-3xl mx-auto p-8 bg-gradient-to-br from-accent/10 via-purple-500/5 to-transparent border border-accent/20 rounded-2xl text-center"
+        >
+          <Database size={28} className="text-accent mx-auto mb-4" />
+          <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-3">
+            At 1M active users, Prometheus sits on a data asset worth <span className="text-accent">$100M–$1B/year</span>
+          </h3>
+          <p className="text-sm text-[#999] leading-relaxed max-w-xl mx-auto">
+            The decisive lever: Prometheus collects Tier 4 biomechanical data — the most valuable category — on consumer hardware. Something that previously required $2K–$25K professional equipment.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+// ─── 15. The Ask ─────────────────────────────────────────────────────────────────
 
 function TheAskSection() {
   const [ref, isVisible] = useScrollAnimation(0.1)
@@ -2047,6 +2419,7 @@ export default function GrowthPitch() {
           <BusinessModelSection />
           <FlywheelSection />
           <GrowthProjectionSection />
+          <DataAssetSection />
           <TheAskSection />
           <TeamSection />
           <RoadmapSection />
