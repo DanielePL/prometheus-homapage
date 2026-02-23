@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Privacy Policy</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: February 18, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: February 23, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -104,6 +104,32 @@ export default function PrivacyPolicy() {
             <li>Communicate with you about your account or the Service</li>
             <li>Comply with legal obligations</li>
           </ul>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">Anonymized Research &amp; Data Partnerships</h3>
+          <p>
+            We may aggregate and anonymize data collected through the Service and share the
+            resulting datasets with third-party partners, including research institutions,
+            healthcare organizations, pharmaceutical companies, insurance providers, technology
+            companies, and sports organizations. These partnerships serve purposes such as
+            scientific research, product development, clinical studies, biomechanical analysis,
+            AI model training, and health analytics.
+          </p>
+          <p className="mt-3">
+            All anonymization is performed within Prometheus systems prior to any external
+            disclosure. The resulting datasets cannot reasonably be used to identify any
+            individual and therefore do not constitute personal data within the meaning of the
+            GDPR. Our anonymization processes follow industry-standard techniques such as
+            aggregation, generalization, and suppression of identifying attributes.
+          </p>
+          <p className="mt-3">
+            Although the GDPR does not apply to fully anonymized data, we offer you the ability
+            to opt out of having your data included in our anonymization and data partnership
+            pipelines at any time by contacting us at{' '}
+            <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
+              hello@prometheus.coach
+            </a>
+            . Opting out does not affect your ability to use the Service.
+          </p>
         </section>
 
         {/* Legal Basis */}
@@ -114,6 +140,7 @@ export default function PrivacyPolicy() {
             <li><strong className="text-white">Consent:</strong> For health/fitness data processing and camera usage</li>
             <li><strong className="text-white">Legitimate Interest:</strong> Analytics, security, and Service improvement</li>
             <li><strong className="text-white">Legal Obligation:</strong> Tax records, fraud prevention</li>
+            <li><strong className="text-white">Data Partnerships:</strong> Data shared with third-party partners is fully anonymized within Prometheus systems before disclosure and does not constitute personal data under the GDPR. No legal basis under Art. 6 or Art. 9 GDPR is required for these datasets.</li>
           </ul>
         </section>
 
