@@ -17,6 +17,11 @@ import {
   ScanLine,
   Gauge,
   Wifi,
+  Activity,
+  Trophy,
+  Video,
+  PenTool,
+  Dna,
 } from 'lucide-react'
 
 const tabs = [
@@ -25,12 +30,14 @@ const tabs = [
     label: 'Athlete App',
     icon: Smartphone,
     title: 'Prometheus Athlete App',
-    description: 'Your AI-powered training companion that learns, adapts, and evolves with every rep.',
+    description: 'Your AI-powered training companion that learns, adapts, and evolves with every rep — now with full-body motion tracking for rotational sports and a competitive community to push your limits.',
     features: [
       { icon: Bot, text: 'AI coaching & periodization' },
       { icon: Eye, text: 'Real-time VBT barbell velocity analysis via phone camera' },
+      { icon: Activity, text: 'Full-body motion tracking & speed analysis for rotational sports like golf — swing phases, hip/shoulder rotation, X-factor, tempo ratio & more' },
+      { icon: Trophy, text: 'Competition mode with Max Out Friday challenges, leaderboards, XP system & badges' },
+      { icon: Dna, text: 'Biomechanical DNA — your training scored against your sport\'s neuromuscular profile across 6 dimensions' },
       { icon: Utensils, text: 'Nutrition tracking with 4.5M food database' },
-      { icon: TrendingUp, text: 'Progressive overload planning' },
     ],
     mockup: 'phone',
     screens: [
@@ -44,11 +51,13 @@ const tabs = [
     label: 'Coach Software',
     icon: Monitor,
     title: 'Prometheus Coach Software',
-    description: 'Professional-grade tools to manage, program, and analyze your athletes.',
+    description: 'Professional-grade tools to manage, program, and analyze your athletes — now with live video coaching powered by real-time VBT overlays and frame-by-frame annotations.',
     features: [
+      { icon: Video, text: 'Live VBT video call with real-time barbell tracking overlay — velocity, reps, fatigue & tempo displayed on the coach\'s screen' },
+      { icon: PenTool, text: 'Frame-by-frame annotation tools — draw arrows, angles, lines & text directly on captured video frames and share instantly with clients' },
       { icon: Users, text: 'Client management & program design' },
-      { icon: BarChart3, text: 'Progress analytics & reporting' },
-      { icon: Bot, text: 'AI-assisted programming suggestions' },
+      { icon: Dna, text: 'Biomechanical DNA gap analysis — see if your athletes\' training matches their sport\'s demands' },
+      { icon: BarChart3, text: 'Session reviews, exercise cues, voice feedback & progress analytics' },
     ],
     mockup: 'laptop',
     screenshot: '/images/screenshots/coach-dashboard.png',
@@ -73,7 +82,7 @@ const tabs = [
     label: 'Prometheus Lab',
     icon: Eye,
     title: 'Prometheus Lab',
-    description: 'Coaches and gyms deliver training data from the field. Prometheus Lab transforms it into research-grade insights — Load-Velocity Profiles, velocity trends, e1RM estimation, and R² regression analysis. Beyond VBT, it analyzes cross-performance between training, nutrition, and periodization/recovery — then delivers actionable recommendations back so every client reaches their goals faster.',
+    description: 'Every user generates data — every workout, every meal, every rep velocity, every body-tracking skeleton. Athletes, coaches, and enterprises all feed into Prometheus Lab, which transforms millions of data points into research-grade insights: Load-Velocity Profiles, velocity trends, e1RM estimation, and R² regression analysis. Beyond VBT, it analyzes cross-performance between training, nutrition, and periodization/recovery — then delivers actionable recommendations back so every user reaches their goals faster.',
     features: [
       { icon: ScanLine, text: 'Load-Velocity Profile scatter plots per exercise' },
       { icon: TrendingUp, text: 'Velocity trend analysis across sessions' },

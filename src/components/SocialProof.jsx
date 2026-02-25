@@ -2,9 +2,9 @@ import { useScrollAnimation, useCountUp } from '../hooks/useScrollAnimation'
 
 const stats = [
   { end: 1200, suffix: '+', label: 'Exercises' },
-  { end: 135, suffix: '+', label: 'Sports Supported' },
+  { end: 92, suffix: '', label: 'Sports Biomechanically Mapped' },
   { end: 4.5, suffix: 'M+', label: 'Foods Database', decimal: true },
-  { label: 'Computer Vision Barbell Tracking', text: true },
+  { label: 'CV Barbell + Body Motion Tracking', text: true },
 ]
 
 function StatItem({ stat, isVisible }) {

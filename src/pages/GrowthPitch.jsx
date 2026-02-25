@@ -1620,13 +1620,13 @@ function DataAssetSection() {
           label="The Data Moat"
           title="Every User Builds a"
           titleAccent="200+ Datapoint Asset."
-          subtitle="50+ Supabase tables, 6 storage buckets, and the richest biomechanical dataset in consumer fitness — collected from every user, not just coaches."
+          subtitle="227 Supabase tables, 23 database functions, 6 storage buckets, and the richest biomechanical dataset in consumer fitness — collected from every user, not just coaches."
         />
 
         {/* ── Total Stats ── */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           {[
-            { value: '50+', label: 'Database Tables', icon: Database },
+            { value: '227', label: 'Database Tables', icon: Database },
             { value: '200+', label: 'Datapoints/User', icon: Layers },
             { value: '6', label: 'Storage Buckets', icon: Video },
             { value: '~65', label: 'VBT Metrics Alone', icon: Activity },
@@ -1721,7 +1721,8 @@ function DataAssetSection() {
         {/* ── Valuation Scenarios ── */}
         <div className="mb-20">
           <h3 className="text-xl font-bold text-white mb-2 text-center">Data Asset Valuation Scenarios</h3>
-          <p className="text-sm text-[#999] text-center mb-8">Implied valuation at 5x annual data revenue — conservative by SaaS standards.</p>
+          <p className="text-sm text-[#999] text-center mb-2">Implied valuation at 5x annual data revenue — conservative by SaaS standards.</p>
+          <p className="text-xs text-[#666] text-center mb-8 italic">Value/User/Yr reflects blended subscription and data licensing revenue at target scale.</p>
 
           <div className="space-y-6 max-w-5xl mx-auto">
             {scenarios.map((s, si) => (

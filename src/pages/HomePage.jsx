@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import SocialProof from '../components/SocialProof'
 import ProductShowcase from '../components/ProductShowcase'
+import BiomechanicalDNA from '../components/BiomechanicalDNA'
 import PrometheusLab from '../components/PrometheusLab'
 import Chameleon from '../components/Chameleon'
 import FreeTrial from '../components/FreeTrial'
@@ -29,6 +30,7 @@ export default function HomePage() {
         <Hero />
         <SocialProof />
         <ProductShowcase />
+        <BiomechanicalDNA />
         {/* <PrometheusLab /> */}
 
         {/* Cinematic background divider — gym phone */}

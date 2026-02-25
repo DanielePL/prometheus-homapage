@@ -101,7 +101,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-[#999] leading-relaxed mb-8 max-w-xl">
-              Prometheus combines AI coaching, velocity-based training, and sports science into one
+              Prometheus combines AI coaching, velocity-based training, full-body motion tracking, and sports science into one
               powerful ecosystem — built by scientists and world-class athletes.
             </p>
 
@@ -139,17 +139,21 @@ export default function Hero() {
                 />
               </div>
               {/* Floating badges */}
-              <div className="absolute -left-16 xl:-left-20 top-20 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite] hidden lg:block">
+              <div className="absolute -left-16 xl:-left-20 top-16 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite] hidden lg:block">
                 <span className="text-accent font-semibold">AI Coach</span>
                 <span className="text-[#999] ml-1">Active</span>
               </div>
-              <div className="absolute -right-12 xl:-right-16 top-40 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_1s] hidden lg:block">
+              <div className="absolute -right-12 xl:-right-16 top-32 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_1s] hidden lg:block">
                 <span className="text-accent font-semibold">VBT</span>
                 <span className="text-[#999] ml-1">0.85 m/s</span>
               </div>
-              <div className="absolute -left-8 xl:-left-12 bottom-32 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_0.5s] hidden lg:block">
-                <span className="text-green-400 font-semibold">+12%</span>
-                <span className="text-[#999] ml-1">Progress</span>
+              <div className="absolute -left-20 xl:-left-24 top-52 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_0.5s] hidden lg:block">
+                <span className="text-green-400 font-semibold">Motion</span>
+                <span className="text-[#999] ml-1">Tracking</span>
+              </div>
+              <div className="absolute -right-16 xl:-right-20 bottom-40 px-3 py-2 bg-dark-card/90 backdrop-blur border border-dark-border rounded-xl text-xs animate-[float_3s_ease-in-out_infinite_1.5s] hidden lg:block">
+                <span className="text-yellow-400 font-semibold">Competition</span>
+                <span className="text-[#999] ml-1">Live</span>
               </div>
             </div>
           </motion.div>
