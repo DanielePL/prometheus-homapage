@@ -40,6 +40,11 @@ import {
   Layers,
   Dumbbell,
   Heart,
+  Megaphone,
+  Handshake,
+  Globe,
+  UserPlus,
+  CircleDollarSign,
 } from 'lucide-react'
 
 const ACCESS_CODE = 'PROMETHEUS2026'
@@ -1017,21 +1022,22 @@ function CommandCenterSection() {
 function WhyWeWinSection() {
   const moats = [
     { icon: Eye, gradient: 'from-accent to-orange-400', title: 'On-Device VBT', desc: 'Science-grade velocity tracking via phone camera — no hardware, no Bluetooth, no competition.' },
+    { icon: Video, gradient: 'from-blue-400 to-indigo-500', title: 'Live VBT Video Coaching', desc: 'World\'s first: built-in video calls with real-time barbell tracking overlay, pose skeleton, and frame-by-frame annotation. No one else has this.' },
     { icon: Brain, gradient: 'from-[#F39C12] to-[#E67E22]', title: 'AI Coaching Engine', desc: 'Five simultaneous data sources feeding one adaptive coaching model — a compounding intelligence advantage.' },
     { icon: Database, gradient: 'from-cyan-400 to-teal-500', title: 'Community Data Moat', desc: 'Every user makes the platform smarter — a self-reinforcing data network that can\'t be bought or replicated.' },
     { icon: Trophy, gradient: 'from-yellow-400 to-amber-500', title: 'Engagement Lock-In', desc: 'Switching costs compound with every badge, challenge, and social connection — retention by design.' },
   ]
 
-  const features = ['AI Coach', 'Individual Plans', 'VBT', 'No Hardware', 'Nutrition + Scanner', 'Shopping Lists', 'Community', 'Wearables', 'Coach Tools', 'Enterprise']
+  const features = ['AI Coach', 'Individual Plans', 'VBT', 'No Hardware', 'Live VBT Video Call', 'Nutrition + Scanner', 'Shopping Lists', 'Community', 'Wearables', 'Coach Tools', 'Enterprise']
   const competitors = [
-    { name: 'Prometheus', checks: [true, true, true, true, true, true, true, true, true, true], highlight: true },
-    { name: 'Strong', checks: [false, false, false, true, false, false, false, false, false, false] },
-    { name: 'Hevy', checks: [false, false, false, true, false, false, true, false, false, false] },
-    { name: 'Fitbod', checks: [true, true, false, true, false, false, false, true, false, false], note: 'ML-based, not conversational AI' },
-    { name: 'TrainHeroic', checks: [false, false, false, true, false, false, false, false, true, false] },
-    { name: 'Metric VBT', checks: [false, false, true, true, false, false, false, true, true, false] },
-    { name: 'RepCount', checks: [false, false, false, false, false, false, false, false, false, false] },
-    { name: 'MyFitnessPal', checks: [false, false, false, true, true, false, true, false, false, false] },
+    { name: 'Prometheus', checks: [true, true, true, true, true, true, true, true, true, true, true], highlight: true },
+    { name: 'Strong', checks: [false, false, false, true, false, false, false, false, false, false, false] },
+    { name: 'Hevy', checks: [false, false, false, true, false, false, false, true, false, false, false] },
+    { name: 'Fitbod', checks: [true, true, false, true, false, false, false, false, true, false, false], note: 'ML-based, not conversational AI' },
+    { name: 'TrainHeroic', checks: [false, false, false, true, false, false, false, false, false, true, false] },
+    { name: 'Metric VBT', checks: [false, false, true, true, false, false, false, false, true, true, false] },
+    { name: 'RepCount', checks: [false, false, false, false, false, false, false, false, false, false, false] },
+    { name: 'MyFitnessPal', checks: [false, false, false, true, false, true, false, true, false, false, false] },
   ]
 
   return (
@@ -1043,7 +1049,7 @@ function WhyWeWinSection() {
       />
 
       {/* Moat Pillars — compact */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-16">
         {moats.map((m, i) => (
           <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <div className={`h-1 bg-gradient-to-r ${m.gradient}`} />
@@ -1379,6 +1385,159 @@ function FlywheelSection() {
             Three self-reinforcing loops — each one accelerates the others. More users generate more data, better AI drives retention, and community engagement fuels organic growth. <span className="text-white font-medium">A compounding moat that widens with every session.</span>
           </p>
         </div>
+      </div>
+    </Section>
+  )
+}
+
+// ─── 12b. Go-to-Market & Partner Network ─────────────────────────────────────
+
+function GoToMarketSection() {
+  const partners = [
+    { name: 'Julia Föry', handle: '@juliafoery', followers: '119K', role: 'Promo Influencer', detail: 'IFBB Pro', color: 'text-pink-400', tier: 'influencer' },
+    { name: 'Manuel Schiltknecht', handle: '@manustatic993', followers: '34.1K', role: 'Founding Coach + Promo Influencer', detail: 'Calisthenics / Street Workout', color: 'text-green-400', tier: 'multi' },
+    { name: 'Bardogs Zürich', handle: '@bardogs_zuerich', followers: '11.7K', role: 'Founding Gym + Promoter', detail: 'Street Workout Family, Zürich', color: 'text-purple-400', tier: 'gym' },
+    { name: 'Maria Htee', handle: '@maria_htee', followers: '14.6K', role: 'Founding Coach + Influencer', detail: 'Powerlifting, Thailand', color: 'text-accent', tier: 'coach' },
+    { name: 'Rolf Fongué', handle: '@r.m.fongue', followers: '7.9K', role: 'Founding Coach + Influencer', detail: 'Football Speed Coach, Ex-Pro Sprinter', color: 'text-blue-400', tier: 'coach' },
+    { name: 'Nextlevel Sports Club', handle: '@nextlevel_sportsclub', followers: '5.4K', role: 'Founding Gym + Coaches', detail: 'Premium PT & Group Classes, Zürich', color: 'text-purple-400', tier: 'gym' },
+    { name: 'Daniele Pauli', handle: '@paulidaniele', followers: '3.7K', role: 'CEO + Promo Influencer', detail: 'World Champ Powerlifter, Strength Wars 4.5M+', color: 'text-accent', tier: 'founder' },
+    { name: 'Chloé Borge', handle: '@chloeborge', followers: '2.9K', role: 'Ambassador + Influencer + Early Investor', detail: 'Tutorial Videos, Women 40+ Coaching', color: 'text-rose-400', tier: 'ambassador' },
+    { name: 'Flurina', handle: '@flurinaaf', followers: '1K', role: 'Ambassador', detail: 'Olympic Lifting, Session Promo Videos', color: 'text-cyan-400', tier: 'ambassador' },
+    { name: 'Hirschkraft', handle: '@hirschkraft', followers: '545', role: 'Founding Gym + Coaches', detail: 'Sportverein, Freienbach SZ', color: 'text-emerald-400', tier: 'gym' },
+    { name: 'TigerFitness', handle: '@tigerfitness.ch', followers: '324', role: 'Equipment Partner', detail: 'Indoor/Outdoor Gym Builder since 2017', color: 'text-yellow-400', tier: 'equipment' },
+  ]
+
+  const channels = [
+    {
+      icon: UserPlus,
+      title: 'Founding Coach Program',
+      desc: '100 online coaches get free access to the Coach Web App. Each coach brings 10–50 athletes. Viral B2B2C growth at zero CAC.',
+      metric: '100 coaches → 1,000–5,000 athletes',
+      color: 'text-accent',
+      borderColor: 'border-accent/20',
+    },
+    {
+      icon: Handshake,
+      title: 'Partner Referral Network',
+      desc: 'Business partners onboard coaches and gyms for 20% recurring commission. Self-sustaining sales channel that scales without headcount.',
+      metric: '20% recurring lifetime commission',
+      color: 'text-blue-400',
+      borderColor: 'border-blue-400/20',
+    },
+    {
+      icon: Megaphone,
+      title: 'Influencer & Ambassador Program',
+      desc: 'Athletes with real audiences promote Prometheus authentically. From IFBB Pros (119K) to niche calisthenics creators — credibility over reach.',
+      metric: '216K+ combined reach at launch',
+      color: 'text-pink-400',
+      borderColor: 'border-pink-400/20',
+    },
+    {
+      icon: Globe,
+      title: 'Golf Market Entry — Asia',
+      desc: 'Sponsorship deals with top young golf talent: Kartik Singh (India, turned pro at 16) and Teerawut Boonseeor (Thailand, top 5 age category, national team). 50% commission — Prometheus grows with them.',
+      metric: 'Contracts in final negotiation',
+      color: 'text-green-400',
+      borderColor: 'border-green-400/20',
+    },
+  ]
+
+  return (
+    <Section id="go-to-market" className="bg-white/[0.01]">
+      <SectionHeader
+        label="Go-to-Market"
+        title="Where the Users"
+        titleAccent="Come From."
+        subtitle="A multi-channel acquisition engine built on real partnerships — not just ad spend. Every channel reinforces the others."
+      />
+
+      {/* Acquisition Channels */}
+      <div className="grid md:grid-cols-2 gap-6 mb-16 max-w-5xl mx-auto">
+        {channels.map((ch, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 + i * 0.1 }}
+            className={`bg-white/[0.04] backdrop-blur-xl border ${ch.borderColor} rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.2)] hover:bg-white/[0.06] transition-all duration-300`}
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className={`w-10 h-10 bg-white/[0.04] border ${ch.borderColor} rounded-xl flex items-center justify-center`}>
+                <ch.icon size={20} className={ch.color} />
+              </div>
+              <h4 className="font-bold text-white text-sm">{ch.title}</h4>
+            </div>
+            <p className="text-[#999] text-sm leading-relaxed mb-3">{ch.desc}</p>
+            <div className={`text-xs font-semibold ${ch.color}`}>{ch.metric}</div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Partner Network Table */}
+      <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] max-w-5xl mx-auto mb-12">
+        <div className="flex items-center justify-between mb-1">
+          <h3 className="font-['Arimo'] font-bold uppercase text-lg">Launch Partner Network</h3>
+          <span className="text-accent font-extrabold font-['Arimo']">216K+ Reach</span>
+        </div>
+        <p className="text-[#999] text-xs mb-6">Signed and active — ready for launch day</p>
+
+        <div className="space-y-2">
+          {partners.map((p, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 + i * 0.05 }}
+              className="flex items-center justify-between py-2.5 px-4 rounded-xl border border-white/[0.06] hover:border-white/[0.12] transition-all"
+            >
+              <div className="flex items-center gap-3 min-w-0">
+                <div className={`w-2 h-2 rounded-full shrink-0 ${
+                  p.tier === 'influencer' ? 'bg-pink-400' :
+                  p.tier === 'coach' ? 'bg-accent' :
+                  p.tier === 'gym' ? 'bg-purple-400' :
+                  p.tier === 'ambassador' ? 'bg-cyan-400' :
+                  p.tier === 'founder' ? 'bg-accent' :
+                  p.tier === 'multi' ? 'bg-green-400' :
+                  'bg-yellow-400'
+                }`} />
+                <div className="min-w-0">
+                  <span className="text-white text-sm font-medium">{p.name}</span>
+                  <span className="text-[#666] text-xs ml-2 hidden sm:inline">{p.handle}</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 shrink-0">
+                <span className="text-[#666] text-xs hidden md:block whitespace-nowrap">{p.role}</span>
+                <span className={`font-bold text-sm ${p.color}`}>{p.followers}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Legend */}
+        <div className="mt-4 pt-4 border-t border-white/[0.06] flex flex-wrap gap-4">
+          {[
+            { color: 'bg-pink-400', label: 'Influencer' },
+            { color: 'bg-accent', label: 'Founding Coach' },
+            { color: 'bg-purple-400', label: 'Founding Gym' },
+            { color: 'bg-cyan-400', label: 'Ambassador' },
+            { color: 'bg-green-400', label: 'Multi-Role' },
+            { color: 'bg-yellow-400', label: 'Equipment' },
+          ].map((l, i) => (
+            <div key={i} className="flex items-center gap-1.5">
+              <div className={`w-2 h-2 rounded-full ${l.color}`} />
+              <span className="text-[#666] text-[10px]">{l.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Growth Flywheel Summary */}
+      <div className="text-center max-w-3xl mx-auto">
+        <p className="text-[#999] text-sm leading-relaxed">
+          <span className="text-white font-medium">The growth engine is already running.</span> Coaches onboard athletes. Athletes invite athletes. Gyms bring entire communities. Partners earn recurring revenue and keep selling. Every channel feeds the next — and none of them require a sales team.
+        </p>
       </div>
     </Section>
   )
@@ -1883,11 +2042,20 @@ function TheAskSection() {
 
   // Investment allocation ($1M)
   const investmentFunds = [
+    { label: 'Paid Ads & Marketing', amount: '$400K', pct: 40, desc: 'Meta, Google, YouTube — ~$22K/mo', color: 'bg-blue-400' },
     { label: 'Team & Operations', amount: '$365K', pct: 36, desc: '4 people × 18mo + infra', color: 'bg-accent' },
-    { label: 'Marketing & Ads', amount: '$300K', pct: 30, desc: 'Paid acquisition, launch campaigns', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: '$180K', pct: 18, desc: 'Gyms, trade shows, partnerships', color: 'bg-purple-400' },
+    { label: 'Field Sales & Events', amount: '$130K', pct: 13, desc: 'Gyms, trade shows, partnerships', color: 'bg-purple-400' },
     { label: 'Tech & Scaling', amount: '$55K', pct: 6, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
-    { label: 'Risk Reserve', amount: '$100K', pct: 10, desc: 'Buffer for market volatility', color: 'bg-yellow-400' },
+    { label: 'Risk Reserve', amount: '$50K', pct: 5, desc: 'Buffer for volatility', color: 'bg-yellow-400' },
+  ]
+
+  // Combined marketing budget: $400K (investment) + $216K (revenue reinvestment) = $616K
+  const marketingBudget = [
+    { label: 'Meta Ads (Instagram & Facebook)', amount: '$277K', pct: 45, color: 'bg-blue-400' },
+    { label: 'Google & YouTube Ads', amount: '$154K', pct: 25, color: 'bg-red-400' },
+    { label: 'Influencer Partnerships', amount: '$92K', pct: 15, color: 'bg-pink-400' },
+    { label: 'Content Production', amount: '$62K', pct: 10, color: 'bg-cyan-400' },
+    { label: 'Events & Sponsoring', amount: '$31K', pct: 5, color: 'bg-purple-400' },
   ]
 
   // Tranche model
@@ -1923,12 +2091,12 @@ function TheAskSection() {
   ]
 
   // Revenue reinvestment model (conservative: ~$600K cumulative over 18mo, S-curve from $0→$74K MRR)
+  // 60% of revenue reinvested = $360K, predominantly into ads
   const revenueAllocation = [
-    { label: 'Performance Marketing', amount: '$108K', pct: 30, desc: 'Paid acquisition, retargeting', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: '$72K', pct: 20, desc: 'Gym visits, trade shows, Messen', color: 'bg-purple-400' },
+    { label: 'Paid Ads & Retargeting', amount: '$216K', pct: 60, desc: '60% of reinvestment into ads', color: 'bg-blue-400' },
+    { label: 'Field Sales & Events', amount: '$54K', pct: 15, desc: 'Gym visits, trade shows', color: 'bg-purple-400' },
     { label: 'Content & Influencer', amount: '$36K', pct: 10, desc: 'Creator partnerships', color: 'bg-pink-400' },
     { label: 'Risk Reserve', amount: '$54K', pct: 15, desc: 'Buffer for volatility', color: 'bg-yellow-400' },
-    { label: 'Ops Contribution', amount: '$90K', pct: 25, desc: 'Extends runway beyond deployment', color: 'bg-accent/50' },
   ]
 
   const milestones = [
@@ -1945,7 +2113,7 @@ function TheAskSection() {
           label="The Ask"
           title="Seed Round."
           titleAccent="SAFE Note."
-          subtitle="$1M in milestone-based tranches — capital deployed as traction is proven. $20K/mo burn gives 50+ months of pure runway. Revenue reinvestment creates a $840K+ total growth budget."
+          subtitle="$1M in milestone-based tranches — capital deployed as traction is proven. $20K/mo burn gives 50+ months of pure runway. Revenue reinvestment creates a $890K+ total growth budget."
         />
 
         {/* Key Numbers Banner */}
@@ -1954,7 +2122,7 @@ function TheAskSection() {
             { value: '$20K', label: 'Monthly Burn', desc: 'Team of 4 + infrastructure' },
             { value: '50+ Mo', label: 'Pure Runway', desc: 'On burn alone, before revenue' },
             { value: '4 Tranches', label: 'Milestone-Based', desc: 'Capital tied to traction' },
-            { value: '$840K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
+            { value: '$890K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
           ].map((m, i) => (
             <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-4 text-center shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
               <div className="text-xl font-extrabold text-accent font-['Arimo'] mb-0.5">{m.value}</div>
@@ -2101,6 +2269,46 @@ function TheAskSection() {
           </div>
         </div>
 
+        {/* Marketing Channel Breakdown */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-blue-400/20 rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-12">
+          <div className="flex items-center justify-between mb-1">
+            <h3 className="font-['Arimo'] font-bold uppercase text-lg">Marketing Channel Mix</h3>
+            <span className="text-blue-400 font-extrabold font-['Arimo']">$616K</span>
+          </div>
+          <p className="text-[#999] text-xs mb-6">$400K from investment + $216K from revenue reinvestment — deployed across proven channels</p>
+
+          <div className="flex rounded-full h-3 overflow-hidden mb-5">
+            {marketingBudget.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ width: 0 }}
+                animate={isVisible ? { width: `${f.pct}%` } : {}}
+                transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
+                className={`${f.color} ${i === 0 ? 'rounded-l-full' : ''} ${i === marketingBudget.length - 1 ? 'rounded-r-full' : ''}`}
+              />
+            ))}
+          </div>
+
+          <div className="space-y-3">
+            {marketingBudget.map((f, i) => (
+              <div key={i} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className={`w-2.5 h-2.5 rounded-full ${f.color}`} />
+                  <span className="text-white text-sm font-medium">{f.label}</span>
+                </div>
+                <div className="text-right flex items-center gap-2">
+                  <span className="text-white font-bold text-sm">{f.amount}</span>
+                  <span className="text-[#666] text-xs w-8 text-right">{f.pct}%</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 pt-4 border-t border-white/[0.06] text-xs text-[#666]">
+            ~$34K/mo blended across all channels — scaling with revenue milestones
+          </div>
+        </div>
+
         {/* Revenue Reinvestment Model */}
         <div className="bg-white/[0.04] backdrop-blur-xl border border-accent/20 rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-12">
           <div className="h-1 bg-gradient-to-r from-accent to-blue-400 rounded-full -mt-6 mb-6 mx-[-1.5rem] sm:mx-[-2rem]" style={{ marginTop: '-2rem', borderRadius: '1rem 1rem 0 0', marginLeft: '-1px', marginRight: '-1px' }} />
@@ -2109,8 +2317,8 @@ function TheAskSection() {
             <span className="text-accent text-xs font-semibold uppercase tracking-wider">The Compound Effect</span>
           </div>
           <p className="text-[#999] text-sm mb-8 max-w-3xl">
-            60% of all revenue flows directly back into growth. Conservative estimate: ~$600K cumulative revenue over 18 months (S-curve from $0 to $74K MRR).
-            60% reinvested = $360K. Combined with $480K marketing & sales allocation from investment, this creates a <span className="text-white font-medium">$840K+ total growth budget</span>.
+            60% of all revenue flows directly back into growth — predominantly ads. Conservative estimate: ~$600K cumulative revenue over 18 months (S-curve from $0 to $74K MRR).
+            60% reinvested = $360K. Combined with $530K marketing & sales allocation from investment, this creates a <span className="text-white font-medium">$890K+ total growth budget</span>.
           </p>
 
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-start">
@@ -2155,8 +2363,8 @@ function TheAskSection() {
             <div className="space-y-4">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#999] mb-4">Total 18-Month Spend Power</h4>
               {[
-                { label: 'Marketing & Ads', from: '$300K', plus: '$108K', total: '$408K', color: 'text-blue-400' },
-                { label: 'Field Sales & Travel', from: '$180K', plus: '$72K', total: '$252K', color: 'text-purple-400' },
+                { label: 'Marketing & Ads', from: '$400K', plus: '$216K', total: '$616K', color: 'text-blue-400' },
+                { label: 'Field Sales & Events', from: '$130K', plus: '$54K', total: '$184K', color: 'text-purple-400' },
                 { label: 'Content & Influencer', from: '—', plus: '$36K', total: '$36K', color: 'text-pink-400' },
               ].map((t, i) => (
                 <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3">
@@ -2172,9 +2380,9 @@ function TheAskSection() {
               <div className="bg-accent/[0.1] border border-accent/25 rounded-xl p-3 mt-2">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-white">Total Growth Budget</span>
-                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$840K+</span>
+                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$890K+</span>
                 </div>
-                <div className="text-[11px] text-accent/70">$480K from investment allocation + $360K from revenue reinvestment</div>
+                <div className="text-[11px] text-accent/70">$530K from investment + $360K from revenue reinvestment</div>
               </div>
             </div>
           </div>
@@ -2240,6 +2448,7 @@ function TeamSection() {
     { name: 'Karin Känel', title: 'Executive Assistant & Project Manager', bio: '2× Swiss Champion U15/U17 Handball, 1× Vice Champion. Golf handicap 1. Trained Polymechanikerin (EFZ) with precision scientific instrumentation experience. Certified Technische Kauffrau — engineering discipline meets business acumen.', gradient: 'from-purple-400 to-violet-500', image: '/images/team/karin-kaenel.png' },
     { name: 'Sascha Tarone', title: 'Advisor & Early Investor', bio: 'Versatile entrepreneur with 20 years in financial analytics. Strategic consultant and early investor shaping Prometheus from business model to exit strategy.', gradient: 'from-cyan-400 to-teal-500', badge: true, image: '/images/team/sascha-tarone.png' },
     { name: 'Dr. Kevin Uram', title: 'Early Investor & Technical Advisor', bio: 'Physical Chemistry (University of Pittsburgh), former IBM Senior Technical Staff Member (12+ years), Managing Director at Lumileds semiconductor manufacturing (11+ years). Holds multiple US patents.', gradient: 'from-rose-400 to-pink-500', badge: true, image: '/images/team/kevin-uram.png' },
+    { name: 'Chloe Borge', title: 'Ambassador & Master Athletics Lead', bio: 'Early investor who recognized Prometheus\'s potential from the start. Master\'s in Hospitality from a prestigious French school. 23 years full-contact Shotokan Karate — 3rd Dan, French National Team. Freestyle snowboarder, surfer, multiple-time 3rd place in France\'s and Switzerland\'s Fittest CrossFit Masters. 20 years at Vacheron Constantin in quality control. Founder of True You Coaching.', gradient: 'from-amber-400 to-yellow-500', badge: true, image: '/images/team/chloe-borge.png' },
   ]
 
   return (
@@ -2267,7 +2476,7 @@ function TeamSection() {
         {team.map((m, i) => <TeamCard key={i} m={m} />)}
       </div>
 
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {extended.map((m, i) => <TeamCard key={i} m={m} />)}
       </div>
 
@@ -2481,6 +2690,7 @@ export default function GrowthPitch() {
           <MarketSection />
           <BusinessModelSection />
           <FlywheelSection />
+          <GoToMarketSection />
           <GrowthProjectionSection />
           <DataAssetSection />
           <TheAskSection />
