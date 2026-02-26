@@ -6,12 +6,14 @@ import TermsOfService from './pages/TermsOfService'
 import Impressum from './pages/Impressum'
 import Goodbye from './pages/Goodbye'
 import GrowthPitch from './pages/GrowthPitch'
+import AuthCallback from './pages/AuthCallback'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/growth" element={<GrowthPitch />} />
+      <Route path="/auth/callback" element={<AuthCallback />} />
       <Route element={<LegalLayout />}>
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
