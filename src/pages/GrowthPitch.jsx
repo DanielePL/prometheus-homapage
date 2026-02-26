@@ -241,7 +241,7 @@ function HeroSection() {
           </h1>
 
           <p className="text-[#999] text-lg sm:text-xl max-w-3xl mx-auto mb-16 leading-relaxed">
-            The first platform that unifies AI Coaching, Computer Vision Barbell Tracking, Nutrition, Community, and Wearables — from golfer to weightlifter, no extra hardware required.
+            The first platform that unifies AI Coaching, Computer Vision Barbell Tracking, Full-Body Motion Tracking, Nutrition, Community, and Wearables — from golfer to weightlifter, no extra hardware required.
           </p>
 
         </motion.div>
@@ -1878,26 +1878,57 @@ function TheAskSection() {
     { role: 'CEO & Founder', name: 'Daniele Pauli', monthly: '$7.5K', annual: '$90K' },
     { role: 'COO', name: 'Sjoerd Joosten', monthly: '$6.7K', annual: '$80K' },
     { role: 'EA & PM (30%)', name: 'Karin Känel', monthly: '$3.0K', annual: '$36K' },
-    { role: 'Senior Developer', name: 'New hire', monthly: '$5.5K', annual: '$66K', hire: true },
-    { role: 'Senior Developer', name: 'New hire', monthly: '$5.5K', annual: '$66K', hire: true },
-    { role: 'Mid Developer', name: 'New hire', monthly: '$4.5K', annual: '$54K', hire: true },
+    { role: 'CTO / Sr. Developer (30%)', name: 'New hire', monthly: '$2.6K', annual: '$31.5K', hire: true },
   ]
 
   // Investment allocation ($1M)
   const investmentFunds = [
-    { label: 'Team & Operations', amount: '$680K', pct: 68, desc: '6 people × 18mo + cloud/tools', color: 'bg-accent' },
-    { label: 'Marketing', amount: '$150K', pct: 15, desc: 'Paid acquisition, launch campaigns', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: '$100K', pct: 10, desc: 'Gyms, trade shows, partnerships', color: 'bg-purple-400' },
-    { label: 'Tech & Infra', amount: '$70K', pct: 7, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
+    { label: 'Team & Operations', amount: '$365K', pct: 36, desc: '4 people × 18mo + infra', color: 'bg-accent' },
+    { label: 'Marketing & Ads', amount: '$300K', pct: 30, desc: 'Paid acquisition, launch campaigns', color: 'bg-blue-400' },
+    { label: 'Field Sales & Travel', amount: '$180K', pct: 18, desc: 'Gyms, trade shows, partnerships', color: 'bg-purple-400' },
+    { label: 'Tech & Scaling', amount: '$55K', pct: 6, desc: 'Servers, APIs, App Stores', color: 'bg-green-400' },
+    { label: 'Risk Reserve', amount: '$100K', pct: 10, desc: 'Buffer for market volatility', color: 'bg-yellow-400' },
+  ]
+
+  // Tranche model
+  const tranches = [
+    {
+      label: 'Tranche 1',
+      timing: 'Day 0',
+      amount: '$250K',
+      milestones: 'Product live on Play Store, first 500 users, first revenue',
+      color: 'border-accent/30 bg-accent/[0.06]',
+    },
+    {
+      label: 'Tranche 2',
+      timing: 'Month 6',
+      amount: '$250K',
+      milestones: '2,000 users, $10K MRR, 50 coaches onboarded',
+      color: 'border-blue-400/30 bg-blue-400/[0.06]',
+    },
+    {
+      label: 'Tranche 3',
+      timing: 'Month 12',
+      amount: '$300K',
+      milestones: '5,000 users, $40K MRR, 100 coaches, enterprise pilots',
+      color: 'border-purple-400/30 bg-purple-400/[0.06]',
+    },
+    {
+      label: 'Tranche 4',
+      timing: 'Month 18',
+      amount: '$200K',
+      milestones: '8,000 users, $74K MRR, 150 coaches, ARR run-rate $888K',
+      color: 'border-green-400/30 bg-green-400/[0.06]',
+    },
   ]
 
   // Revenue reinvestment model (conservative: ~$600K cumulative over 18mo, S-curve from $0→$74K MRR)
   const revenueAllocation = [
-    { label: 'Performance Marketing', amount: '$180K', pct: 30, desc: 'Paid acquisition, retargeting', color: 'bg-blue-400' },
-    { label: 'Field Sales & Travel', amount: '$120K', pct: 20, desc: 'Gym visits, trade shows, Messen', color: 'bg-purple-400' },
-    { label: 'Content & Influencer', amount: '$60K', pct: 10, desc: 'Creator partnerships', color: 'bg-pink-400' },
-    { label: 'Risk Reserve', amount: '$90K', pct: 15, desc: 'Buffer for volatility', color: 'bg-yellow-400' },
-    { label: 'Ops Contribution', amount: '$150K', pct: 25, desc: 'Extends runway beyond 24 months', color: 'bg-accent/50' },
+    { label: 'Performance Marketing', amount: '$108K', pct: 30, desc: 'Paid acquisition, retargeting', color: 'bg-blue-400' },
+    { label: 'Field Sales & Travel', amount: '$72K', pct: 20, desc: 'Gym visits, trade shows, Messen', color: 'bg-purple-400' },
+    { label: 'Content & Influencer', amount: '$36K', pct: 10, desc: 'Creator partnerships', color: 'bg-pink-400' },
+    { label: 'Risk Reserve', amount: '$54K', pct: 15, desc: 'Buffer for volatility', color: 'bg-yellow-400' },
+    { label: 'Ops Contribution', amount: '$90K', pct: 25, desc: 'Extends runway beyond deployment', color: 'bg-accent/50' },
   ]
 
   const milestones = [
@@ -1914,16 +1945,16 @@ function TheAskSection() {
           label="The Ask"
           title="Seed Round."
           titleAccent="SAFE Note."
-          subtitle="$1M to build the team, scale the product, and capture the market. Revenue reinvestment creates a $610K+ growth budget on top."
+          subtitle="$1M in milestone-based tranches — capital deployed as traction is proven. $20K/mo burn gives 50+ months of pure runway. Revenue reinvestment creates a $840K+ total growth budget."
         />
 
         {/* Key Numbers Banner */}
         <div className="grid sm:grid-cols-4 gap-4 mb-12">
           {[
-            { value: '$38K', label: 'Monthly Burn', desc: 'Team of 6 + infrastructure' },
-            { value: '24+ Mo', label: 'Runway', desc: 'At $1M + revenue' },
-            { value: '60%', label: 'Revenue → Growth', desc: 'Reinvested into expansion' },
-            { value: '$610K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
+            { value: '$20K', label: 'Monthly Burn', desc: 'Team of 4 + infrastructure' },
+            { value: '50+ Mo', label: 'Pure Runway', desc: 'On burn alone, before revenue' },
+            { value: '4 Tranches', label: 'Milestone-Based', desc: 'Capital tied to traction' },
+            { value: '$840K+', label: 'Total Growth Budget', desc: 'Investment + revenue' },
           ].map((m, i) => (
             <div key={i} className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-4 text-center shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
               <div className="text-xl font-extrabold text-accent font-['Arimo'] mb-0.5">{m.value}</div>
@@ -1959,40 +1990,32 @@ function TheAskSection() {
             </div>
           </div>
 
-          {/* Investment Allocation */}
+          {/* Tranche Model */}
           <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)]">
             <div className="flex items-center justify-between mb-1">
-              <h3 className="font-['Arimo'] font-bold uppercase text-lg">Investment Capital</h3>
+              <h3 className="font-['Arimo'] font-bold uppercase text-lg">Milestone-Based Tranches</h3>
               <span className="text-accent font-extrabold font-['Arimo']">$1M</span>
             </div>
-            <p className="text-[#999] text-xs mb-6">Full team, infrastructure, and market launch — 24+ months runway</p>
-
-            <div className="flex rounded-full h-3 overflow-hidden mb-5">
-              {investmentFunds.map((f, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ width: 0 }}
-                  animate={isVisible ? { width: `${f.pct}%` } : {}}
-                  transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
-                  className={`${f.color} ${i === 0 ? 'rounded-l-full' : ''} ${i === investmentFunds.length - 1 ? 'rounded-r-full' : ''}`}
-                />
-              ))}
-            </div>
+            <p className="text-[#999] text-xs mb-6">Capital deployed as traction is proven — full transparency, reduced risk</p>
 
             <div className="space-y-3">
-              {investmentFunds.map((f, i) => (
-                <div key={i} className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-2.5 h-2.5 rounded-full ${f.color}`} />
-                    <div>
-                      <span className="text-white text-sm font-medium">{f.label}</span>
-                      <span className="text-[#666] text-xs ml-2 hidden sm:inline">{f.desc}</span>
+              {tranches.map((t, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={isVisible ? { opacity: 1, x: 0 } : {}}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className={`border ${t.color} rounded-xl p-4`}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <div className="flex items-center gap-3">
+                      <span className="text-white text-sm font-bold">{t.label}</span>
+                      <span className="text-[#999] text-xs">{t.timing}</span>
                     </div>
+                    <span className="text-accent font-extrabold font-['Arimo']">{t.amount}</span>
                   </div>
-                  <div className="text-right">
-                    <span className="text-white font-bold text-sm">{f.amount}</span>
-                  </div>
-                </div>
+                  <p className="text-[#666] text-xs leading-relaxed">{t.milestones}</p>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -2002,7 +2025,7 @@ function TheAskSection() {
         <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-12">
           <div className="flex items-center justify-between mb-1">
             <h3 className="font-['Arimo'] font-bold uppercase text-lg">Team & Monthly Burn</h3>
-            <span className="text-accent font-extrabold font-['Arimo']">$38K/mo</span>
+            <span className="text-accent font-extrabold font-['Arimo']">$20K/mo</span>
           </div>
           <p className="text-[#999] text-xs mb-6">European startup salaries — Estonia-based, globally competitive</p>
           <div className="space-y-2">
@@ -2028,14 +2051,53 @@ function TheAskSection() {
                 <span className="text-[#666] text-xs ml-2">Cloud, APIs, subscriptions</span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-white font-bold text-sm">$5.3K</span>
-                <span className="text-[#666] text-xs w-16 text-right">$64K/yr</span>
+                <span className="text-white font-bold text-sm">$0.25K</span>
+                <span className="text-[#666] text-xs w-16 text-right">$3K/yr</span>
               </div>
             </div>
           </div>
           <div className="mt-4 pt-4 border-t border-white/[0.06] flex justify-between text-xs">
             <span className="text-[#666]">Total monthly burn</span>
-            <span className="text-accent font-bold">$38K/mo → $456K/yr</span>
+            <span className="text-accent font-bold">$20K/mo → $241K/yr</span>
+          </div>
+        </div>
+
+        {/* Investment Allocation Breakdown */}
+        <div className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.08] rounded-2xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.2)] mb-12">
+          <div className="flex items-center justify-between mb-1">
+            <h3 className="font-['Arimo'] font-bold uppercase text-lg">Capital Allocation</h3>
+            <span className="text-accent font-extrabold font-['Arimo']">$1M</span>
+          </div>
+          <p className="text-[#999] text-xs mb-6">How the investment is deployed across 18 months</p>
+
+          <div className="flex rounded-full h-3 overflow-hidden mb-5">
+            {investmentFunds.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ width: 0 }}
+                animate={isVisible ? { width: `${f.pct}%` } : {}}
+                transition={{ duration: 0.8, delay: 0.3 + i * 0.1 }}
+                className={`${f.color} ${i === 0 ? 'rounded-l-full' : ''} ${i === investmentFunds.length - 1 ? 'rounded-r-full' : ''}`}
+              />
+            ))}
+          </div>
+
+          <div className="space-y-3">
+            {investmentFunds.map((f, i) => (
+              <div key={i} className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className={`w-2.5 h-2.5 rounded-full ${f.color}`} />
+                  <div>
+                    <span className="text-white text-sm font-medium">{f.label}</span>
+                    <span className="text-[#666] text-xs ml-2 hidden sm:inline">{f.desc}</span>
+                  </div>
+                </div>
+                <div className="text-right flex items-center gap-2">
+                  <span className="text-white font-bold text-sm">{f.amount}</span>
+                  <span className="text-[#666] text-xs w-8 text-right">{f.pct}%</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -2048,7 +2110,7 @@ function TheAskSection() {
           </div>
           <p className="text-[#999] text-sm mb-8 max-w-3xl">
             60% of all revenue flows directly back into growth. Conservative estimate: ~$600K cumulative revenue over 18 months (S-curve from $0 to $74K MRR).
-            Combined with investment capital, this creates a <span className="text-white font-medium">$610K+ total growth budget</span> — on top of the $1M raise.
+            60% reinvested = $360K. Combined with $480K marketing & sales allocation from investment, this creates a <span className="text-white font-medium">$840K+ total growth budget</span>.
           </p>
 
           <div className="grid lg:grid-cols-[1fr_auto_1fr] gap-6 items-start">
@@ -2093,9 +2155,9 @@ function TheAskSection() {
             <div className="space-y-4">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#999] mb-4">Total 18-Month Spend Power</h4>
               {[
-                { label: 'Marketing & Ads', from: '$150K', plus: '$180K', total: '$330K', color: 'text-blue-400' },
-                { label: 'Field Sales & Travel', from: '$100K', plus: '$120K', total: '$220K', color: 'text-purple-400' },
-                { label: 'Content & Influencer', from: '—', plus: '$60K', total: '$60K', color: 'text-pink-400' },
+                { label: 'Marketing & Ads', from: '$300K', plus: '$108K', total: '$408K', color: 'text-blue-400' },
+                { label: 'Field Sales & Travel', from: '$180K', plus: '$72K', total: '$252K', color: 'text-purple-400' },
+                { label: 'Content & Influencer', from: '—', plus: '$36K', total: '$36K', color: 'text-pink-400' },
               ].map((t, i) => (
                 <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-3">
                   <div className="flex items-center justify-between mb-1">
@@ -2110,9 +2172,9 @@ function TheAskSection() {
               <div className="bg-accent/[0.1] border border-accent/25 rounded-xl p-3 mt-2">
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-white">Total Growth Budget</span>
-                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$610K+</span>
+                  <span className="text-accent font-extrabold text-lg font-['Arimo']">$840K+</span>
                 </div>
-                <div className="text-[11px] text-accent/70">$250K from investment allocation + $360K from revenue reinvestment</div>
+                <div className="text-[11px] text-accent/70">$480K from investment allocation + $360K from revenue reinvestment</div>
               </div>
             </div>
           </div>
