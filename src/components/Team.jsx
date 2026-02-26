@@ -56,6 +56,15 @@ const extendedTeam = [
     badge: true,
     image: '/images/team/kevin-uram.png',
   },
+  {
+    initials: 'CB',
+    name: 'Chloe Borge',
+    title: 'Ambassador & Master Athletics Lead',
+    bio: 'Early investor who recognized the potential of Prometheus from the start. Master\'s degree in Hospitality Management from a prestigious French hospitality school. 23 years of full-contact Shotokan Karate — 3rd Dan black belt and former member of the French National Team. Freestyle snowboarder, surfer, and multiple-time 3rd place finisher in France\'s and Switzerland\'s Fittest CrossFit Masters Athlete competitions. 20 years at Vacheron Constantin in quality control. Now leads her own brand, True You Coaching, as a certified mental performance coach.',
+    color: 'from-amber-400 to-yellow-500',
+    badge: true,
+    image: '/images/team/chloe-borge.png',
+  },
 ]
 
 function TeamCard({ member, large }) {
@@ -144,7 +153,7 @@ export default function Team() {
 
         {/* Extended Team & Advisors */}
         <div
-          className={`grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 transition-all duration-700 delay-300 ${
+          className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
