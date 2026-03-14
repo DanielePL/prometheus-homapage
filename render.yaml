@@ -4,6 +4,10 @@ services:
     name: prometheus-coach
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
+    headers:
+      - path: /.well-known/apple-app-site-association
+        name: Content-Type
+        value: application/json
     routes:
       - type: rewrite
         source: /*
