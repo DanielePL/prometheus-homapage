@@ -7,6 +7,7 @@ import Impressum from './pages/Impressum'
 import Goodbye from './pages/Goodbye'
 import GrowthPitch from './pages/GrowthPitch'
 import AuthCallback from './pages/AuthCallback'
+import StripeTitanSuccess from './pages/StripeTitanSuccess'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/growth" element={<GrowthPitch />} />
       <Route path="/auth/callback" element={<AuthCallback />} />
+      <Route path="/stripe/success" element={<StripeTitanSuccess />} />
       <Route element={<LegalLayout />}>
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
