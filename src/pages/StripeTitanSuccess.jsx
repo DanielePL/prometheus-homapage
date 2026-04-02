@@ -39,14 +39,16 @@ export default function StripeTitanSuccess() {
         position: 'relative',
         zIndex: 1,
       }}>
-        {/* Prometheus Logo */}
+        {/* Titan Badge */}
         <img
-          src="/images/logo-white.png"
-          alt="Prometheus"
+          src="/images/titan_badge.png"
+          alt="Prometheus Titan Member"
           style={{
-            width: '180px',
-            marginBottom: '40px',
-            filter: 'drop-shadow(0 0 20px rgba(255, 107, 0, 0.4))',
+            width: '280px',
+            height: '280px',
+            objectFit: 'contain',
+            marginBottom: '32px',
+            filter: 'drop-shadow(0 0 40px rgba(255, 107, 0, 0.3))',
           }}
         />
 
