@@ -15,7 +15,7 @@ export default function StripeTitanSuccess() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'linear-gradient(180deg, #0A0A0A 0%, #1A1000 50%, #0A0A0A 100%)',
+      background: '#000000',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -33,10 +33,13 @@ export default function StripeTitanSuccess() {
           src="/images/titan_badge.png"
           alt="Prometheus Titan Member"
           style={{
-            width: '280px',
-            height: '280px',
+            width: '240px',
+            height: 'auto',
             objectFit: 'contain',
             marginBottom: '32px',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
             filter: 'drop-shadow(0 0 40px rgba(255, 107, 0, 0.3))',
           }}
         />
