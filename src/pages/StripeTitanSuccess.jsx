@@ -4,10 +4,8 @@ export default function StripeTitanSuccess() {
   const [showFallback, setShowFallback] = useState(false)
 
   useEffect(() => {
-    // Try to redirect to app after a short delay so user sees the page
     const timer = setTimeout(() => {
       window.location.href = 'prometheus://stripe/success'
-      // Show fallback link if redirect didn't work (e.g. desktop browser)
       setTimeout(() => setShowFallback(true), 1500)
     }, 3000)
 
@@ -17,47 +15,68 @@ export default function StripeTitanSuccess() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#0A0A0A',
+      backgroundImage: 'url(/images/hero-bg.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       padding: '24px',
+      position: 'relative',
     }}>
+      {/* Dark overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%)',
+      }} />
+
       <div style={{
         textAlign: 'center',
         maxWidth: '480px',
+        position: 'relative',
+        zIndex: 1,
       }}>
-        {/* Titan Badge */}
+        {/* Prometheus Logo */}
         <img
-          src="/images/titan_badge.png"
-          alt="Prometheus Titan Member"
+          src="/images/logo-white.png"
+          alt="Prometheus"
           style={{
-            width: '280px',
-            height: '280px',
-            objectFit: 'contain',
-            marginBottom: '32px',
-            filter: 'drop-shadow(0 0 40px rgba(255, 215, 0, 0.3))',
+            width: '180px',
+            marginBottom: '40px',
+            filter: 'drop-shadow(0 0 20px rgba(255, 107, 0, 0.4))',
           }}
         />
 
         {/* Thank You */}
         <h1 style={{
-          fontSize: '32px',
+          fontSize: '36px',
           fontWeight: 800,
-          color: '#FFD700',
-          margin: '0 0 16px 0',
-          letterSpacing: '1px',
-          lineHeight: 1.3,
+          color: '#FF6B00',
+          margin: '0 0 12px 0',
+          letterSpacing: '2px',
+          lineHeight: 1.2,
+          textTransform: 'uppercase',
         }}>
-          THANK YOU FOR BEING<br />A PART OF PROMETHEUS!
+          Thank You For Being<br />A Part Of Prometheus!
         </h1>
 
+        <div style={{
+          width: '60px',
+          height: '3px',
+          background: 'linear-gradient(90deg, #FF6B00, #FF8C33)',
+          margin: '20px auto',
+          borderRadius: '2px',
+        }} />
+
         <p style={{
-          fontSize: '17px',
-          color: 'rgba(255, 255, 255, 0.6)',
+          fontSize: '18px',
+          color: 'rgba(255, 255, 255, 0.8)',
           margin: '0 0 8px 0',
           lineHeight: 1.6,
+          fontWeight: 500,
         }}>
           Welcome to the Titan family, founding member.
         </p>
@@ -65,7 +84,7 @@ export default function StripeTitanSuccess() {
         <p style={{
           fontSize: '15px',
           color: 'rgba(255, 255, 255, 0.4)',
-          margin: '0 0 32px 0',
+          margin: '0 0 36px 0',
         }}>
           Redirecting you back to the app...
         </p>
@@ -74,11 +93,11 @@ export default function StripeTitanSuccess() {
         <div style={{
           width: '32px',
           height: '32px',
-          border: '3px solid rgba(255, 215, 0, 0.2)',
-          borderTopColor: '#FFD700',
+          border: '3px solid rgba(255, 107, 0, 0.2)',
+          borderTopColor: '#FF6B00',
           borderRadius: '50%',
           animation: 'spin 1s linear infinite',
-          margin: '0 auto 24px',
+          margin: '0 auto 28px',
         }} />
 
         {/* Fallback link */}
@@ -87,13 +106,15 @@ export default function StripeTitanSuccess() {
             href="prometheus://stripe/success"
             style={{
               display: 'inline-block',
-              padding: '14px 32px',
-              background: 'linear-gradient(135deg, #FFD700, #B8860B)',
-              color: '#0A0A0A',
+              padding: '16px 40px',
+              background: 'linear-gradient(135deg, #FF6B00, #FF8C33)',
+              color: '#FFFFFF',
               textDecoration: 'none',
               borderRadius: '12px',
               fontWeight: 700,
               fontSize: '16px',
+              boxShadow: '0 4px 20px rgba(255, 107, 0, 0.4)',
+              letterSpacing: '0.5px',
             }}
           >
             Open Prometheus App
