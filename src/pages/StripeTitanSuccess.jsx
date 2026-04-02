@@ -15,10 +15,7 @@ export default function StripeTitanSuccess() {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundImage: 'url(/images/hero-bg.jpg)',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
+      background: 'linear-gradient(180deg, #0A0A0A 0%, #1A1000 50%, #0A0A0A 100%)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -26,18 +23,10 @@ export default function StripeTitanSuccess() {
       padding: '24px',
       position: 'relative',
     }}>
-      {/* Dark overlay */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%)',
-      }} />
 
       <div style={{
         textAlign: 'center',
         maxWidth: '480px',
-        position: 'relative',
-        zIndex: 1,
       }}>
         {/* Titan Badge */}
         <img
