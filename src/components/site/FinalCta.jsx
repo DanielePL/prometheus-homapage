@@ -5,12 +5,22 @@ import { useDemoModal } from '../../context/DemoModalContext'
 export default function FinalCta() {
   const { openDemo } = useDemoModal()
   return (
-    <section className="relative py-28 px-5 sm:px-8 overflow-hidden border-t border-white/5">
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(230,126,34,0.12), transparent 70%)' }} />
+    <section className="relative py-32 lg:py-40 px-5 sm:px-8 overflow-hidden border-t border-white/5">
+      {/* An empty box at the end: the room the software runs, waiting. Pushed
+          well back so the CTA button stays the brightest thing on screen. */}
+      <img
+        src="/images/photos/box-empty.webp"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="absolute inset-0 w-full h-full object-cover opacity-25"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/75 to-dark" />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(230,126,34,0.14), transparent 70%)' }} />
       <Reveal y={26} className="relative max-w-3xl mx-auto text-center">
-        <h2 className="display text-3xl sm:text-4xl lg:text-5xl leading-[1.1]">
+        <h2 className="display text-4xl sm:text-5xl lg:text-6xl leading-[1.08]">
           Null Papier. Eine Wahrheit.<br />
-          <span className="text-accent">Das Mitglied checkt sich selbst ein.</span>
+          <span className="display-italic opacity-75">Das Mitglied checkt sich selbst ein.</span>
         </h2>
         <p className="mt-6 text-lg text-white/60">
           Sehen Sie in 30 Minuten, wie Ihr Betrieb von der Rezeption bis zur Zentrale in einem System läuft.

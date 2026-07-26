@@ -89,8 +89,24 @@ export default function HeroOperator() {
 
   return (
     <section id="hero" className="relative flex items-center overflow-hidden pt-24 pb-14 lg:min-h-[88vh]">
-      {/* background layers */}
+      {/* Background layers. The photograph carries the room — this sells to an
+          industry made of bodies and noise, and a page of grey cards doesn't
+          look like one. It sits far enough back that the dashboard in front of
+          it stays the subject: heavy darkening, plus a left-to-right gradient
+          so the headline always lands on near-solid ground. */}
       <div className="absolute inset-0 bg-dark" />
+      <img
+        src="/images/photos/gym-hero.webp"
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        className="absolute inset-0 w-full h-full object-cover object-[65%_center] opacity-[0.5] lg:hidden"
+      />
+      {/* Below lg the right-hand column is hidden, so this backdrop is the only
+          photograph on a phone — it carries the room there and steps aside on
+          desktop, where the foreground panel does the job properly. */}
+      <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/80 to-dark/40 lg:hidden" />
+      <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/30 to-dark/60 lg:hidden" />
       <div className="absolute inset-0 opacity-60" style={{ background: 'radial-gradient(ellipse 80% 50% at 70% 0%, rgba(230,126,34,0.10), transparent 60%)' }} />
       <ParticleField />
 
@@ -139,13 +155,32 @@ export default function HeroOperator() {
             </div>
           </div>
 
-          {/* right: HQ screenshot in browser frame */}
+          {/* Right: the room, with the product in front of it.
+
+              The photograph is a foreground element here rather than a
+              backdrop. Behind the dashboard it had to be dimmed so far to keep
+              the UI readable that it stopped registering as a photograph at
+              all — the point of having one was lost. Overlapping the two keeps
+              both legible and puts the software where it belongs: on the floor
+              of a real gym. */}
           <div
             style={{ animationDelay: '0.2s' }}
             className="hero-rise relative hidden lg:block"
           >
             <div className="absolute -inset-6 bg-accent/10 blur-[80px] rounded-full" />
-            <div className="relative glass-strong rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.6)]">
+
+            <div className="relative rounded-2xl overflow-hidden h-52 xl:h-60 shadow-[0_20px_60px_rgba(0,0,0,0.55)] ml-10">
+              <img
+                src="/images/photos/gym-hero.webp"
+                alt=""
+                aria-hidden="true"
+                fetchPriority="high"
+                className="w-full h-full object-cover object-[center_62%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent" />
+            </div>
+
+            <div className="relative -mt-20 xl:-mt-24 mr-6 glass-strong rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)]">
               <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/8">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />

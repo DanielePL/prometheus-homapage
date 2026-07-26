@@ -5,6 +5,7 @@ import PainSection from '../components/site/PainSection'
 import BentoGrid from '../components/site/BentoGrid'
 import EcosystemDiagram from '../components/site/EcosystemDiagram'
 import EntryPoints from '../components/site/EntryPoints'
+import PhotoBreak from '../components/site/PhotoBreak'
 import SurfacesSection from '../components/site/SurfacesSection'
 import MemberSection from '../components/site/MemberSection'
 import VerticalsSection from '../components/site/VerticalsSection'
@@ -31,6 +32,12 @@ export default function HomePage() {
           <BentoGrid />
           <EcosystemDiagram />
           <EntryPoints />
+          <PhotoBreak
+            src="/images/photos/class-community.webp"
+            focus="center 38%"
+            statement="Der Betrieb passiert auf der Fläche."
+            accent="Die Software gehört dorthin — nicht ins Backoffice."
+          />
           <SurfacesSection />
           <MemberSection />
           <VerticalsSection />
