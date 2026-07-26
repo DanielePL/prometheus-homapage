@@ -121,7 +121,7 @@ export default function SurfacesSection() {
   const [active, setActive] = useState(SURFACES[0])
 
   return (
-    <Section id="oberflaechen" className="border-t border-white/5">
+    <Section id="oberflaechen" width="wide" className="border-t border-white/5">
       <SectionHeader
         eyebrow="Neun Eingänge, ein System"
         title="Vom Empfangstablet bis zur Geschäftsleitung —"
@@ -152,7 +152,7 @@ export default function SurfacesSection() {
                   <s.icon size={18} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-display font-semibold text-sm leading-tight">{s.name}</p>
+                  <p className="font-semibold text-sm leading-tight">{s.name}</p>
                   <p className="text-xs text-white/45 leading-tight mt-0.5">{s.who}</p>
                 </div>
                 {on && <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />}

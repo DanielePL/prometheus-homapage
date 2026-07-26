@@ -68,7 +68,7 @@ export default function PricingSection() {
   const { openDemo } = useDemoModal()
 
   return (
-    <Section id="preise" className="border-t border-white/5">
+    <Section id="preise" tone="light">
       <SectionHeader
         eyebrow="Preise"
         title="Ein Preis pro Größe."
@@ -95,11 +95,11 @@ export default function PricingSection() {
                   Beliebt
                 </span>
               )}
-              <h3 className="font-display text-xl font-bold">{p.name}</h3>
+              <h3 className="display text-xl">{p.name}</h3>
               <p className="text-sm text-white/50 mb-5">für {p.for}</p>
 
               <div className="flex items-end gap-1.5 mb-1">
-                <span className="font-display text-4xl font-bold">{p.price}</span>
+                <span className="display text-4xl">{p.price}</span>
                 <span className="text-sm text-white/50 mb-1.5">€ / CHF pro Monat</span>
               </div>
               <p className="text-sm text-white/60 mb-6">{p.members}</p>
@@ -146,10 +146,10 @@ export default function PricingSection() {
                 <div className="w-10 h-10 rounded-xl bg-accent/12 border border-accent/20 flex items-center justify-center shrink-0">
                   <o.icon size={18} className="text-accent" />
                 </div>
-                <h4 className="font-display font-bold">{o.name}</h4>
+                <h4 className="font-bold">{o.name}</h4>
               </div>
               <div className="flex items-baseline gap-1.5 mb-3">
-                <span className="font-display text-xl font-bold text-white/90">{o.price}</span>
+                <span className="display text-xl text-white/90">{o.price}</span>
                 {o.unit && <span className="text-sm text-white/45">{o.unit}</span>}
               </div>
               <p className="text-sm text-white/55 leading-relaxed">{o.note}</p>

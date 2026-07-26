@@ -28,7 +28,7 @@ export default function SiteFooter() {
           ]} />
 
           <div>
-            <h4 className="font-display font-semibold text-sm mb-4">Rechtliches</h4>
+            <h4 className="font-semibold text-sm mb-4">Rechtliches</h4>
             <ul className="space-y-2.5">
               <li><Link to="/impressum" className="text-sm text-white/45 hover:text-white transition-colors">Impressum</Link></li>
               <li><Link to="/privacy" className="text-sm text-white/45 hover:text-white transition-colors">Datenschutz</Link></li>
@@ -51,7 +51,7 @@ export default function SiteFooter() {
 function FooterCol({ title, links }) {
   return (
     <div>
-      <h4 className="font-display font-semibold text-sm mb-4">{title}</h4>
+      <h4 className="font-semibold text-sm mb-4">{title}</h4>
       <ul className="space-y-2.5">
         {links.map((l) => (
           <li key={l.label}>

@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion'
 import {
   Apple, Play, Dumbbell, UtensilsCrossed, Brain, QrCode, Gauge, Users, Check, Flame,
 } from 'lucide-react'
-import { Section } from './Section'
+import { Section, Reveal } from './Section'
 
 const features = [
   { icon: Dumbbell, label: 'Training tracken' },
@@ -39,7 +38,7 @@ export default function MemberSection() {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-accent mb-4">
               Für Mitglieder & alle, die trainieren
             </p>
-            <h2 className="font-display text-3xl lg:text-4xl font-bold tracking-tight leading-tight">
+            <h2 className="display text-3xl lg:text-4xl leading-tight">
               Hier hat alles angefangen.
             </h2>
             <p className="mt-5 text-lg text-white/60 leading-relaxed max-w-xl">
@@ -74,9 +73,9 @@ export default function MemberSection() {
                       t.popular ? 'glass border-accent/40' : 'glass'
                     }`}
                   >
-                    <p className="font-display font-semibold text-sm">{t.name}</p>
+                    <p className="font-semibold text-sm">{t.name}</p>
                     <p className="mt-1 flex items-baseline gap-1">
-                      <span className="font-display text-lg font-bold text-white/90">{t.price}</span>
+                      <span className="text-lg font-bold text-white/90">{t.price}</span>
                       {t.unit && <span className="text-[11px] text-white/40">{t.unit}</span>}
                     </p>
                     <p className="mt-1.5 text-[11px] text-white/45 leading-tight">{t.note}</p>
@@ -130,12 +129,10 @@ export default function MemberSection() {
               const offset = i - 1
               const isCentre = offset === 0
               return (
-                <motion.div
+                <Reveal
                   key={s.src}
-                  initial={{ opacity: 0, y: 34 }}
-                  whileInView={{ opacity: 1, y: isCentre ? 0 : 30 }}
-                  viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.6, delay: 0.1 + i * 0.1, ease: 'easeOut' }}
+                  fade
+                  delay={i * 0.08}
                   style={{
                     zIndex: isCentre ? 3 : 1,
                     marginLeft: offset * 150,
@@ -150,7 +147,7 @@ export default function MemberSection() {
                       <img src={s.src} alt={s.alt} loading="lazy" />
                     </div>
                   </div>
-                </motion.div>
+                </Reveal>
               )
             })}
           </div>

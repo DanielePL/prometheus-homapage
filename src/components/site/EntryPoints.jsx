@@ -1,6 +1,5 @@
-import { motion } from 'framer-motion'
 import { Dumbbell, Store, Building2, Check, ArrowRight, Database } from 'lucide-react'
-import { Section, SectionHeader } from './Section'
+import { Section, SectionHeader, Reveal } from './Section'
 import { useDemoModal } from '../../context/DemoModalContext'
 
 const entries = [
@@ -55,6 +54,7 @@ export default function EntryPoints() {
   return (
     <Section id="einstieg" className="border-t border-white/5">
       <SectionHeader
+        align="left"
         eyebrow="Drei Einstiegspunkte"
         title="Steigen Sie dort ein, wo Sie stehen."
         accent="Wachsen Sie ohne Umzug."
@@ -63,12 +63,10 @@ export default function EntryPoints() {
 
       <div className="mt-14 grid lg:grid-cols-3 gap-5">
         {entries.map((e, i) => (
-          <motion.div
+          <Reveal
             key={e.key}
-            initial={{ opacity: 0, y: 26 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: i * 0.09, ease: 'easeOut' }}
+            delay={i * 0.07}
+            y={26}
             className={`relative rounded-3xl p-7 lg:p-8 flex flex-col ${
               e.popular
                 ? 'glass-strong border-accent/40 shadow-[0_0_50px_rgba(230,126,34,0.12)]'
@@ -91,7 +89,7 @@ export default function EntryPoints() {
               <e.icon size={22} />
             </div>
 
-            <h3 className="font-display text-2xl font-bold tracking-tight">{e.name}</h3>
+            <h3 className="display text-2xl">{e.name}</h3>
             <p className="text-sm text-accent/90 font-medium mt-1">{e.who}</p>
             <p className="mt-4 text-white/60 leading-relaxed">{e.pitch}</p>
 
@@ -118,23 +116,17 @@ export default function EntryPoints() {
             >
               Demo buchen <ArrowRight size={16} />
             </button>
-          </motion.div>
+          </Reveal>
         ))}
       </div>
 
       {/* The ladder — the land-and-expand argument, made visual */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.6, delay: 0.15 }}
-        className="mt-6 glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden"
-      >
+      <Reveal delay={0.08} y={24} className="mt-6 glass-strong rounded-3xl p-8 lg:p-10 relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-56 bg-accent/8 blur-[100px] rounded-full pointer-events-none" />
 
         <div className="relative grid lg:grid-cols-[0.95fr_1.05fr] gap-8 lg:gap-12 items-center">
           <div>
-            <h3 className="font-display text-2xl lg:text-3xl font-bold tracking-tight leading-tight">
+            <h3 className="display text-2xl lg:text-3xl leading-tight">
               Die zweite Filiale kostet Sie kein Projekt.
             </h3>
             <p className="mt-4 text-white/60 leading-relaxed">
@@ -154,22 +146,20 @@ export default function EntryPoints() {
                 { label: 'Studio Light', sub: 'ein Standort', w: 'w-[80%]' },
                 { label: 'Enterprise', sub: 'Kette, Region, Zentrale', w: 'w-full' },
               ].map((r, i) => (
-                <motion.div
+                <Reveal
                   key={r.label}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 + i * 0.12 }}
+                  delay={i * 0.08}
+                  y={14}
                   className={`${r.w} ml-auto rounded-2xl glass px-5 py-4 flex items-center justify-between gap-4 border-accent/20`}
                 >
                   <div className="min-w-0">
-                    <p className="font-display font-semibold leading-tight">{r.label}</p>
+                    <p className="font-semibold leading-tight">{r.label}</p>
                     <p className="text-xs text-white/45 leading-tight mt-0.5">{r.sub}</p>
                   </div>
                   {i < 2 && (
                     <ArrowRight size={16} className="text-accent shrink-0 rotate-90" />
                   )}
-                </motion.div>
+                </Reveal>
               ))}
             </div>
 
@@ -181,7 +171,7 @@ export default function EntryPoints() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </Reveal>
     </Section>
   )
 }

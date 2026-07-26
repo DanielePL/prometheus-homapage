@@ -10,9 +10,69 @@
   --color-accent-dark: #D35400;
   --color-accent-glow: 0px 2px 18px 0px #E67E22;
   --font-heading: 'Arimo', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'Poppins', sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Light sections. The page is dark by default; these are the cream blocks
+     that break the rhythm, matching the parent company's site. */
+  --color-cream: #F4F1EB;
+  --color-cream-deep: #EAE5DB;
+  --color-ink: #191D24;
 }
+
+/* ---------------------------------------------------------------------------
+   Display type. Cormorant Garamond is a high-contrast serif: it wants size and
+   air, not weight. Bold weights make it look clogged, so headlines run at
+   400–500 and lean on scale instead. Tight leading, slight negative tracking.
+--------------------------------------------------------------------------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.06;
+}
+.display-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+/* Small caps label above a headline. */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------------
+   Light sections. The page stays dark by default — these cream blocks exist to
+   break the rhythm. Everything inside has to flip, so the glass recipe and the
+   white-on-dark text utilities are re-declared within .section-light rather
+   than swapped by hand at every call site.
+--------------------------------------------------------------------------- */
+.section-light {
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+.section-light .glass,
+.section-light .glass-strong {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(25, 29, 36, 0.10);
+}
+.section-light .glass-strong {
+  background: rgba(255, 255, 255, 0.85);
+}
+/* Tailwind's text-white/xx utilities resolve to white with alpha, which is
+   invisible on cream. Remap the ones the sections actually use. */
+.section-light .text-white { color: var(--color-ink); }
+.section-light [class*="text-white/"] { color: rgba(25, 29, 36, 0.66); }
+.section-light .border-white\/5,
+.section-light .border-white\/10 { border-color: rgba(25, 29, 36, 0.10); }
+/* #E67E22 on cream is too light to read as a label — drop to the dark accent. */
+.section-light .text-accent { color: var(--color-accent-dark); }
+/* Hairline between a cream block and the dark page above it. */
+.section-light + section,
+section + .section-light { border-top: 0; }
 
 /* Glassmorphism recipe (mirrors the product's glass-card) */
 .glass {
@@ -41,6 +101,52 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-rise { animation: none; }
+}
+
+/* Sticky navigation. Deliberately NOT .glass: a 4% white fill over a dark page
+   is close to clear, so headlines scrolling underneath stayed legible straight
+   through the logo. The bar needs its own opaque-ish dark fill, and a solid
+   fallback for engines without backdrop-filter, where the blur does nothing. */
+.nav-solid {
+  /* Near-opaque on purpose: at 0.82 the big serif headlines were still legible
+     straight through the bar, and over a cream section it washed out to grey
+     with white links on top. The bar stays dark on every section. */
+  background: rgba(14, 14, 14, 0.94);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav-solid { background: rgba(14, 14, 14, 0.97); }
+}
+
+/* Scroll reveal. Same reasoning as .hero-rise: the transition is time-based
+   CSS, driven by an IntersectionObserver that only toggles a class. A
+   rAF-driven library leaves sections stuck part-way through the fade when the
+   tab is throttled or the user scrolls faster than the animation runs.
+   Keep --reveal-delay small — staggers above ~0.25s read as "not loaded". */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 22px));
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+}
+/* For elements that carry their own transform (tilted phones, scaled cards):
+   fade only, so the reveal can't fight the 3D placement. */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+/* No transform reset here on purpose — .reveal-fade elements keep whatever
+   transform their own style attribute sets. */
+.reveal-fade.is-visible { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @keyframes flowDash {

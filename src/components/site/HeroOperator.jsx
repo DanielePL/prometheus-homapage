@@ -102,7 +102,7 @@ export default function HeroOperator() {
               <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-accent mb-4">
                 Eine Software. Vom Mitglied bis zur Zentrale.
               </p>
-              <h1 className="font-display text-[2rem] sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.06]">
+              <h1 className="display text-[2rem] sm:text-4xl lg:text-5xl leading-[1.06]">
                 Das Betriebssystem für <span className="text-accent">moderne Fitness-Unternehmen.</span>
               </h1>
               <p className="mt-4 text-base lg:text-lg text-white/65 leading-relaxed max-w-lg">
@@ -127,7 +127,7 @@ export default function HeroOperator() {
                     <d.icon size={19} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className={`font-display font-semibold ${d.primary ? 'text-base' : 'text-sm'} leading-snug`}>{d.label}</p>
+                    <p className={`font-semibold ${d.primary ? 'text-base' : 'text-sm'} leading-snug`}>{d.label}</p>
                     <p className="text-xs text-white/55 leading-snug mt-0.5">{d.sub}</p>
                   </div>
                   <span className={`shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold ${d.primary ? 'text-accent' : 'text-white/60 group-hover:text-white'}`}>

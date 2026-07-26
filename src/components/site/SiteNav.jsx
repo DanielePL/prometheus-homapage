@@ -30,7 +30,7 @@ export default function SiteNav() {
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass border-b border-white/10' : 'bg-transparent border-b border-transparent'
+        scrolled ? 'nav-solid border-b border-white/10' : 'bg-transparent border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -74,7 +74,7 @@ export default function SiteNav() {
       </div>
 
       <div className={`lg:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-96' : 'max-h-0'}`}>
-        <div className="glass border-t border-white/10 px-5 py-4 space-y-1">
+        <div className="nav-solid border-t border-white/10 px-5 py-4 space-y-1">
           {links.map((l) => (
             <a
               key={l.href}

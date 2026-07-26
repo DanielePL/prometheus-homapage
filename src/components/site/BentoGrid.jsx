@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import {
   Activity, FileX2, ScanLine, QrCode, CalendarClock, Palette, ClipboardCheck,
   Megaphone, ShieldCheck, Check, Eye, RotateCcw, Sparkles,
 } from 'lucide-react'
-import { Section, SectionHeader } from './Section'
+import { Section, SectionHeader, Reveal } from './Section'
 
 /* ---------------------------------------------------------------------------
    Bento card shell. Every card is glass, one accent, hover lifts it slightly.
@@ -12,15 +11,13 @@ import { Section, SectionHeader } from './Section'
 --------------------------------------------------------------------------- */
 function Card({ span = '', children, className = '', delay = 0 }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay, ease: 'easeOut' }}
+    <Reveal
+      delay={delay}
+      y={24}
       className={`group relative h-full overflow-hidden rounded-3xl glass hover:border-accent/30 transition-colors duration-300 ${span} ${className}`}
     >
       {children}
-    </motion.div>
+    </Reveal>
   )
 }
 
@@ -79,7 +76,7 @@ function WhiteLabelCard() {
       <div className="relative grid sm:grid-cols-[1fr_1fr] gap-7 items-center">
         <div>
           <Eyebrow icon={Palette}>White-Label</Eyebrow>
-          <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+          <h3 className="display text-xl lg:text-2xl leading-tight">
             Ihr System trägt{' '}
             <span className="transition-colors duration-500" style={{ color: brand.hex }}>
               Ihre Farben.
@@ -163,8 +160,9 @@ function WhiteLabelCard() {
 
 export default function BentoGrid() {
   return (
-    <Section id="plattform" className="border-t border-white/5">
+    <Section id="plattform" width="wide" className="border-t border-white/5">
       <SectionHeader
+        align="left"
         eyebrow="Die Plattform"
         title="Alles, was ein Betrieb braucht —"
         accent="in einem System."
@@ -177,7 +175,7 @@ export default function BentoGrid() {
         <Card span="lg:col-span-4" className="flex flex-col">
           <div className="p-7 lg:p-9">
             <Eyebrow icon={Activity}>Live-Betrieb</Eyebrow>
-            <h3 className="font-display text-2xl lg:text-3xl font-bold tracking-tight leading-tight">
+            <h3 className="display text-2xl lg:text-3xl leading-tight">
               Eine Wahrheit. Auf jedem Bildschirm.
             </h3>
             <p className="mt-4 text-white/60 leading-relaxed max-w-xl">
@@ -197,7 +195,7 @@ export default function BentoGrid() {
         <Card span="lg:col-span-2" className="flex flex-col" delay={0.05}>
           <div className="p-7">
             <Eyebrow icon={FileX2}>Null Papier</Eyebrow>
-            <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+            <h3 className="display text-xl lg:text-2xl leading-tight">
               Papierlos. Für immer.
             </h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
@@ -215,7 +213,7 @@ export default function BentoGrid() {
         <Card span="lg:col-span-3" className="flex flex-col" delay={0.05}>
           <div className="p-7">
             <Eyebrow icon={ScanLine}>Buchhaltung</Eyebrow>
-            <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+            <h3 className="display text-xl lg:text-2xl leading-tight">
               Beleg fotografieren. Fertig.
             </h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
@@ -244,7 +242,7 @@ export default function BentoGrid() {
         {/* 4 — Zero-touch social media */}
         <Card span="lg:col-span-3" className="p-7 flex flex-col" delay={0.1}>
           <Eyebrow icon={Megaphone}>Marketing</Eyebrow>
-          <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+          <h3 className="display text-xl lg:text-2xl leading-tight">
             Foto knipsen. Der Rest schreibt sich selbst.
           </h3>
           <p className="mt-3 text-sm text-white/60 leading-relaxed">
@@ -275,7 +273,7 @@ export default function BentoGrid() {
         <Card span="lg:col-span-2" className="flex flex-col" delay={0.05}>
           <div className="p-7">
             <Eyebrow icon={QrCode}>Zero-Touch</Eyebrow>
-            <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+            <h3 className="display text-xl lg:text-2xl leading-tight">
               Gastgeber statt Türsteher.
             </h3>
             <p className="mt-3 text-sm text-white/60 leading-relaxed">
@@ -292,7 +290,7 @@ export default function BentoGrid() {
         {/* 6 — Facility accountability */}
         <Card span="lg:col-span-2" className="p-7 flex flex-col" delay={0.1}>
           <Eyebrow icon={ClipboardCheck}>Verbindlichkeit</Eyebrow>
-          <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+          <h3 className="display text-xl lg:text-2xl leading-tight">
             Kontrollgänge, die niemand abhaken kann.
           </h3>
           <p className="mt-3 text-sm text-white/60 leading-relaxed">
@@ -321,7 +319,7 @@ export default function BentoGrid() {
         {/* 7 — CrossFit / WOD booking */}
         <Card span="lg:col-span-2" className="p-7 flex flex-col" delay={0.1}>
           <Eyebrow icon={CalendarClock}>CrossFit & Boutique</Eyebrow>
-          <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+          <h3 className="display text-xl lg:text-2xl leading-tight">
             Gebaut für WODs, nicht nur für Kurspläne.
           </h3>
           <p className="mt-3 text-sm text-white/60 leading-relaxed">
@@ -353,7 +351,7 @@ export default function BentoGrid() {
         {/* 8 — Governed AI */}
         <Card span="lg:col-span-2" className="p-7 flex flex-col" delay={0.15}>
           <Eyebrow icon={Sparkles}>Der Assistent</Eyebrow>
-          <h3 className="font-display text-xl lg:text-2xl font-bold tracking-tight leading-tight">
+          <h3 className="display text-xl lg:text-2xl leading-tight">
             Eine KI, die sich an die Regeln hält.
           </h3>
           <p className="mt-3 text-sm text-white/60 leading-relaxed">

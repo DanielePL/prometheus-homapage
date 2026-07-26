@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { Reveal } from './Section'
 import { useDemoModal } from '../../context/DemoModalContext'
 
 export default function FinalCta() {
@@ -7,14 +7,8 @@ export default function FinalCta() {
   return (
     <section className="relative py-28 px-5 sm:px-8 overflow-hidden border-t border-white/5">
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(230,126,34,0.12), transparent 70%)' }} />
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.6 }}
-        className="relative max-w-3xl mx-auto text-center"
-      >
-        <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1]">
+      <Reveal y={26} className="relative max-w-3xl mx-auto text-center">
+        <h2 className="display text-3xl sm:text-4xl lg:text-5xl leading-[1.1]">
           Null Papier. Eine Wahrheit.<br />
           <span className="text-accent">Das Mitglied checkt sich selbst ein.</span>
         </h2>
@@ -27,7 +21,7 @@ export default function FinalCta() {
         >
           Demo buchen <ArrowRight size={20} />
         </button>
-      </motion.div>
+      </Reveal>
     </section>
   )
 }

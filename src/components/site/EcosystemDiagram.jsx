@@ -35,9 +35,9 @@ export default function EcosystemDiagram() {
     <Section id="oekosystem" className="border-t border-white/5">
       <SectionHeader
         eyebrow="Das Ökosystem"
-        title="Sechs Apps. Ein Backend."
+        title="Fünf Apps. Ein Backend."
         accent="Eine Identität."
-        subline="Nicht sechs Werkzeuge, die mit Schnittstellen zusammengeklebt sind, sondern ein System, das alle Apps teilen. Ein Login funktioniert überall. Keine Sync-Jobs, kein ETL, keine API-Brücke, die über Nacht bricht."
+        subline="Nicht fünf Werkzeuge, die mit Schnittstellen zusammengeklebt sind, sondern ein System, das alle teilen. Ein Login funktioniert überall — vom Trainer bis zur Zentrale."
       />
 
       {/* Setup selector */}
@@ -97,7 +97,7 @@ export default function EcosystemDiagram() {
               <div className="absolute -inset-5 bg-accent/25 blur-2xl rounded-full" style={{ animation: 'orbPulse 4s ease-in-out infinite' }} />
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full glass-strong border-accent/40 flex flex-col items-center justify-center text-center shadow-[0_0_40px_rgba(230,126,34,0.25)]">
                 <Database size={22} className="text-accent mb-1" />
-                <span className="font-display text-xs font-bold leading-tight px-2">Eine Datenbank<br />Eine Identität</span>
+                <span className="text-xs font-bold leading-tight px-2">Eine<br />Datenbank</span>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function EcosystemDiagram() {
                   <div className={`w-9 h-9 mx-auto rounded-lg flex items-center justify-center mb-1.5 ${on ? 'bg-accent/20 text-accent' : 'bg-white/8 text-white/50'}`}>
                     <n.icon size={18} />
                   </div>
-                  <p className="font-display text-sm font-semibold leading-tight">{n.label}</p>
+                  <p className="text-sm font-semibold leading-tight">{n.label}</p>
                   <p className="text-[11px] text-white/45 leading-tight mt-0.5">{n.sub}</p>
                 </div>
               </motion.div>
@@ -135,11 +135,13 @@ export default function EcosystemDiagram() {
         </p>
       </div>
 
-      <blockquote className="max-w-3xl mx-auto mt-14 text-center font-display text-xl lg:text-2xl font-medium text-white/85 leading-snug">
-        „Die Alternative verkauft Ihnen ein Werkzeug und ein Dutzend Schnittstellen, die Sie selbst
+      {/* Stated as our own claim, not set in quotation marks: a quote without an
+          attributable speaker reads like a testimonial and undermines itself. */}
+      <p className="max-w-3xl mx-auto mt-14 text-center display text-xl lg:text-2xl text-white/85 leading-snug">
+        Die Alternative verkauft Ihnen ein Werkzeug und ein Dutzend Schnittstellen, die Sie selbst
         zusammenbauen. Wir verkaufen Ihnen <span className="text-accent">ein</span> System, in dem von
-        Geburt an alles miteinander spricht."
-      </blockquote>
+        Geburt an alles miteinander spricht.
+      </p>
     </Section>
   )
 }

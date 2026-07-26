@@ -21,8 +21,8 @@ const points = [
 
 export default function TrustSection() {
   return (
-    <Section className="border-t border-white/5">
-      <SectionHeader eyebrow="Vertrauen" title="Bereit für die Schweiz und die EU." />
+    <Section width="narrow" className="border-t border-white/5">
+      <SectionHeader align="left" eyebrow="Vertrauen" title="Bereit für die Schweiz und die EU." />
 
       <div className="mt-14 grid md:grid-cols-3 gap-5">
         {points.map((p, i) => (
@@ -31,7 +31,7 @@ export default function TrustSection() {
               <div className="w-12 h-12 rounded-xl bg-accent/12 border border-accent/20 flex items-center justify-center mb-5">
                 <p.icon size={22} className="text-accent" />
               </div>
-              <h3 className="font-display text-lg font-bold mb-2">{p.title}</h3>
+              <h3 className="text-lg font-bold mb-2">{p.title}</h3>
               <p className="text-white/55 leading-relaxed text-sm">{p.desc}</p>
             </div>
           </Reveal>

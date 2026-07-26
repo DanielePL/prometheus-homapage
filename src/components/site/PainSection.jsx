@@ -9,7 +9,7 @@ const pains = [
 
 export default function PainSection() {
   return (
-    <Section id="loesung" className="border-t border-white/5">
+    <Section id="loesung" tone="light" width="narrow">
       <SectionHeader
         eyebrow="Warum Prometheus"
         title="Die anderen verwalten Ihr Studio."
@@ -23,7 +23,7 @@ export default function PainSection() {
               <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-5">
                 <p.icon size={22} className="text-red-400" />
               </div>
-              <h3 className="font-display text-xl font-bold mb-2">{p.title}</h3>
+              <h3 className="display text-xl mb-2">{p.title}</h3>
               <p className="text-white/55 leading-relaxed">{p.desc}</p>
             </div>
           </Reveal>
