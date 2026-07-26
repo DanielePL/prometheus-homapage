@@ -67,14 +67,28 @@ export default function SiteNav() {
             </button>
           </div>
 
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 text-white/70 hover:text-white">
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Menü schliessen' : 'Menü öffnen'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+            className="lg:hidden p-2 text-white/70 hover:text-white"
+          >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${mobileOpen ? 'max-h-96' : 'max-h-0'}`}>
-        <div className="nav-solid border-t border-white/10 px-5 py-4 space-y-1">
+      {/* max-h-96 clipped the panel: it needs 396px for five links, Login and
+          the CTA, so the button was cut off by 12px. Bound it to the viewport
+          instead and let the panel scroll if it ever outgrows that. */}
+      <div
+        id="mobile-nav"
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
+          mobileOpen ? 'max-h-[calc(100dvh_-_4rem)]' : 'max-h-0'
+        }`}
+      >
+        <div className="nav-panel border-t border-white/10 px-5 py-4 space-y-1 max-h-[calc(100dvh_-_4rem)] overflow-y-auto">
           {links.map((l) => (
             <a
               key={l.href}

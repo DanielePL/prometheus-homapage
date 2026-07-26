@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useCallback } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import { X, ArrowRight, Loader2, Check, CalendarCheck } from 'lucide-react'
 import supabase from '../lib/supabase'
 
@@ -16,7 +15,10 @@ export function DemoModalProvider({ children }) {
   return (
     <DemoModalContext.Provider value={{ openDemo }}>
       {children}
-      <AnimatePresence>{open && <DemoModal onClose={() => setOpen(false)} />}</AnimatePresence>
+      {/* No AnimatePresence: the modal unmounts immediately on close. An exit
+          animation isn't worth a lead-generating form that can fail to appear
+          (see .modal-card in index.css). */}
+      {open && <DemoModal onClose={() => setOpen(false)} />}
     </DemoModalContext.Provider>
   )
 }
@@ -48,20 +50,16 @@ function DemoModal({ onClose }) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    <div
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Demo anfragen"
+      className="modal-scrim fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.96, y: 20 }}
-        transition={{ duration: 0.25, ease: 'easeOut' }}
+      <div
         onClick={(e) => e.stopPropagation()}
-        className="glass-strong relative w-full max-w-2xl rounded-3xl p-7 md:p-9 shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
+        className="modal-card glass-strong relative w-full max-w-2xl rounded-3xl p-7 md:p-9 shadow-[0_30px_80px_rgba(0,0,0,0.6)]"
       >
         <button
           onClick={onClose}
@@ -137,8 +135,8 @@ function DemoModal({ onClose }) {
             </form>
           </>
         )}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }
 

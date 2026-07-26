@@ -110,13 +110,49 @@ section + .section-light { border-top: 0; }
 .nav-solid {
   /* Near-opaque on purpose: at 0.82 the big serif headlines were still legible
      straight through the bar, and over a cream section it washed out to grey
-     with white links on top. The bar stays dark on every section. */
-  background: rgba(14, 14, 14, 0.94);
+     with white links on top. 0.94 still let an orange eyebrow show through, so
+     the bar sits at 0.97 and keeps only a hint of translucency. */
+  background: rgba(14, 14, 14, 0.97);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .nav-solid { background: rgba(14, 14, 14, 0.97); }
+  .nav-solid { background: #0E0E0E; }
+}
+
+/* The open mobile menu is a panel over content, not a tinted bar over it: any
+   translucency here means headlines read straight through the menu items. Fully
+   opaque, no exceptions. */
+.nav-panel {
+  background: #0E0E0E;
+}
+
+/* Demo modal entrance. Same reasoning as .hero-rise, and for the same reason it
+   matters more here than anywhere else: this is the form that produces leads.
+   Driven by framer-motion it opened at opacity 0 and stayed there whenever the
+   tab was throttled — the request form was on screen but invisible. CSS
+   animations are time-based, so the finished state gets painted regardless. */
+@keyframes modalScrimIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modalCardIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+.modal-scrim { animation: modalScrimIn 0.18s ease-out both; }
+.modal-card  { animation: modalCardIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* Content swapped in place — the surface picker's selected panel. Same class of
+   fix: keyed remount restarts this animation, and it finishes even unattended. */
+@keyframes fadeSwapIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.fade-swap { animation: fadeSwapIn 0.3s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-scrim, .modal-card, .fade-swap { animation: none; }
 }
 
 /* Scroll reveal. Same reasoning as .hero-rise: the transition is time-based

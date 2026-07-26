@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import {
   Building2, Network, Gauge, Monitor, Tablet, ClipboardSignature,
   Dumbbell, Smartphone, KeyRound,
@@ -163,14 +162,10 @@ export default function SurfacesSection() {
 
         {/* Selected surface */}
         <div className="lg:sticky lg:top-28">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active.key}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
-            >
+          {/* `key` remounts on tab change, which restarts the CSS animation.
+              Deliberately not framer-motion: rAF-driven fades stall in a
+              throttled tab and left the selected surface invisible. */}
+          <div key={active.key} className="fade-swap">
               <div className="relative">
                 <div className="absolute -inset-6 bg-accent/10 blur-[80px] rounded-full pointer-events-none" />
 
@@ -203,8 +198,7 @@ export default function SurfacesSection() {
                 </span>
                 <p className="text-white/60 leading-relaxed">{active.desc}</p>
               </div>
-            </motion.div>
-          </AnimatePresence>
+          </div>
         </div>
       </div>
 
