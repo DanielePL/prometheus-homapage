@@ -1,75 +1,45 @@
-import Navbar from '../components/Navbar'
-import Hero from '../components/Hero'
-import SocialProof from '../components/SocialProof'
-import ProductShowcase from '../components/ProductShowcase'
-import BiomechanicalDNA from '../components/BiomechanicalDNA'
-import PrometheusLab from '../components/PrometheusLab'
-import Chameleon from '../components/Chameleon'
-import FreeTrial from '../components/FreeTrial'
-import Technology from '../components/Technology'
-import Team from '../components/Team'
-import Roadmap from '../components/Roadmap'
-import Testimonials from '../components/Testimonials'
-import Footer from '../components/Footer'
+import { DemoModalProvider } from '../context/DemoModalContext'
+import SiteNav from '../components/site/SiteNav'
+import HeroOperator from '../components/site/HeroOperator'
+import PainSection from '../components/site/PainSection'
+import BentoGrid from '../components/site/BentoGrid'
+import EcosystemDiagram from '../components/site/EcosystemDiagram'
+import EntryPoints from '../components/site/EntryPoints'
+import SurfacesSection from '../components/site/SurfacesSection'
+import MemberSection from '../components/site/MemberSection'
+import VerticalsSection from '../components/site/VerticalsSection'
+import TrustSection from '../components/site/TrustSection'
+import PricingSection from '../components/site/PricingSection'
+import FinalCta from '../components/site/FinalCta'
+import SiteFooter from '../components/site/SiteFooter'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-dark text-white relative overflow-hidden">
-      {/* Ambient orange glow layers throughout the page */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-[-20%] w-[60%] h-[800px] bg-accent/[0.04] rounded-full blur-[200px]" />
-        <div className="absolute top-[15%] right-[-15%] w-[50%] h-[600px] bg-accent/[0.03] rounded-full blur-[180px]" />
-        <div className="absolute top-[35%] left-[-10%] w-[45%] h-[700px] bg-accent/[0.04] rounded-full blur-[200px]" />
-        <div className="absolute top-[55%] right-[-20%] w-[55%] h-[800px] bg-accent/[0.03] rounded-full blur-[180px]" />
-        <div className="absolute top-[75%] left-[-15%] w-[50%] h-[600px] bg-accent/[0.04] rounded-full blur-[200px]" />
-        <div className="absolute bottom-0 right-[-10%] w-[40%] h-[500px] bg-accent/[0.03] rounded-full blur-[160px]" />
+    <DemoModalProvider>
+      <div className="min-h-screen bg-dark text-white relative overflow-hidden font-body">
+        {/* Ambient accent glows behind the whole page */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-[10%] left-[-15%] w-[50%] h-[600px] bg-accent/[0.04] rounded-full blur-[200px]" />
+          <div className="absolute top-[45%] right-[-15%] w-[50%] h-[700px] bg-accent/[0.03] rounded-full blur-[200px]" />
+          <div className="absolute top-[80%] left-[-10%] w-[45%] h-[600px] bg-accent/[0.04] rounded-full blur-[200px]" />
+        </div>
+
+        <div className="relative z-10">
+          <SiteNav />
+          <HeroOperator />
+          <PainSection />
+          <BentoGrid />
+          <EcosystemDiagram />
+          <EntryPoints />
+          <SurfacesSection />
+          <MemberSection />
+          <VerticalsSection />
+          <TrustSection />
+          <PricingSection />
+          <FinalCta />
+          <SiteFooter />
+        </div>
       </div>
-
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <SocialProof />
-        <ProductShowcase />
-        <BiomechanicalDNA />
-        {/* <PrometheusLab /> */}
-
-        {/* Cinematic background divider — gym phone */}
-        <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{ backgroundImage: "url('/images/features/fitness-1.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/40 to-dark" />
-        </div>
-
-        <Chameleon />
-
-        {/* Cinematic background divider */}
-        <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{ backgroundImage: "url('/images/features/vbt.jpg')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/40 to-dark" />
-        </div>
-
-        <FreeTrial />
-        {/* <Technology /> */}
-        <Team />
-
-        {/* Cinematic background divider — community */}
-        <div className="relative h-[50vh] sm:h-[60vh] overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-fixed"
-            style={{ backgroundImage: "url('/images/features/campus-2.png')" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark via-dark/40 to-dark" />
-        </div>
-
-        <Roadmap />
-        {/* <Testimonials /> */}
-        <Footer />
-      </div>
-    </div>
+    </DemoModalProvider>
   )
 }

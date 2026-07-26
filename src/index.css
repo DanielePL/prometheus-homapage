@@ -10,7 +10,118 @@
   --color-accent-dark: #D35400;
   --color-accent-glow: 0px 2px 18px 0px #E67E22;
   --font-heading: 'Arimo', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
   --font-body: 'Poppins', sans-serif;
+}
+
+/* Glassmorphism recipe (mirrors the product's glass-card) */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Hero entrance. Deliberately CSS and not framer-motion: CSS animations are
+   time-based, so a throttled or backgrounded tab still paints the finished
+   state. A rAF-driven library stalls at frame 0 and leaves the most important
+   content on the page invisible. */
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-rise {
+  animation: heroRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}
+
+@keyframes flowDash {
+  to { stroke-dashoffset: -1000; }
+}
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+/* ---------------------------------------------------------------------------
+   3D device mockup — the "bring it to life" treatment from the reference clip.
+   A real screenshot inside a phone body, tilted in perspective, floating over a
+   soft shadow and a warm ambient glow. Pure CSS/compositing: the screenshot
+   pixels are never altered, so no numbers are invented.
+--------------------------------------------------------------------------- */
+.device-stage {
+  perspective: 1600px;
+  perspective-origin: 50% 40%;
+}
+.device-float {
+  transform-style: preserve-3d;
+  animation: deviceBob 7s ease-in-out infinite;
+}
+@keyframes deviceBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .device-float { animation: none; }
+}
+/* Realistic phone shell: titanium rim, black bezel, screen crops to the frame. */
+.phone-shell {
+  position: relative;
+  border-radius: 2.4rem;
+  padding: 0.42rem;
+  background: linear-gradient(155deg, #2b2b2f 0%, #0b0b0d 38%, #17171a 62%, #050506 100%);
+  box-shadow:
+    0 2px 3px rgba(255, 255, 255, 0.10) inset,
+    0 44px 80px -28px rgba(0, 0, 0, 0.85),
+    0 18px 40px -20px rgba(0, 0, 0, 0.7);
+}
+.phone-screen {
+  position: relative;
+  border-radius: 2.05rem;
+  overflow: hidden;
+  background: #000;
+}
+.phone-screen > img { display: block; width: 100%; height: auto; }
+/* Dynamic-island pill floating over the top of the screen. */
+.phone-island {
+  position: absolute;
+  top: 0.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32%;
+  height: 1.15rem;
+  border-radius: 999px;
+  background: #000;
+  z-index: 2;
+}
+/* Screen sheen — a faint diagonal highlight that sells the glass. */
+.phone-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 34%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Contact shadow the device casts on the floor beneath it. */
+.device-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  width: 70%;
+  height: 8%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, transparent 70%);
+  filter: blur(14px);
+  z-index: -1;
 }
 
 @keyframes float {
