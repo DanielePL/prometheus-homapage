@@ -52,7 +52,7 @@ export default function EntryPoints() {
   const { openDemo } = useDemoModal()
 
   return (
-    <Section id="einstieg" className="border-t border-white/5">
+    <Section id="einstieg" tone="raised" className="border-t border-white/5">
       <SectionHeader
         align="left"
         eyebrow="Drei Einstiegspunkte"

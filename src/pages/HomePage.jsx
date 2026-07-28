@@ -5,6 +5,7 @@ import PainSection from '../components/site/PainSection'
 import ProofSection from '../components/site/ProofSection'
 import PhotoBreak from '../components/site/PhotoBreak'
 import EntryPoints from '../components/site/EntryPoints'
+import LedProSection from '../components/site/LedProSection'
 import PricingSection from '../components/site/PricingSection'
 import FinalCta from '../components/site/FinalCta'
 import SiteFooter from '../components/site/SiteFooter'
@@ -21,7 +22,8 @@ import SiteFooter from '../components/site/SiteFooter'
  *   MemberSection.jsx     the member app and its B2C pricing
  *   VerticalsSection.jsx  seventeen industries
  *   TrustSection.jsx      its three points moved into PricingSection
- *   LedProSection.jsx     LED Pro, out by decision 2026-07-24
+ *
+ * (LedProSection.jsx came back 2026-07-28, rebuilt as a compact strip.)
  *
  * Reason for the cut: the page carried fourteen sections and twelve product
  * screenshots — effectively the whole system. A prospect who has seen all of it
@@ -50,6 +52,7 @@ export default function HomePage() {
             accent="Die Software gehört dorthin — nicht ins Backoffice."
           />
           <EntryPoints />
+          <LedProSection />
           <PricingSection />
           <FinalCta />
           <SiteFooter />

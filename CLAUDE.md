@@ -61,13 +61,28 @@ nicht zum Produkt.
 ### Was davon auf die Website darf
 
 - **The Forge** (`prometheus-admin`) ist intern — **nie** auf der Website zeigen.
-- **LED Pro: aktuell NICHT auf der Website** (Entscheidung 2026-07-24, „vorerst
-  raus"). Die fertige Sektion liegt geparkt in
-  `src/components/site/LedProSection.jsx` — gebaut, aber absichtlich nicht in
-  `HomePage.jsx` eingebunden. Vor dem Wiedereinbinden mit Daniele klären.
-  Inhaltlich gilt dann weiter: LED Pro ist ein eigenes Produkt derselben Firma
-  (Peakforce), in Enterprise **integrierbar** — nicht als ausgeliefertes
-  Enterprise-Feature darstellen.
+- **LED Pro: seit 2026-07-28 wieder auf der Website** (mit Daniele geklärt; hebt
+  den Entscheid vom 2026-07-24 auf). `LedProSection.jsx` steht als kompakter
+  Streifen zwischen `EntryPoints` und `PricingSection` — bewusst kein eigenes
+  Kapitel, weil die Seite genau deshalb von vierzehn Sektionen heruntergekürzt
+  wurde. Die alte Fassung enthielt eine in CSS nachgebaute Lichtkonsole mit
+  erfundenen Zonenwerten (82/45/70/60 %); die ist gelöscht und darf nicht
+  zurück.
+
+  **Was über LED Pro behauptet werden darf** — Grenzen aus
+  `Prometheus-Enterprise/docs/LED_PRO_PROVISIONING.md`:
+  - ✅ „Modul in Enterprise", „ein Login": Die Lighting-Seite ist ausgeliefert
+    (`Prometheus-Enterprise/src/pages/Lighting.tsx`, Sidebar, i18n DE/EN/FR).
+  - ✅ Eigenes Produkt, eigener Vertrag, eigenes Abo (Free/Tier 1–3).
+  - ❌ **Nicht „ein Backend".** LED Pro läuft auf einem eigenen Supabase-Projekt
+    (`vaozryyo…`) und wird über die Tabelle `gym_lighting_links` an ein
+    Enterprise-Gym (`zzluhirm…`) gekoppelt, manuell per SQL nach
+    Vertragsabschluss. Deshalb gehört LED Pro **nicht ins Ökosystem-Diagramm** —
+    das behauptet genau die eine Datenbank, die hier nicht existiert.
+  - ❌ **Nicht an Ketten verkaufen.** Aktuell ein Gym : ein LED-Studio,
+    Multi-Studio ist laut Doc „Phase 2".
+  - ❌ Nicht als im Enterprise-Abo enthaltenes Feature darstellen.
+  - ❌ Die Firma **LED Pro Solutions** bleibt ungenannt (siehe Regel zu Dritten).
 
 ---
 
@@ -163,6 +178,21 @@ Website → Trial sich wie dieselbe Firma anfühlt.
 - **Dunkel als Basis**, Glassmorphism: `.glass` / `.glass-strong` in
   `src/index.css` (halbtransparente Füllung + `backdrop-filter: blur()` +
   1px Rand). **Keine flachen grauen Karten.**
+- **Drei Gründe, nicht einer (seit 2026-07-28):** `--color-dark #0D0D0F`
+  (Standard), `--color-raised #14141A` (`<Section tone="raised">`) und der
+  Creme-Block. Zwei dunkle Sektionen hintereinander nehmen unterschiedliche
+  Gründe, damit die Seite nicht eine durchgehende Fläche ist.
+- **Karten müssen über dem Grund liegen, nicht darin.** Vorher: 4 % Weiß auf
+  `#141414` — die Karte war sieben Helligkeitsstufen heller als die Seite und
+  las sich als dieselbe Fläche. Deshalb wirkte der dunkle Teil flach. Jetzt
+  liefert `.glass` zusätzlich zwei Tiefen-Signale, beide über Variablen:
+  `--card-catch` (1 px hellere Oberkante, das Licht von oben) und
+  `--card-shadow`. In `.section-light` wird das durch einen weichen dunklen
+  Schatten ersetzt — eine weiße Lichtkante ist auf Creme unsichtbar.
+  **Nur an den Farbwerten zu drehen bringt hier nichts:** getestet mit drei
+  Grundton-Kandidaten (kühl/warm/fast-schwarz), im direkten Vergleich am
+  laufenden Build praktisch nicht unterscheidbar. Der Hebel ist der Kontrast
+  zwischen Karte und Grund, nicht der Ton.
 - **Helle Bruch-Sektionen (seit 2026-07-26):** `<Section tone="light">` setzt
   `.section-light` und legt einen Creme-Block (`--color-cream #F4F1EB`) in den
   dunklen Fluss. Die Klasse deklariert `glass` und die `text-white/xx`-Utilities
@@ -283,12 +313,11 @@ Unterseiten `/studios`, `/coach`, `/app` aus dem Brief:
 | Datei | Inhalt |
 |---|---|
 | `BentoGrid.jsx` | neun Feature-Karten (`ProofSection` zeigt drei) |
-| `EcosystemDiagram.jsx` | die fünf Apps um eine Datenbank, mit Setup-Wähler |
+| `EcosystemDiagram.jsx` | die vier Apps um eine Datenbank, mit Rollen-Filter |
 | `SurfacesSection.jsx` | neun rollenspezifische Oberflächen mit Screenshots |
 | `MemberSection.jsx` | Mitglieder-App und ihre B2C-Preise |
 | `VerticalsSection.jsx` | siebzehn Branchen |
 | `TrustSection.jsx` | die drei Punkte stecken jetzt in `PricingSection` |
-| `LedProSection.jsx` | LED Pro, draußen per Entscheid 2026-07-24 |
 
 **Warum ausgedünnt (Entscheid Daniele, 2026-07-26):** Die Seite trug 14
 Sektionen und 12 Produkt-Screenshots — praktisch das ganze System. Wer alles

@@ -1,7 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark: #141414;
+  /* Ground goes darker than the old #141414 so cards can sit *above* it. At 4%
+     white on #141414 a card was seven steps brighter than the page and read as
+     the same surface — the reason the dark stretch looked flat.
+     --color-raised is a second, slightly lighter ground: consecutive dark
+     sections alternate between the two so the page isn't one long plane. */
+  --color-dark: #0D0D0F;
+  --color-raised: #14141A;
   --color-dark-light: #1C1C1C;
   --color-dark-card: #1C1C1C;
   --color-dark-border: rgba(255, 255, 255, 0.10);
@@ -74,19 +80,47 @@
 .section-light + section,
 section + .section-light { border-top: 0; }
 
-/* Glassmorphism recipe (mirrors the product's glass-card) */
+/* Glassmorphism recipe (mirrors the product's glass-card).
+   Fill and border come from variables so the dark ground can be retuned in one
+   place — a card that barely separates from the page is what makes a dark
+   layout read as flat. */
+:root {
+  --glass-fill: rgba(255, 255, 255, 0.055);
+  --glass-fill-strong: rgba(255, 255, 255, 0.085);
+  --glass-border: rgba(255, 255, 255, 0.11);
+  --glass-border-strong: rgba(255, 255, 255, 0.15);
+  /* The two cues that make a surface look lit and lifted: a 1px brighter top
+     edge, and a shadow that separates it from the ground. */
+  --card-catch: rgba(255, 255, 255, 0.13);
+  --card-shadow: 0 22px 44px -14px rgba(0, 0, 0, 0.85);
+}
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--glass-fill);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow), inset 0 1px 0 var(--card-catch);
 }
 .glass-strong {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--glass-fill-strong);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid var(--glass-border-strong);
+  box-shadow: var(--card-shadow), inset 0 1px 0 var(--card-catch);
 }
+/* On cream the lift has to come from a soft drop shadow instead — a white top
+   edge is invisible there, and the dark shadow would be far too heavy. */
+.section-light .glass,
+.section-light .glass-strong {
+  box-shadow: 0 14px 30px -16px rgba(25, 29, 36, 0.22);
+}
+
+/* Second dark ground. Used by <Section tone="raised"> so two dark sections in a
+   row don't read as one continuous plane. */
+.section-raised {
+  background: var(--color-raised);
+}
+
 
 /* Hero entrance. Deliberately CSS and not framer-motion: CSS animations are
    time-based, so a throttled or backgrounded tab still paints the finished

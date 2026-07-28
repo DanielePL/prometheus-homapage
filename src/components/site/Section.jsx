@@ -38,8 +38,10 @@ export function useReveal() {
 
 /* Generous, airy section wrapper used across the homepage.
 
-   `tone` is what breaks the scroll rhythm: 'dark' is the page default, 'light'
-   drops a cream block that flips its own contents (see .section-light).
+   `tone` is what breaks the scroll rhythm: 'dark' is the page default,
+   'raised' is a slightly lighter dark ground so two dark sections in a row
+   don't read as one plane, and 'light' drops a cream block that flips its own
+   contents (see .section-light).
    `width` lets a section escape the 7xl column so not every block is the same
    measure — the single biggest reason the page read as repetitive. */
 const WIDTHS = {
@@ -54,7 +56,7 @@ export function Section({ id, className = '', children, tone = 'dark', width = '
     <section
       id={id}
       className={`relative ${pad ? 'py-24 lg:py-32' : ''} px-5 sm:px-8 ${
-        tone === 'light' ? 'section-light' : ''
+        tone === 'light' ? 'section-light' : tone === 'raised' ? 'section-raised' : ''
       } ${className}`}
     >
       <div className={`${WIDTHS[width]} mx-auto`}>{children}</div>
