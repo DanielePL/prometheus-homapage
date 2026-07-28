@@ -163,13 +163,40 @@ Website → Trial sich wie dieselbe Firma anfühlt.
 - **Dunkel als Basis**, Glassmorphism: `.glass` / `.glass-strong` in
   `src/index.css` (halbtransparente Füllung + `backdrop-filter: blur()` +
   1px Rand). **Keine flachen grauen Karten.**
-- **Schrift:** `font-display` = Space Grotesk (Headlines),
-  `font-body` = Poppins (Fließtext). Beide via Google Fonts in `index.html`.
+- **Helle Bruch-Sektionen (seit 2026-07-26):** `<Section tone="light">` setzt
+  `.section-light` und legt einen Creme-Block (`--color-cream #F4F1EB`) in den
+  dunklen Fluss. Die Klasse deklariert `glass` und die `text-white/xx`-Utilities
+  in ihrem Scope neu, damit der Inhalt mitkippt — nicht an jeder Fundstelle
+  von Hand umschalten. Grund: 12 gleich gebaute dunkle Sektionen hintereinander
+  wurden als monoton kritisiert.
+- **Navigation nie `.glass`:** 4 % Weiß über einer dunklen Seite ist praktisch
+  klar, Headlines lasen sich durch das Logo. Die Leiste nutzt `.nav-solid`
+  (0.97 + Blur, `@supports`-Fallback), das offene Mobile-Menü `.nav-panel`
+  (**voll deckend**, ein Panel über Inhalt darf nicht durchscheinen).
+- **Schrift (Stand 2026-07-26):** `font-display` = **Cormorant Garamond**
+  (Serif, Headlines), `font-body` = **Inter** (Fließtext), via Google Fonts in
+  `index.html`. Vorher Space Grotesk/Poppins; auf Wunsch von Daniele an die
+  Muttergesellschaft (peakforce-solutions.com) angeglichen. Cormorant ist eine
+  Serif mit hohem Strichkontrast: sie braucht **Größe statt Gewicht**.
+  Headlines laufen über die Klasse `.display` bei 400–500 — `font-bold` lässt
+  sie verstopfen. Kleine Labels, Preise und Tabellenzahlen bleiben in Inter,
+  eine Serif unter 14px wird Matsch.
 - **Signature-Glow:** `0 0 30px rgba(230,126,34,0.3)` — sparsam, nur auf
   aktiven CTAs und fokussierten Hero-Elementen.
 - **Motion:** framer-motion, zurückhaltend. Das Ökosystem-Diagramm darf
   auffallen, sonst nichts. Kein Karussell-Kitsch.
-  **Ausnahme Hero:** dort läuft die Einblendung über die CSS-Klasse
+  **Kein framer-motion für Einblendungen — nirgends mehr (Stand 2026-07-26).**
+  Die Startseite nutzt es gar nicht: `Reveal`/`SectionHeader` laufen über
+  `useReveal()` (IntersectionObserver setzt nur eine Klasse, die Blende ist eine
+  CSS-Transition), das Demo-Modal über `.modal-scrim`/`.modal-card`, der
+  Oberflächen-Wechsel über `.fade-swap`, der Hero über `.hero-rise`.
+  Auslöser war ein Live-Fehler: das Demo-Formular öffnete bei ~15 % Deckkraft
+  und blieb dort, weil die rAF-getriebene Animation im gedrosselten Tab nicht
+  weiterlief — der wichtigste Conversion-Punkt der Seite war unsichtbar.
+  Deshalb ist `framer-motion` auch **nicht mehr in `manualChunks`**: der
+  benannte Chunk wurde von `index.html` vorgeladen (131 KB pro Besuch), obwohl
+  ihn keine aktive Komponente importiert.
+  **Ausnahme Hero (historisch):** dort lief die Einblendung schon vorher über
   `.hero-rise` und **nicht** über framer-motion. Grund: framer-motion animiert
   per `requestAnimationFrame`, das in einem gedrosselten oder im Hintergrund
   liegenden Tab stillsteht — der Inhalt bleibt dann auf `opacity: 0` hängen.
@@ -237,9 +264,39 @@ Phones) und `SurfacesSection.jsx` (Phone-Oberflächen).
 
 ### Komponenten
 
-`src/components/site/` — die Homepage-Sektionen. `Section.jsx` liefert
-`<Section>`, `<SectionHeader>` und `<Reveal>`; neue Sektionen bauen darauf auf,
-statt Abstände neu zu erfinden.
+`src/components/site/` — die Sektionen. `Section.jsx` liefert `<Section>`
+(mit `tone="light|dark"`, `width="narrow|default|wide|full"`),
+`<SectionHeader>` (mit `align`, `size`; der `accent`-Teil wird **kursiv**
+gesetzt, nicht orange — die Akzentfarbe bleibt den CTAs), `<Reveal>` und
+`useReveal()`. Neue Sektionen bauen darauf auf, statt Abstände neu zu erfinden.
+
+### Was auf der Startseite liegt (Stand 2026-07-26)
+
+Sieben Inhaltssektionen, **drei** Produkt-Screenshots:
+
+    SiteNav · HeroOperator · PainSection · ProofSection · PhotoBreak
+    EntryPoints · PricingSection · FinalCta · SiteFooter
+
+**Geparkt — fertig gebaut, absichtlich nicht eingebunden.** Grundlage für die
+Unterseiten `/studios`, `/coach`, `/app` aus dem Brief:
+
+| Datei | Inhalt |
+|---|---|
+| `BentoGrid.jsx` | neun Feature-Karten (`ProofSection` zeigt drei) |
+| `EcosystemDiagram.jsx` | die fünf Apps um eine Datenbank, mit Setup-Wähler |
+| `SurfacesSection.jsx` | neun rollenspezifische Oberflächen mit Screenshots |
+| `MemberSection.jsx` | Mitglieder-App und ihre B2C-Preise |
+| `VerticalsSection.jsx` | siebzehn Branchen |
+| `TrustSection.jsx` | die drei Punkte stecken jetzt in `PricingSection` |
+| `LedProSection.jsx` | LED Pro, draußen per Entscheid 2026-07-24 |
+
+**Warum ausgedünnt (Entscheid Daniele, 2026-07-26):** Die Seite trug 14
+Sektionen und 12 Produkt-Screenshots — praktisch das ganze System. Wer alles
+gesehen hat, braucht die Demo nicht mehr. Dasselbe Muster wie im Produkt, wo
+die Erstfläche aus demselben Grund von 13 auf 6 Module ging.
+**Vor dem Wiedereinbinden einer geparkten Sektion:** Ankerlinks in `SiteNav`
+und die Ziele der drei Hero-Türen mitziehen — beim Ausbauen waren `#oekosystem`,
+`#branchen` und `#mitglied` tote Anker.
 
 `src/components/` (Wurzel) enthält die **alte** Seite (Hero.jsx, Technology.jsx,
 Team.jsx …). Wird von `HomePage.jsx` nicht mehr benutzt — noch nicht gelöscht,
@@ -265,4 +322,13 @@ Demo-Formular. Jeder „Demo buchen"-CTA geht darüber.
   gegen „Studio Apex" im Dunkelmodus, ohne Trial-Onboarding-Overlay und ohne
   Demo-Banner. Dann entfällt das Zuschneiden.
 - **Der Buchhaltungs-Screenshot nennt den KI-Anbieter** („Claude reads the
-  fields"). Falls das nicht öffentlich sein soll, neu aufnehmen.
+  fields, you just confirm" in der Untertitelzeile). Vorläufig entschärft:
+  `ProofSection` zeigt per `focus="center bottom"` nur die Buchungstabelle, die
+  Zeile liegt außerhalb des Ausschnitts. Die Datei selbst enthält sie weiter —
+  wer den Ausschnitt ändert, holt sie zurück. Saubere Lösung ist eine
+  Neuaufnahme.
+- **Die Screenshots sind englisch**, die Seite ist deutsch (`dark-accounting`:
+  „Payables", „VAT return", „Vendor"). Für DE-Aufnahmen gibt es im
+  Enterprise-Repo inzwischen `capture-presentation-screens.ts --lang de`;
+  `dark-onboard` trug zusätzlich „Dev Fallback — Dev Fallback" als
+  Mandantennamen und ist deshalb oben beschnitten (1600×1152).

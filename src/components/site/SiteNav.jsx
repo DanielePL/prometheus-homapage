@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react'
 import { Menu, X, ArrowRight } from 'lucide-react'
 import { useDemoModal } from '../../context/DemoModalContext'
 
+/* Three links, not five. #oekosystem and #branchen pointed at sections that
+   are parked for subpages — they were dead anchors that scrolled nowhere. */
 const links = [
   { label: 'Plattform', href: '#plattform' },
-  { label: 'Ökosystem', href: '#oekosystem' },
   { label: 'Einstieg', href: '#einstieg' },
-  { label: 'Branchen', href: '#branchen' },
   { label: 'Preise', href: '#preise' },
 ]
 

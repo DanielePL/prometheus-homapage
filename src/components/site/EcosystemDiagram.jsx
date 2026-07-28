@@ -1,31 +1,53 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Smartphone, Monitor, Building2, Store, Dumbbell, Database } from 'lucide-react'
+import { Smartphone, Monitor, Building2, Dumbbell, Database } from 'lucide-react'
 import { Section, SectionHeader } from './Section'
 
-/* App nodes positioned radially around the shared core. Six real apps —
-   Enterprise Web, Coach Web (also carries Studio Light), Coach iOS, Coach
-   Android, Member iOS, Member Android — grouped into five nodes because the
-   two mobile pairs ship as one product each. */
+/* Four products around the shared core. Six binaries — Enterprise Web, Coach
+   Web, Coach iOS, Coach Android, Member iOS, Member Android — but the two
+   mobile pairs ship as one product each.
+
+   Studio Light is NOT a fifth node: it is a role inside the Coach Web app
+   (`prometheus_coach` carries both the PT workspace and the Studio Light
+   backoffice, see CLAUDE.md). Drawing it separately implied a product that can
+   be bought without Coach Web, and forced every filter into a contradiction —
+   "Kette + Backoffice" lit up Studio Light ("Backoffice Einzelstandort")
+   alongside Enterprise, which already contains that backoffice.
+
+   Layout is a diamond and it carries meaning: the operator on top, the trainer
+   surfaces on the flanks, the member underneath. */
 const NODES = {
-  enterprise: { x: 50, y: 9, icon: Building2, label: 'Enterprise', sub: 'Studio-Cockpit & Konzern' },
-  coachWeb: { x: 15, y: 33, icon: Monitor, label: 'Coach Web', sub: 'PT-Arbeitsplatz' },
-  coachStudio: { x: 85, y: 33, icon: Store, label: 'Studio Light', sub: 'Backoffice Einzelstandort' },
-  coachApp: { x: 22, y: 85, icon: Dumbbell, label: 'Coach App', sub: 'iOS & Android' },
-  member: { x: 78, y: 85, icon: Smartphone, label: 'Mitglieder-App', sub: 'iOS & Android · Freemium' },
+  enterprise: { x: 50, y: 11, icon: Building2, label: 'Enterprise', sub: 'Studio-Cockpit & Konzern' },
+  coachWeb: { x: 15, y: 52, icon: Monitor, label: 'Coach Web', sub: 'PT-Arbeitsplatz & Studio-Backoffice' },
+  coachApp: { x: 85, y: 52, icon: Dumbbell, label: 'Coach App', sub: 'iOS & Android' },
+  member: { x: 50, y: 89, icon: Smartphone, label: 'Mitglieder-App', sub: 'iOS & Android · Freemium' },
 }
 
+/* Filters run along who works with the system, not along company size. Size
+   only picks the Enterprise tier (Starter up to 250 members, Pro multi-site,
+   per plans.ts) — it does not change which apps are in play, so a "single
+   studio" and a "chain" would light up an identical set. */
 const SETUPS = [
   { key: 'all', label: 'Alles', active: Object.keys(NODES) },
-  { key: 's1', label: 'Nur Coach', active: ['coachWeb', 'coachApp', 'member'] },
-  { key: 's2', label: 'Einzelstudio', active: ['coachStudio', 'member'] },
-  { key: 's3', label: 'Kette + PT', active: ['coachWeb', 'coachApp', 'enterprise', 'member'] },
-  { key: 's4', label: 'Kette + Backoffice', active: ['coachStudio', 'enterprise', 'member'] },
+  { key: 'coach', label: 'Nur Coaching', active: ['coachWeb', 'coachApp', 'member'] },
+  { key: 'studio', label: 'Studio', active: ['enterprise', 'member'] },
+  { key: 'studioPt', label: 'Studio + PT-Team', active: ['enterprise', 'coachWeb', 'coachApp', 'member'] },
 ]
 
 const VB = { w: 400, h: 300 }
 const core = { cx: VB.w / 2, cy: VB.h / 2 }
 const toPx = (n) => ({ cx: (n.x / 100) * VB.w, cy: (n.y / 100) * VB.h })
+
+/* Stop each line at the rim of the core orb instead of running it to the exact
+   centre. The orb is only semi-transparent, so lines drawn underneath it show
+   through as streaks across the label. CORE_R is the orb radius expressed in
+   viewBox units (~128px rendered at a 768px container against a 400-unit box). */
+const CORE_R = 36
+const shrinkToCore = (p) => {
+  const dx = core.cx - p.cx
+  const dy = core.cy - p.cy
+  const len = Math.hypot(dx, dy) || 1
+  return { cx: core.cx - (dx / len) * CORE_R, cy: core.cy - (dy / len) * CORE_R }
+}
 
 export default function EcosystemDiagram() {
   const [setup, setSetup] = useState(SETUPS[0])
@@ -35,9 +57,9 @@ export default function EcosystemDiagram() {
     <Section id="oekosystem" className="border-t border-white/5">
       <SectionHeader
         eyebrow="Das Ökosystem"
-        title="Fünf Apps. Ein Backend."
+        title="Vier Apps. Ein Backend."
         accent="Eine Identität."
-        subline="Nicht fünf Werkzeuge, die mit Schnittstellen zusammengeklebt sind, sondern ein System, das alle teilen. Ein Login funktioniert überall — vom Trainer bis zur Zentrale."
+        subline="Nicht vier Werkzeuge, die mit Schnittstellen zusammengeklebt sind, sondern ein System, das alle teilen. Ein Login funktioniert überall — vom Trainer bis zur Zentrale."
       />
 
       {/* Setup selector */}
@@ -60,29 +82,28 @@ export default function EcosystemDiagram() {
       {/* Diagram */}
       <div className="mt-10 relative max-w-3xl mx-auto">
         <div className="relative aspect-[4/3]">
-          {/* connection lines */}
+          {/* Connection lines. Solid, not dashed: a marching-ants dash on every
+              line at once reads as nervous flicker, and the animation is the
+              first thing the eye locks onto — it out-shouts the nodes it is
+              supposed to connect. A static line carries the same information.
+              No gradient stroke either: a horizontal objectBoundingBox gradient
+              collapses on the vertical Enterprise line (zero-width box), which
+              is why that one connection used to render invisible. */}
           <svg viewBox={`0 0 ${VB.w} ${VB.h}`} className="absolute inset-0 w-full h-full">
-            <defs>
-              <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#E67E22" stopOpacity="0.1" />
-                <stop offset="50%" stopColor="#E67E22" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#E67E22" stopOpacity="0.1" />
-              </linearGradient>
-            </defs>
             {Object.entries(NODES).map(([key, n]) => {
               const p = toPx(n)
               const on = isActive(key)
+              const end = shrinkToCore(p)
               return (
                 <line
                   key={key}
                   x1={p.cx}
                   y1={p.cy}
-                  x2={core.cx}
-                  y2={core.cy}
-                  stroke={on ? 'url(#flow)' : 'rgba(255,255,255,0.06)'}
-                  strokeWidth={on ? 1.6 : 1}
-                  strokeDasharray={on ? '6 5' : '0'}
-                  style={on ? { animation: 'flowDash 14s linear infinite' } : undefined}
+                  x2={end.cx}
+                  y2={end.cy}
+                  stroke={on ? 'rgba(230,126,34,0.45)' : 'rgba(255,255,255,0.06)'}
+                  strokeWidth={on ? 1.5 : 1}
+                  className="transition-[stroke] duration-500"
                 />
               )
             })}
@@ -106,12 +127,20 @@ export default function EcosystemDiagram() {
           {Object.entries(NODES).map(([key, n]) => {
             const on = isActive(key)
             return (
-              <motion.div
+              /* Plain div + CSS transition, no framer-motion: rAF-driven
+                 animation stalls in a throttled tab and can strand a node at
+                 the opacity it was mid-flight on. Centring and scale share one
+                 transform so Tailwind's translate utilities can't clash with
+                 an animated scale. */
+              <div
                 key={key}
-                animate={{ opacity: on ? 1 : 0.32, scale: on ? 1 : 0.92 }}
-                transition={{ duration: 0.4 }}
-                className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
-                style={{ left: `${n.x}%`, top: `${n.y}%` }}
+                className="absolute z-10 transition-[opacity,transform] duration-500 ease-out"
+                style={{
+                  left: `${n.x}%`,
+                  top: `${n.y}%`,
+                  transform: `translate(-50%, -50%) scale(${on ? 1 : 0.92})`,
+                  opacity: on ? 1 : 0.32,
+                }}
               >
                 <div
                   className={`w-[96px] sm:w-[128px] lg:w-[136px] rounded-2xl p-2.5 sm:p-3 text-center transition-all ${
@@ -124,7 +153,7 @@ export default function EcosystemDiagram() {
                   <p className="text-sm font-semibold leading-tight">{n.label}</p>
                   <p className="text-[11px] text-white/45 leading-tight mt-0.5">{n.sub}</p>
                 </div>
-              </motion.div>
+              </div>
             )
           })}
         </div>

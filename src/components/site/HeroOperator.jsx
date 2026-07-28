@@ -81,10 +81,22 @@ const doors = [
 export default function HeroOperator() {
   const { openDemo } = useDemoModal()
 
+  /* Both non-operator doors used to scroll to sections that are now parked for
+     subpages (#oekosystem, #mitglied). The coach door goes to the entry points,
+     where the Coach tier sits; the member door leaves for the app itself, since
+     the member section is no longer on this page. */
   const onDoor = (key) => {
-    if (key === 'operator') openDemo()
-    else if (key === 'coach') document.querySelector('#oekosystem')?.scrollIntoView({ behavior: 'smooth' })
-    else document.querySelector('#mitglied')?.scrollIntoView({ behavior: 'smooth' })
+    if (key === 'operator') {
+      openDemo()
+    } else if (key === 'coach') {
+      document.querySelector('#einstieg')?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      window.open(
+        'https://play.google.com/store/apps/details?id=prometheus.coach&pcampaignid=web_share',
+        '_blank',
+        'noopener,noreferrer',
+      )
+    }
   }
 
   return (

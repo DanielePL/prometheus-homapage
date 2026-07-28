@@ -185,9 +185,6 @@ section + .section-light { border-top: 0; }
   }
 }
 
-@keyframes flowDash {
-  to { stroke-dashoffset: -1000; }
-}
 @keyframes orbPulse {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.04); }

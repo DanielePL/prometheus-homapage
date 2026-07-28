@@ -7,10 +7,16 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // Split the two heavy third-party groups out of the entry chunk so the
-        // homepage doesn't ship the Supabase client before anyone signs in.
+        // Supabase only: it's pulled in by the demo form, so it belongs in its
+        // own chunk rather than the entry.
+        //
+        // framer-motion is deliberately NOT listed. Naming it here forced a
+        // standalone chunk that Vite then preloaded from index.html — 131 KB
+        // fetched on every homepage visit. Since the homepage's animations all
+        // run on CSS now, the only remaining users are the parked sections and
+        // the lazy /growth route; without an entry here, Rollup puts the
+        // library in those route chunks, where it is actually needed.
         manualChunks: {
-          motion: ['framer-motion'],
           supabase: ['@supabase/supabase-js'],
         },
       },

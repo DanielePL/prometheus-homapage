@@ -1,4 +1,4 @@
-import { Check, ArrowRight, Dumbbell, Store, Smartphone } from 'lucide-react'
+import { Check, ArrowRight, Dumbbell, Store, Smartphone, Rocket, ShieldCheck, ArrowRightLeft } from 'lucide-react'
 import { Section, SectionHeader, Reveal } from './Section'
 import { useDemoModal } from '../../context/DemoModalContext'
 
@@ -162,6 +162,40 @@ export default function PricingSection() {
         Enterprise wird in Euro abgerechnet, in der Schweiz in Franken zum gleichen Betrag.
         Coach und die Mitglieder-App rechnen in US-Dollar ab.
       </p>
+
+      {/* The three points that used to be their own "Vertrauen" section. They
+          belong next to the price, where the objections actually come up. */}
+      <Reveal delay={0.2}>
+        <div className="mt-14 pt-10 border-t border-white/8 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {[
+            {
+              icon: Rocket,
+              title: 'In 4 Tagen produktiv',
+              desc: 'Ab Zusage, inklusive Lastschriftverfahren und Einrichtung Ihrer Standorte.',
+            },
+            {
+              icon: ShieldCheck,
+              title: 'DSGVO und revDSG',
+              desc: 'Auf Datenbankebene erzwungen — nicht in App-Logik, die man umgehen kann.',
+            },
+            {
+              icon: ArrowRightLeft,
+              title: 'Migrationscenter',
+              desc: 'Daten aus Ihrem alten System werden übernommen, ohne CSV-Export-Bastelei.',
+            },
+          ].map((p) => (
+            <div key={p.title} className="flex gap-3.5">
+              <div className="w-10 h-10 shrink-0 rounded-xl bg-accent/12 border border-accent/20 flex items-center justify-center">
+                <p.icon size={18} className="text-accent" />
+              </div>
+              <div className="min-w-0">
+                <h4 className="font-semibold text-sm leading-snug">{p.title}</h4>
+                <p className="mt-1 text-sm text-white/55 leading-relaxed">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Reveal>
     </Section>
   )
 }

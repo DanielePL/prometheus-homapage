@@ -2,17 +2,19 @@ export default function PrivacyPolicy() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Privacy Policy</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: February 23, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: July 26, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-4">1. Introduction</h2>
           <p>
-            PeakForce O&Uuml; (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the
-            Prometheus Coach mobile application and website (collectively, the
-            &quot;Service&quot;). This Privacy Policy explains how we collect, use, disclose,
-            and safeguard your information when you use our Service.
+            PeakForce O&Uuml; (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the Prometheus
+            mobile applications for iOS and Android &mdash; the Prometheus member app and
+            the Prometheus Coach app &mdash; together with the Prometheus web applications
+            and this website (collectively, the &quot;Service&quot;). This Privacy Policy
+            explains how we collect, use, disclose, and safeguard your information when
+            you use our Service.
           </p>
           <p className="mt-3">
             We are committed to protecting your personal data in accordance with the General
@@ -104,6 +106,10 @@ export default function PrivacyPolicy() {
             <li>Communicate with you about your account or the Service</li>
             <li>Comply with legal obligations</li>
           </ul>
+          <p className="mt-4">
+            The AI-powered features listed above are provided by a third party. Section 5
+            describes exactly which data is disclosed to that provider and on what basis.
+          </p>
 
           <h3 className="text-white font-semibold mt-6 mb-2">Anonymized Research &amp; Data Partnerships</h3>
           <p>
@@ -132,12 +138,108 @@ export default function PrivacyPolicy() {
           </p>
         </section>
 
+        {/* AI Processing / Anthropic */}
+        <section className="bg-dark-card border border-dark-border rounded-xl p-6">
+          <h2 className="text-xl font-bold text-accent mb-4">
+            5. AI Features &mdash; Data Shared with Anthropic
+          </h2>
+          <p>
+            Some features of the Service are powered by a third-party artificial
+            intelligence provider, <strong className="text-white">Anthropic, PBC</strong>{' '}
+            (&quot;Anthropic&quot;), located in the United States. To provide these
+            features we transmit personal data, including health and fitness data, to
+            Anthropic. This section describes that disclosure in detail.
+          </p>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">Affected Features</h3>
+          <ul className="list-disc list-inside space-y-2">
+            <li><strong className="text-white">Prometheus Coach</strong> &mdash; AI chat coaching based on your training profile</li>
+            <li><strong className="text-white">Form Analysis</strong> &mdash; movement analysis of workout videos</li>
+            <li><strong className="text-white">Nutrition Scan</strong> &mdash; meal recognition from photos</li>
+          </ul>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">Data Transmitted to Anthropic</h3>
+          <p className="mb-3">
+            Depending on the feature you use, the following data is transmitted to
+            Anthropic:
+          </p>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Your chat messages and the recent conversation history with the AI coach</li>
+            <li>Your display name, age, gender, height, weight, body measurements and body fat percentage</li>
+            <li>Health profile data you provided, including medical conditions, injuries, allergies and dietary preferences</li>
+            <li>Training data: workout history, exercise performance, personal records, velocity-based training (VBT) metrics, training goals, active training programs and competition history</li>
+            <li>Nutrition data: food logs, macro- and micronutrient intake, and nutrition plans</li>
+            <li>Health and wearable data read from Apple Health / Health Connect, where you have granted that permission: body weight, body fat, sleep duration and sleep stages, heart rate variability, resting heart rate and VO2max</li>
+            <li>Still image frames extracted from workout videos, for Form Analysis</li>
+            <li>Photos of meals, for Nutrition Scan</li>
+          </ul>
+          <p className="mt-3">
+            We do <strong className="text-white">not</strong> transmit payment or billing
+            data, authentication tokens, passwords, or location data to Anthropic.
+            Requests are not sent from your device directly; they are routed through our
+            own servers hosted at Supabase in the EU and forwarded to Anthropic&apos;s API.
+          </p>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">Purpose</h3>
+          <p>
+            The sole purpose of this disclosure is to generate the AI output you
+            requested: coaching responses, movement feedback, or recognition of the food
+            in a photo. We do not disclose your data to Anthropic for advertising,
+            profiling, or any purpose unrelated to the feature you invoked.
+          </p>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">Your Consent &mdash; AI Features Are Optional</h3>
+          <p>
+            No personal data is sent to Anthropic unless you have first granted explicit,
+            separate consent in the app. Before the first use of any AI feature, the app
+            presents a consent screen naming Anthropic, the data categories involved and
+            the purpose, and you must actively accept it. If you decline, no data is sent
+            to Anthropic and you can continue to use every other part of the Service. You
+            may withdraw this consent at any time by contacting us at{' '}
+            <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
+              hello@prometheus.coach
+            </a>
+            . Withdrawal disables the AI features and stops any further disclosure to
+            Anthropic; it does not affect the lawfulness of processing carried out before
+            the withdrawal.
+          </p>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">Anthropic&apos;s Role and Retention</h3>
+          <p>
+            Anthropic acts as our processor and is bound by Anthropic&apos;s Commercial
+            Terms of Service and its Data Processing Addendum. Under those terms,
+            Anthropic does not use data submitted through its commercial API to train its
+            models, and retains such data only for a limited period for abuse monitoring
+            and operational purposes before deleting it. Anthropic&apos;s own privacy
+            policy is available at{' '}
+            <a
+              href="https://www.anthropic.com/legal/privacy"
+              target="_blank"
+              rel="noreferrer"
+              className="text-accent hover:underline"
+            >
+              anthropic.com/legal/privacy
+            </a>
+            .
+          </p>
+
+          <h3 className="text-white font-semibold mt-6 mb-2">International Transfer</h3>
+          <p>
+            Anthropic processes this data in the United States. The transfer takes place
+            on the basis of your explicit consent pursuant to Art. 49(1)(a) GDPR and is
+            additionally covered by Standard Contractual Clauses (SCCs). Health data is
+            special category data under Art. 9 GDPR; we process and disclose it solely on
+            the basis of your explicit consent pursuant to Art. 9(2)(a) GDPR.
+          </p>
+        </section>
+
         {/* Legal Basis */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">5. Legal Basis for Processing</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">6. Legal Basis for Processing</h2>
           <ul className="list-disc list-inside space-y-2">
             <li><strong className="text-white">Contract:</strong> Processing necessary to provide the Service you signed up for</li>
             <li><strong className="text-white">Consent:</strong> For health/fitness data processing and camera usage</li>
+            <li><strong className="text-white">Explicit Consent (AI features):</strong> Art. 6(1)(a), Art. 9(2)(a) and Art. 49(1)(a) GDPR for the disclosure of your data, including health data, to Anthropic in the USA (see section 5)</li>
             <li><strong className="text-white">Legitimate Interest:</strong> Analytics, security, and Service improvement</li>
             <li><strong className="text-white">Legal Obligation:</strong> Tax records, fraud prevention</li>
             <li><strong className="text-white">Data Partnerships:</strong> Data shared with third-party partners is fully anonymized within Prometheus systems before disclosure and does not constitute personal data under the GDPR. No legal basis under Art. 6 or Art. 9 GDPR is required for these datasets.</li>
@@ -146,11 +248,17 @@ export default function PrivacyPolicy() {
 
         {/* Third Parties */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">6. Third-Party Services</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">7. Third-Party Services</h2>
           <p className="mb-4">We share data with the following processors, all of whom are contractually bound to protect your data:</p>
           <ul className="list-disc list-inside space-y-2">
             <li><strong className="text-white">Supabase</strong> (EU) &mdash; Database hosting, authentication, and file storage</li>
-            <li><strong className="text-white">Anthropic</strong> (USA) &mdash; AI coaching engine (text and image analysis, with appropriate safeguards)</li>
+            <li>
+              <strong className="text-white">Anthropic, PBC</strong> (USA) &mdash; AI engine
+              for the Prometheus Coach chat, Form Analysis and Nutrition Scan features.
+              Receives chat messages, your training and health profile, health and
+              wearable data, workout video frames and meal photos. Disclosed only with
+              your explicit prior consent &mdash; see section 5 for the full description.
+            </li>
             <li><strong className="text-white">Google</strong> (USA) &mdash; Play Store services, Google Play Billing (payments), ML Kit (on-device pose detection, barcode scanning, text recognition), Firebase Crashlytics (crash reporting), and Health Connect API</li>
             <li><strong className="text-white">USDA FoodData Central</strong> (USA) &mdash; Public nutrition database for food lookups</li>
             <li><strong className="text-white">Meta / Facebook SDK</strong> (USA) &mdash; Instagram Story sharing (only when you explicitly share content)</li>
@@ -163,7 +271,7 @@ export default function PrivacyPolicy() {
 
         {/* Data Retention */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">7. Data Retention</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">8. Data Retention</h2>
           <p>
             We retain your personal data for as long as your account is active or as needed to
             provide the Service. After account deletion, your data is permanently removed within
@@ -174,7 +282,7 @@ export default function PrivacyPolicy() {
 
         {/* Your Rights */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">8. Your Rights (GDPR)</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">9. Your Rights (GDPR)</h2>
           <p className="mb-4">Under the GDPR, you have the right to:</p>
           <ul className="list-disc list-inside space-y-2">
             <li><strong className="text-white">Access</strong> &mdash; Request a copy of your personal data</li>
@@ -196,7 +304,7 @@ export default function PrivacyPolicy() {
 
         {/* Data Security */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">9. Data Security</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">10. Data Security</h2>
           <p>
             We implement industry-standard security measures including encryption in transit
             (TLS), encryption at rest, access controls, and regular security audits. However,
@@ -207,7 +315,7 @@ export default function PrivacyPolicy() {
 
         {/* Children */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">10. Children&apos;s Privacy</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">11. Children&apos;s Privacy</h2>
           <p>
             The Service is not intended for children under 16 years of age. We do not knowingly
             collect data from children under 16. If you believe we have collected data from a
@@ -217,7 +325,7 @@ export default function PrivacyPolicy() {
 
         {/* Changes */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">11. Changes to This Policy</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">12. Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. We will notify you of any
             material changes by posting the new policy on this page and updating the &quot;Last
@@ -228,7 +336,7 @@ export default function PrivacyPolicy() {
 
         {/* Contact */}
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
-          <h2 className="text-xl font-bold text-accent mb-4">12. Contact Us</h2>
+          <h2 className="text-xl font-bold text-accent mb-4">13. Contact Us</h2>
           <p>
             If you have questions about this Privacy Policy or wish to exercise your data
             protection rights, please contact us:

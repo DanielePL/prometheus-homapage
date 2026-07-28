@@ -2,17 +2,30 @@ import { DemoModalProvider } from '../context/DemoModalContext'
 import SiteNav from '../components/site/SiteNav'
 import HeroOperator from '../components/site/HeroOperator'
 import PainSection from '../components/site/PainSection'
-import BentoGrid from '../components/site/BentoGrid'
-import EcosystemDiagram from '../components/site/EcosystemDiagram'
-import EntryPoints from '../components/site/EntryPoints'
+import ProofSection from '../components/site/ProofSection'
 import PhotoBreak from '../components/site/PhotoBreak'
-import SurfacesSection from '../components/site/SurfacesSection'
-import MemberSection from '../components/site/MemberSection'
-import VerticalsSection from '../components/site/VerticalsSection'
-import TrustSection from '../components/site/TrustSection'
+import EntryPoints from '../components/site/EntryPoints'
 import PricingSection from '../components/site/PricingSection'
 import FinalCta from '../components/site/FinalCta'
 import SiteFooter from '../components/site/SiteFooter'
+
+/* The homepage answers four questions and stops: who is this for, what hurts,
+   what changes, what does it cost. Everything that explains *how* the system is
+   built now waits for the demo.
+ *
+ * Parked, still complete, not deleted — these are the basis for the /studios,
+ * /coach and /app pages from the brief:
+ *   BentoGrid.jsx         nine feature cards (ProofSection shows three)
+ *   EcosystemDiagram.jsx  the four apps around one database
+ *   SurfacesSection.jsx   nine role-specific surfaces with screenshots
+ *   MemberSection.jsx     the member app and its B2C pricing
+ *   VerticalsSection.jsx  seventeen industries
+ *   TrustSection.jsx      its three points moved into PricingSection
+ *   LedProSection.jsx     LED Pro, out by decision 2026-07-24
+ *
+ * Reason for the cut: the page carried fourteen sections and twelve product
+ * screenshots — effectively the whole system. A prospect who has seen all of it
+ * has no reason left to book a demo. */
 
 export default function HomePage() {
   return (
@@ -29,19 +42,14 @@ export default function HomePage() {
           <SiteNav />
           <HeroOperator />
           <PainSection />
-          <BentoGrid />
-          <EcosystemDiagram />
-          <EntryPoints />
+          <ProofSection />
           <PhotoBreak
             src="/images/photos/class-community.webp"
             focus="center 38%"
             statement="Der Betrieb passiert auf der Fläche."
             accent="Die Software gehört dorthin — nicht ins Backoffice."
           />
-          <SurfacesSection />
-          <MemberSection />
-          <VerticalsSection />
-          <TrustSection />
+          <EntryPoints />
           <PricingSection />
           <FinalCta />
           <SiteFooter />
