@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Privacy Policy</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: July 26, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: July 28, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -87,8 +87,10 @@ export default function PrivacyPolicy() {
 
           <h3 className="text-white font-semibold mt-4 mb-2">Device &amp; Usage Data</h3>
           <p>
-            Device type, operating system, app version, crash logs (via Firebase Crashlytics),
-            and general usage analytics to improve the Service.
+            Device type, operating system, app version, crash logs (on Android via Firebase
+            Crashlytics; on iOS only through Apple&apos;s own crash reporting, if you opted
+            in to share it with developers), and general usage analytics to improve the
+            Service.
           </p>
         </section>
 
@@ -99,8 +101,8 @@ export default function PrivacyPolicy() {
             <li>Provide and personalize AI-powered fitness coaching</li>
             <li>Analyze exercise form and velocity-based training via camera</li>
             <li>Track nutrition, generate meal plans, and analyze meal photos</li>
-            <li>Sync health data from wearables and Health Connect for recovery insights</li>
-            <li>Process payments and manage subscriptions via Google Play Billing</li>
+            <li>Sync health data from wearables, Apple Health and Health Connect for recovery insights</li>
+            <li>Process payments and manage subscriptions via Apple In-App Purchase (iOS) and Google Play Billing (Android)</li>
             <li>Monitor app stability and fix crashes (Firebase Crashlytics)</li>
             <li>Improve and optimize the Service</li>
             <li>Communicate with you about your account or the Service</li>
@@ -113,12 +115,23 @@ export default function PrivacyPolicy() {
 
           <h3 className="text-white font-semibold mt-6 mb-2">Anonymized Research &amp; Data Partnerships</h3>
           <p>
-            We may aggregate and anonymize data collected through the Service and share the
-            resulting datasets with third-party partners, including research institutions,
-            healthcare organizations, pharmaceutical companies, insurance providers, technology
-            companies, and sports organizations. These partnerships serve purposes such as
-            scientific research, product development, clinical studies, biomechanical analysis,
-            AI model training, and health analytics.
+            We may aggregate and anonymize training data collected through the Service and
+            share the resulting datasets with third-party partners, including research
+            institutions, healthcare organizations, technology companies, and sports
+            organizations. These partnerships serve purposes such as scientific research,
+            product development, clinical studies, biomechanical analysis, and training
+            analytics.
+          </p>
+          <p className="mt-3">
+            <strong className="text-white">Health data is excluded from these partnerships.</strong>{' '}
+            We never disclose to any partner &mdash; anonymized or otherwise &mdash; data read
+            from Apple Health / HealthKit or Android Health Connect (including heart rate,
+            sleep, heart rate variability, resting heart rate, VO2max, body weight and body
+            fat), nor the health profile you provide in the app (medical conditions, injuries,
+            allergies). Data obtained through HealthKit is used solely to provide and improve
+            your own coaching, recovery and health-management features inside the Service. It
+            is never sold, never used for advertising or marketing, and never shared with
+            insurers, advertising networks, or data brokers.
           </p>
           <p className="mt-3">
             All anonymization is performed within Prometheus systems prior to any external
@@ -194,14 +207,19 @@ export default function PrivacyPolicy() {
             separate consent in the app. Before the first use of any AI feature, the app
             presents a consent screen naming Anthropic, the data categories involved and
             the purpose, and you must actively accept it. If you decline, no data is sent
-            to Anthropic and you can continue to use every other part of the Service. You
-            may withdraw this consent at any time by contacting us at{' '}
+            to Anthropic and you can continue to use every other part of the Service.
+          </p>
+          <p className="mt-3">
+            You may withdraw this consent at any time, as easily as you gave it: open the
+            app and turn off <strong className="text-white">Account &rarr; Settings &rarr;
+            AI Features</strong>. No email, no request, no waiting period. You can also
+            contact us at{' '}
             <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
               hello@prometheus.coach
             </a>
-            . Withdrawal disables the AI features and stops any further disclosure to
-            Anthropic; it does not affect the lawfulness of processing carried out before
-            the withdrawal.
+            {' '}if you prefer. Withdrawal takes effect immediately, disables the AI features
+            and stops any further disclosure to Anthropic; it does not affect the lawfulness
+            of processing carried out before the withdrawal.
           </p>
 
           <h3 className="text-white font-semibold mt-6 mb-2">Anthropic&apos;s Role and Retention</h3>
@@ -259,9 +277,17 @@ export default function PrivacyPolicy() {
               wearable data, workout video frames and meal photos. Disclosed only with
               your explicit prior consent &mdash; see section 5 for the full description.
             </li>
-            <li><strong className="text-white">Google</strong> (USA) &mdash; Play Store services, Google Play Billing (payments), ML Kit (on-device pose detection, barcode scanning, text recognition), Firebase Crashlytics (crash reporting), and Health Connect API</li>
+            <li>
+              <strong className="text-white">Apple</strong> (USA / EU) &mdash; iOS app
+              distribution via the App Store, In-App Purchase and subscription billing,
+              HealthKit (read access to the health data you approve), and push notifications
+              via the Apple Push Notification service. Apple receives purchase and device
+              data under its own privacy policy; HealthKit data is read on your device and
+              is not passed to Apple by us.
+            </li>
+            <li><strong className="text-white">Google</strong> (USA) &mdash; Sign in with Google (both platforms), and on Android: Play Store services, Google Play Billing (payments), ML Kit (on-device pose detection, barcode scanning, text recognition), Firebase Crashlytics (crash reporting), and the Health Connect API</li>
             <li><strong className="text-white">USDA FoodData Central</strong> (USA) &mdash; Public nutrition database for food lookups</li>
-            <li><strong className="text-white">Meta / Facebook SDK</strong> (USA) &mdash; Instagram Story sharing (only when you explicitly share content)</li>
+            <li><strong className="text-white">Meta</strong> (USA) &mdash; Instagram Story sharing, only when you explicitly share content. On Android this uses the Facebook SDK; on iOS the image is handed to the Instagram app through the operating system and no Meta SDK is embedded in our app.</li>
           </ul>
           <p className="mt-4">
             For transfers outside the EU/EEA, we rely on Standard Contractual Clauses (SCCs) or
