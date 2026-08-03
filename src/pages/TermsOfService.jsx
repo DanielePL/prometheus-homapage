@@ -2,7 +2,7 @@ export default function TermsOfService() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Terms of Service</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: February 18, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: August 3, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -192,7 +192,7 @@ export default function TermsOfService() {
               </a>
             </li>
             <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
-            <li><strong className="text-white">Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+            <li><strong className="text-white">Address:</strong> Sepapaja tn 6, Tallinn 15551, Estonia</li>
           </ul>
         </section>
       </div>

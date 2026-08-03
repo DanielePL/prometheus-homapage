@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Privacy Policy</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: July 28, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: August 3, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -27,7 +27,7 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-bold text-accent mb-4">2. Data Controller</h2>
           <ul className="space-y-1">
             <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
-            <li><strong className="text-white">Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+            <li><strong className="text-white">Address:</strong> Sepapaja tn 6, Tallinn 15551, Estonia</li>
             <li><strong className="text-white">Registry Code:</strong> 17082451</li>
             <li><strong className="text-white">Email:</strong>{' '}
               <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
@@ -374,7 +374,7 @@ export default function PrivacyPolicy() {
               </a>
             </li>
             <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
-            <li><strong className="text-white">Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+            <li><strong className="text-white">Address:</strong> Sepapaja tn 6, Tallinn 15551, Estonia</li>
           </ul>
           <p className="mt-4">
             You also have the right to lodge a complaint with the Estonian Data Protection
