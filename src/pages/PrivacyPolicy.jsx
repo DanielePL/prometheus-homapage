@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Privacy Policy</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: August 3, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: August 9, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -343,9 +343,24 @@ export default function PrivacyPolicy() {
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-4">11. Children&apos;s Privacy</h2>
           <p>
-            The Service is not intended for children under 16 years of age. We do not knowingly
-            collect data from children under 16. If you believe we have collected data from a
-            child, please contact us immediately.
+            The Service is not intended for children under 13 years of age, and we do not
+            knowingly collect personal data from them. When an account is created we establish
+            the user&apos;s age; accounts identified as belonging to someone under 13 cannot
+            access the community features, and that restriction is enforced on our servers, not
+            only in the app.
+          </p>
+          <p className="mt-3">
+            In the EU and EEA the age at which you may consent to online services on your own
+            behalf is set by each country and ranges from 13 to 16. If you are older than 13 but
+            below that age where you live, a parent or guardian must give or authorise consent
+            for you to use the Service.
+          </p>
+          <p className="mt-3">
+            If you believe a child has provided us with personal data, contact us at{' '}
+            <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
+              hello@prometheus.coach
+            </a>
+            {' '}and we will delete it.
           </p>
         </section>
 

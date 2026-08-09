@@ -2,7 +2,7 @@ export default function TermsOfService() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Terms of Service</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: August 3, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: August 9, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -38,7 +38,10 @@ export default function TermsOfService() {
           <p>
             To use certain features, you must create an account. You agree to provide accurate
             information and keep it up to date. You are responsible for maintaining the security
-            of your account credentials. You must be at least 16 years old to create an account.
+            of your account credentials. You must be at least 13 years old to create an account.
+            If you are below the age of digital consent where you live &mdash; in the EU and EEA
+            this is set nationally and ranges from 13 to 16 &mdash; you need permission from a
+            parent or guardian. Users under 13 cannot access the community features.
           </p>
           <p className="mt-3">
             We reserve the right to suspend or terminate accounts that violate these terms or
