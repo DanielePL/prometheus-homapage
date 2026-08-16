@@ -9,10 +9,10 @@ export default function Impressum() {
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-4">Company Information</h2>
           <ul className="space-y-2">
-            <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
+            <li><strong className="text-white">Company:</strong> Peakforce O&Uuml;</li>
             <li><strong className="text-white">Legal Form:</strong> O&Uuml; (Osa&uuml;hing &mdash; Estonian Private Limited Company)</li>
-            <li><strong className="text-white">Registry Code:</strong> 17082451</li>
-            <li><strong className="text-white">Registered Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+            <li><strong className="text-white">Registry Code:</strong> 17389924</li>
+            <li><strong className="text-white">Registered Address:</strong> Harju maakond, Tallinn, Lasnamäe linnaosa, Sepapaja tn 6, 15551, Estonia</li>
             <li><strong className="text-white">Register:</strong> Estonian Commercial Register (Äriregister)</li>
           </ul>
         </section>
@@ -42,7 +42,7 @@ export default function Impressum() {
           </p>
           <ul className="mt-3 space-y-2">
             <li><strong className="text-white">Name:</strong> Daniele Pauli</li>
-            <li><strong className="text-white">Address:</strong> Harju maakond, Tallinn, Kesklinna linnaosa, Narva mnt 5, 10117, Estonia</li>
+            <li><strong className="text-white">Address:</strong> Harju maakond, Tallinn, Lasnamäe linnaosa, Sepapaja tn 6, 15551, Estonia</li>
           </ul>
         </section>
 

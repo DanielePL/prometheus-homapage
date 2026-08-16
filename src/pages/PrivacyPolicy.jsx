@@ -9,7 +9,7 @@ export default function PrivacyPolicy() {
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-4">1. Introduction</h2>
           <p>
-            PeakForce O&Uuml; (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the Prometheus
+            Peakforce O&Uuml; (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates the Prometheus
             mobile applications for iOS and Android &mdash; the Prometheus member app and
             the Prometheus Coach app &mdash; together with the Prometheus web applications
             and this website (collectively, the &quot;Service&quot;). This Privacy Policy
@@ -26,9 +26,9 @@ export default function PrivacyPolicy() {
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-4">2. Data Controller</h2>
           <ul className="space-y-1">
-            <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
+            <li><strong className="text-white">Company:</strong> Peakforce O&Uuml;</li>
             <li><strong className="text-white">Address:</strong> Sepapaja tn 6, Tallinn 15551, Estonia</li>
-            <li><strong className="text-white">Registry Code:</strong> 17082451</li>
+            <li><strong className="text-white">Registry Code:</strong> 17389924</li>
             <li><strong className="text-white">Email:</strong>{' '}
               <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
                 hello@prometheus.coach
@@ -388,7 +388,7 @@ export default function PrivacyPolicy() {
                 hello@prometheus.coach
               </a>
             </li>
-            <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
+            <li><strong className="text-white">Company:</strong> Peakforce O&Uuml;</li>
             <li><strong className="text-white">Address:</strong> Sepapaja tn 6, Tallinn 15551, Estonia</li>
           </ul>
           <p className="mt-4">

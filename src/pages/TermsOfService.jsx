@@ -10,7 +10,7 @@ export default function TermsOfService() {
           <h2 className="text-xl font-bold text-accent mb-4">1. Acceptance of Terms</h2>
           <p>
             By accessing or using the Prometheus Coach mobile application and website
-            (the &quot;Service&quot;), operated by PeakForce O&Uuml; (&quot;we&quot;, &quot;us&quot;,
+            (the &quot;Service&quot;), operated by Peakforce O&Uuml; (&quot;we&quot;, &quot;us&quot;,
             &quot;our&quot;), you agree to be bound by these Terms of Service. If you do not agree
             to these terms, do not use the Service.
           </p>
@@ -85,7 +85,7 @@ export default function TermsOfService() {
           <p>
             All content, features, and functionality of the Service &mdash; including but not
             limited to text, graphics, logos, AI models, algorithms, and software &mdash; are
-            owned by PeakForce O&Uuml; and are protected by international copyright, trademark,
+            owned by Peakforce O&Uuml; and are protected by international copyright, trademark,
             and other intellectual property laws.
           </p>
           <p className="mt-3">
@@ -113,7 +113,7 @@ export default function TermsOfService() {
         <section className="bg-dark-card border border-dark-border rounded-xl p-6">
           <h2 className="text-xl font-bold text-accent mb-4">8. Limitation of Liability</h2>
           <p>
-            To the maximum extent permitted by law, PeakForce O&Uuml; shall not be liable for
+            To the maximum extent permitted by law, Peakforce O&Uuml; shall not be liable for
             any indirect, incidental, special, consequential, or punitive damages, including but
             not limited to loss of profits, data, or health, resulting from your use of the
             Service.
@@ -194,7 +194,7 @@ export default function TermsOfService() {
                 hello@prometheus.coach
               </a>
             </li>
-            <li><strong className="text-white">Company:</strong> PeakForce O&Uuml;</li>
+            <li><strong className="text-white">Company:</strong> Peakforce O&Uuml;</li>
             <li><strong className="text-white">Address:</strong> Sepapaja tn 6, Tallinn 15551, Estonia</li>
           </ul>
         </section>
