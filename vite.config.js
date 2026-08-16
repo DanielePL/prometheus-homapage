@@ -4,6 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    // Nicht 5173: der Vite-Default kollidiert mit den anderen Prometheus-
+    // Projekten, die parallel laufen. strictPort, damit die Adresse fest
+    // bleibt und nicht still auf die nächste freie Nummer wandert.
+    port: 5180,
+    strictPort: true,
+  },
   build: {
     rollupOptions: {
       output: {

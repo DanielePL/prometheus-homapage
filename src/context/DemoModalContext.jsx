@@ -24,7 +24,7 @@ export function DemoModalProvider({ children }) {
 }
 
 function DemoModal({ onClose }) {
-  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '' })
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', message: '', website: '' })
   const [state, setState] = useState('idle')
   const [error, setError] = useState('')
 
@@ -33,15 +33,22 @@ function DemoModal({ onClose }) {
     setState('loading')
     setError('')
     try {
-      const { error } = await supabase.from('demo_requests').insert({
-        name: form.name,
-        company: form.company,
-        email: form.email,
-        phone: form.phone,
-        message: form.message,
-        source: 'prometheus.coach',
+      // Kein direkter Tabellen-Insert mit dem anon-Key: die Function
+      // `website-demo-request` (Enterprise-Repo) validiert, bremst pro IP,
+      // schreibt mit service_role in demo_requests und benachrichtigt den
+      // Vertrieb per Mail. `website` ist der Honeypot — im UI unsichtbar.
+      const { data, error } = await supabase.functions.invoke('website-demo-request', {
+        body: {
+          name: form.name,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+          website: form.website,
+          source: 'prometheus.coach',
+        },
       })
-      if (error) throw error
+      if (error || !data?.ok) throw error ?? new Error('demo request rejected')
       setState('success')
     } catch (err) {
       setError('Etwas ist schiefgelaufen. Schreiben Sie uns direkt an hello@prometheus.coach.')
@@ -121,6 +128,17 @@ function DemoModal({ onClose }) {
                   className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-base text-white placeholder-white/30 focus:outline-none focus:border-accent/50 transition-colors resize-none"
                 />
               </div>
+              {/* Honeypot: für Menschen unsichtbar und nicht fokussierbar, Bots füllen es. */}
+              <input
+                type="text"
+                name="website"
+                value={form.website}
+                onChange={(e) => setForm({ ...form, website: e.target.value })}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] w-px h-px opacity-0"
+              />
               {state === 'error' && <p className="text-sm text-red-400">{error}</p>}
               <button
                 type="submit"
