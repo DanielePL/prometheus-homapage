@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback } from 'react'
 import { X, ArrowRight, Loader2, Check, CalendarCheck } from 'lucide-react'
-import supabase from '../lib/supabase'
+import { getSupabase } from '../lib/supabase'
 
 const DemoModalContext = createContext({ openDemo: () => {} })
 
@@ -37,7 +37,7 @@ function DemoModal({ onClose }) {
       // `website-demo-request` (Enterprise-Repo) validiert, bremst pro IP,
       // schreibt mit service_role in demo_requests und benachrichtigt den
       // Vertrieb per Mail. `website` ist der Honeypot — im UI unsichtbar.
-      const { data, error } = await supabase.functions.invoke('website-demo-request', {
+      const { data, error } = await getSupabase().functions.invoke('website-demo-request', {
         body: {
           name: form.name,
           company: form.company,

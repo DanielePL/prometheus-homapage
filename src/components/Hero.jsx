@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Check, ArrowRight, Users, Star, Zap, Loader2, Home, Dumbbell, UtensilsCrossed, Brain, User } from 'lucide-react'
-import supabase from '../lib/supabase'
+import { getSupabase } from '../lib/supabase'
 
 const panelVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -132,7 +132,7 @@ export default function Hero() {
     e.preventDefault()
     setBetaState('loading'); setBetaError('')
     try {
-      const { error } = await supabase.from('ios_beta_testers').insert({ name: betaForm.name, email: betaForm.email })
+      const { error } = await getSupabase().from('ios_beta_testers').insert({ name: betaForm.name, email: betaForm.email })
       if (error) { setBetaError(error.code === '23505' ? 'This email is already registered.' : 'Something went wrong. Please try again.'); setBetaState('error') }
       else setBetaState('success')
     } catch { setBetaError('Something went wrong. Please try again.'); setBetaState('error') }
@@ -142,7 +142,7 @@ export default function Hero() {
     e.preventDefault()
     setCoachState('loading'); setCoachError('')
     try {
-      const { error } = await supabase.from('founding_coaches').insert({ name: coachForm.name, email: coachForm.email })
+      const { error } = await getSupabase().from('founding_coaches').insert({ name: coachForm.name, email: coachForm.email })
       if (error) { setCoachError(error.code === '23505' ? 'This email is already registered.' : 'Something went wrong. Please try again.'); setCoachState('error') }
       else setCoachState('success')
     } catch { setCoachError('Something went wrong. Please try again.'); setCoachState('error') }
