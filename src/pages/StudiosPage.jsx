@@ -1,11 +1,12 @@
 import { Head } from 'vite-react-ssg'
-import { Link } from 'react-router-dom'
 import {
-  ArrowRight, ArrowLeft, ScanLine, CalendarDays, CreditCard,
+  ArrowRight, ScanLine, CalendarDays, CreditCard,
   ShoppingBag, Users, Receipt, Check,
 } from 'lucide-react'
 import { Section, SectionHeader, Reveal } from '../components/site/Section'
 import PhotoBreak from '../components/site/PhotoBreak'
+import { HomeNav, HomeFooter } from '../components/home/HomeChrome'
+import { SIGNUP_STUDIO, CONTACT } from '../lib/links'
 
 /* /studios — the depth behind the "small studio" door on the homepage.
  *
@@ -26,8 +27,6 @@ import PhotoBreak from '../components/site/PhotoBreak'
  * homepage does ("Ich führe ein Studio oder eine Kette"), and why it is being
  * rewritten.
  */
-
-const SIGNUP = 'https://app.prometheus.coach/onboarding?plan=studio_light'
 
 /* Six surfaces, in the order a studio owner meets them on an ordinary day:
    the door, the schedule, the money coming in, the counter, the staff, the
@@ -65,59 +64,6 @@ const surfaces = [
   },
 ]
 
-/* Kept in this file rather than reusing SiteNav/SiteFooter: both are German and
-   built around the homepage's scroll anchors (#plattform, #einstieg), which do
-   not exist here. Two small components beat a nav that scrolls nowhere. When
-   the homepage is rewritten in English these merge back. */
-function StudioNav() {
-  return (
-    <nav className="fixed top-0 inset-x-0 z-50 nav-solid border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center">
-            <img src="/images/logo-white.png" alt="Prometheus" className="h-8" />
-          </Link>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <a
-              href="https://app.prometheus.coach"
-              className="text-sm font-medium text-white/65 hover:text-white transition-colors"
-            >
-              Log in
-            </a>
-            <a
-              href={SIGNUP}
-              className="inline-flex items-center gap-2 px-4 sm:px-5 h-11 rounded-xl bg-accent text-white font-semibold text-sm hover:bg-accent-light transition-all hover:shadow-[0_0_28px_rgba(230,126,34,0.4)]"
-            >
-              Start free <ArrowRight size={16} />
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  )
-}
-
-function StudioFooter() {
-  return (
-    <footer className="border-t border-white/8 px-5 sm:px-8 py-12">
-      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm text-white/45 hover:text-white transition-colors"
-        >
-          <ArrowLeft size={15} /> Back to Prometheus
-        </Link>
-        <div className="flex items-center gap-6">
-          <Link to="/privacy" className="text-sm text-white/45 hover:text-white transition-colors">Privacy</Link>
-          <Link to="/terms" className="text-sm text-white/45 hover:text-white transition-colors">Terms</Link>
-          <Link to="/impressum" className="text-sm text-white/45 hover:text-white transition-colors">Imprint</Link>
-        </div>
-        <p className="text-xs text-white/35">© {new Date().getFullYear()} PeakForce OÜ · Prometheus</p>
-      </div>
-    </footer>
-  )
-}
-
 export default function StudiosPage() {
   return (
     <>
@@ -150,7 +96,7 @@ export default function StudiosPage() {
         </div>
 
         <div className="relative z-10">
-          <StudioNav />
+          <HomeNav />
 
           {/* ── Hero ─────────────────────────────────────────────────────── */}
           <Section className="pt-32 lg:pt-44 pb-16 lg:pb-20" width="narrow">
@@ -168,7 +114,7 @@ export default function StudiosPage() {
 
               <div className="mt-9 flex flex-col sm:flex-row gap-3.5">
                 <a
-                  href={SIGNUP}
+                  href={SIGNUP_STUDIO}
                   className="inline-flex items-center justify-center gap-2 px-7 h-14 rounded-xl bg-accent text-white font-semibold hover:bg-accent-light transition-all hover:shadow-[0_0_36px_rgba(230,126,34,0.45)]"
                 >
                   Start free — 14 days, no card <ArrowRight size={18} />
@@ -304,7 +250,7 @@ export default function StudiosPage() {
                 Prometheus Enterprise. It has been in stress testing with pilot studios for
                 eight months. If you run a chain and would rather shape it than wait for it,{' '}
                 <a
-                  href="mailto:management@prometheus.coach?subject=Enterprise%20pilot"
+                  href={`${CONTACT}?subject=Enterprise%20pilot`}
                   className="text-accent hover:text-accent-light underline underline-offset-4"
                 >
                   write to us
@@ -325,7 +271,7 @@ export default function StudiosPage() {
                 members never pay to use the app you coach them in.
               </p>
               <a
-                href={SIGNUP}
+                href={SIGNUP_STUDIO}
                 className="mt-9 inline-flex items-center justify-center gap-2 px-7 h-14 rounded-xl bg-accent text-white font-semibold hover:bg-accent-light transition-all hover:shadow-[0_0_36px_rgba(230,126,34,0.45)]"
               >
                 Start free — 14 days, no card <ArrowRight size={18} />
@@ -344,7 +290,7 @@ export default function StudiosPage() {
                 That takes an evening and costs nothing.
               </p>
               <a
-                href={SIGNUP}
+                href={SIGNUP_STUDIO}
                 className="mt-9 inline-flex items-center justify-center gap-2 px-7 h-14 rounded-xl bg-accent text-white font-semibold hover:bg-accent-light transition-all hover:shadow-[0_0_36px_rgba(230,126,34,0.45)]"
               >
                 Start free — 14 days, no card <ArrowRight size={18} />
@@ -352,7 +298,7 @@ export default function StudiosPage() {
             </Reveal>
           </Section>
 
-          <StudioFooter />
+          <HomeFooter />
         </div>
       </div>
     </>

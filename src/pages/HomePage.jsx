@@ -1,51 +1,63 @@
 import { Head } from 'vite-react-ssg'
-import { DemoModalProvider } from '../context/DemoModalContext'
-import SiteNav from '../components/site/SiteNav'
-import HeroOperator from '../components/site/HeroOperator'
-import PainSection from '../components/site/PainSection'
-import ProofSection from '../components/site/ProofSection'
+import { HomeNav, HomeFooter } from '../components/home/HomeChrome'
+import Hero from '../components/home/Hero'
+import Included from '../components/home/Included'
+import SalesAssistant from '../components/home/SalesAssistant'
 import PhotoBreak from '../components/site/PhotoBreak'
-import EntryPoints from '../components/site/EntryPoints'
-import PricingSection from '../components/site/PricingSection'
-import FinalCta from '../components/site/FinalCta'
-import SiteFooter from '../components/site/SiteFooter'
+import Doors from '../components/home/Doors'
+import ClientApp from '../components/home/ClientApp'
+import { Makers, Pricing, FinalCta } from '../components/home/Closing'
 
-/* The homepage answers four questions and stops: who is this for, what hurts,
-   what changes, what does it cost. Everything that explains *how* the system is
-   built now waits for the demo.
+/* The homepage sells the Coach product to coaches, in English.
  *
- * Parked, still complete, not deleted — these are the basis for the /studios,
- * /coach and /app pages from the brief:
- *   BentoGrid.jsx         nine feature cards (ProofSection shows three)
- *   EcosystemDiagram.jsx  the four apps around one database
- *   SurfacesSection.jsx   nine role-specific surfaces with screenshots
- *   MemberSection.jsx     the member app and its B2C pricing
- *   VerticalsSection.jsx  seventeen industries
- *   TrustSection.jsx      its three points moved into PricingSection
+ * What it replaced and why: the previous page opened with "I run a studio or a
+ * chain" and argued about reception desks, contracts in binders and queues at
+ * the front counter. That is Enterprise language for a product that is parked —
+ * and an online coach arriving from `trainerize alternative` read it and left.
  *
- * (LedProSection.jsx came back 2026-07-28 and went again 2026-08-18: LED Pro is
- * a different company. It has no business on the Prometheus coach page.)
+ * English because that is where the market is: 156'100 searches a month against
+ * 250 in German (docs/GROWTH_PLAN.md §3 in prometheus-admin).
  *
- * Reason for the cut: the page carried fourteen sections and twelve product
- * screenshots — effectively the whole system. A prospect who has seen all of it
- * has no reason left to book a demo. */
-
+ * Order of the argument, set by the owner: everything in one system → the sales
+ * assistant → everything included → VBT as a footnote, never a headline.
+ *
+ * No proof-by-numbers section. On 2026-08-18 the honest figures were seven coach
+ * accounts and zero coach-client links; a number smaller than the reader expects
+ * answers "does anyone use this?" with no, and an invented one ends the brand the
+ * first time someone asks in a Facebook group. The screenshots do the proving
+ * until the numbers are worth printing.
+ *
+ * No free tier, no founding-coach offer, no vouchers — owner's rule, 2026-08-18:
+ * "was nichts kostet ist nichts wert". The 14-day trial stays; it is a look at
+ * the product, not a giveaway.
+ *
+ * Parked, complete, still in the repo — the German enterprise-first sections,
+ * which are the basis for an Enterprise page when that product ships:
+ *   HeroOperator, PainSection, ProofSection, EntryPoints, PricingSection,
+ *   FinalCta, SiteNav, SiteFooter (all German)
+ *   BentoGrid, EcosystemDiagram, SurfacesSection, MemberSection,
+ *   VerticalsSection, TrustSection
+ */
 export default function HomePage() {
   return (
-    <DemoModalProvider>
-      {/* Moved out of index.html, where it was appended to rather than replaced
-          and gave every subpage a second, German title. */}
+    <>
       <Head>
-        <html lang="de" />
-        <title>Prometheus · Das Betriebssystem für moderne Fitness-Unternehmen</title>
-        <meta name="description" content="Fünf Apps, eine Datenbank, eine Identität. Vom Empfangstablet bis zur Konzernzentrale: papierlos, eine Wahrheit auf jeder Ebene, das Mitglied checkt sich selbst ein." />
-        <meta property="og:title" content="Prometheus · Das Betriebssystem für moderne Fitness-Unternehmen" />
-        <meta property="og:description" content="Fünf Apps, eine Datenbank, eine Identität — vom Empfangstablet bis zur Zentrale." />
+        <html lang="en" />
+        <title>Prometheus · Coaching software with the whole job in one place</title>
+        <meta
+          name="description"
+          content="Programming, nutrition, check-ins, video calls and payments in one account — plus an assistant that follows up on enquiries. From $19 a month. 14-day trial, no card."
+        />
+        <link rel="canonical" href="https://prometheus.coach/" />
+        <meta property="og:title" content="Prometheus · Coaching software with the whole job in one place" />
+        <meta
+          property="og:description"
+          content="Five tools, one client. That was never the plan. Programming, nutrition, feedback, video calls and payments in one account."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://prometheus.coach/" />
         <meta property="og:image" content="https://prometheus.coach/images/hero-bg.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <link rel="canonical" href="https://prometheus.coach/" />
       </Head>
 
       <div className="min-h-screen bg-dark text-white relative overflow-hidden font-body">
@@ -57,22 +69,24 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10">
-          <SiteNav />
-          <HeroOperator />
-          <PainSection />
-          <ProofSection />
+          <HomeNav />
+          <Hero />
+          <Included />
+          <SalesAssistant />
           <PhotoBreak
-            src="/images/photos/class-community.webp"
-            focus="center 38%"
-            statement="Der Betrieb passiert auf der Fläche."
-            accent="Die Software gehört dorthin — nicht ins Backoffice."
+            src="/images/photos/coach-floor.webp"
+            focus="center 35%"
+            statement="The coaching is the product."
+            accent="Everything else is what gets in its way."
           />
-          <EntryPoints />
-          <PricingSection />
+          <Doors />
+          <ClientApp />
+          <Makers />
+          <Pricing />
           <FinalCta />
-          <SiteFooter />
+          <HomeFooter />
         </div>
       </div>
-    </DemoModalProvider>
+    </>
   )
 }
