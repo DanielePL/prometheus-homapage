@@ -5,7 +5,9 @@ import { Section, SectionHeader, Reveal } from './Section'
    Three proofs, deliberately not nine.
 
    This replaces BentoGrid on the homepage. That component still exists and is
-   still complete — it's parked for /studios, the same way LedProSection is.
+   still complete — it's parked for /studios. (LedProSection used to be the
+   other example here; it was deleted 2026-08-18 because LED Pro is a separate
+   company and does not belong on the Prometheus coach page.)
    The reason for the cut: the page was showing twelve product screenshots and
    nine feature cards, which is the whole system. A prospect who has already
    seen everything has no reason left to book the demo, and the product team hit
