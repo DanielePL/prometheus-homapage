@@ -12,6 +12,7 @@ import HomePage from './pages/HomePage'
  * The homepage is imported eagerly; it is the only route most visitors see, and
  * lazy-loading it would keep it out of the prerendered output for no gain.
  */
+const StudiosPage = lazy(() => import('./pages/StudiosPage'))
 const LegalLayout = lazy(() => import('./layouts/LegalLayout'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/TermsOfService'))
@@ -27,6 +28,11 @@ const wrap = (node) => (
 
 export const routes = [
   { path: '/', element: <HomePage /> },
+
+  /* The studio door. Lazy because a coach arriving on the homepage never needs
+     it, but prerendered like the homepage — it has to rank on its own. */
+  { path: '/studios', element: wrap(<StudiosPage />) },
+
   { path: '/growth', element: wrap(<GrowthPitch />) },
 
   /* NOT prerendered — see PRERENDERED_PATHS and vite.config.js.

@@ -1,3 +1,4 @@
+import { Head } from 'vite-react-ssg'
 import { DemoModalProvider } from '../context/DemoModalContext'
 import SiteNav from '../components/site/SiteNav'
 import HeroOperator from '../components/site/HeroOperator'
@@ -32,6 +33,21 @@ import SiteFooter from '../components/site/SiteFooter'
 export default function HomePage() {
   return (
     <DemoModalProvider>
+      {/* Moved out of index.html, where it was appended to rather than replaced
+          and gave every subpage a second, German title. */}
+      <Head>
+        <html lang="de" />
+        <title>Prometheus · Das Betriebssystem für moderne Fitness-Unternehmen</title>
+        <meta name="description" content="Fünf Apps, eine Datenbank, eine Identität. Vom Empfangstablet bis zur Konzernzentrale: papierlos, eine Wahrheit auf jeder Ebene, das Mitglied checkt sich selbst ein." />
+        <meta property="og:title" content="Prometheus · Das Betriebssystem für moderne Fitness-Unternehmen" />
+        <meta property="og:description" content="Fünf Apps, eine Datenbank, eine Identität — vom Empfangstablet bis zur Zentrale." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://prometheus.coach/" />
+        <meta property="og:image" content="https://prometheus.coach/images/hero-bg.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://prometheus.coach/" />
+      </Head>
+
       <div className="min-h-screen bg-dark text-white relative overflow-hidden font-body">
         {/* Ambient accent glows behind the whole page */}
         <div className="fixed inset-0 pointer-events-none z-0">

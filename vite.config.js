@@ -27,6 +27,7 @@ export default defineConfig(({ isSsrBuild }) => ({
     // and keeps the build honest — it still works fine in the browser.
     includedRoutes: () => [
       '/',
+      '/studios',
       '/privacy',
       '/terms',
       '/impressum',

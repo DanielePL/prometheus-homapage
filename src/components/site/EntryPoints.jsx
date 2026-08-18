@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Dumbbell, Store, Building2, Check, ArrowRight, Database } from 'lucide-react'
 import { Section, SectionHeader, Reveal } from './Section'
 import { useDemoModal } from '../../context/DemoModalContext'
@@ -31,6 +32,10 @@ const entries = [
       'Wiederkehrende Mitgliedschaften und Rechnungen',
     ],
     foot: 'Genau die Form, in der der internationale CrossFit-Kanal einsteigt.',
+    /* The only card with its own page. A studio owner needs more than four
+       bullet points before booking anything, and that depth belongs on
+       /studios rather than on a homepage that has to rank for coaching. */
+    more: { to: '/studios', label: 'Alles zu Studio Light' },
   },
   {
     key: 'enterprise',
@@ -116,6 +121,15 @@ export default function EntryPoints() {
             >
               Demo buchen <ArrowRight size={16} />
             </button>
+
+            {e.more && (
+              <Link
+                to={e.more.to}
+                className="mt-3 inline-flex items-center justify-center gap-1.5 text-sm font-medium text-accent hover:text-accent-light transition-colors"
+              >
+                {e.more.label} <ArrowRight size={14} />
+              </Link>
+            )}
           </Reveal>
         ))}
       </div>

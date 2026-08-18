@@ -1,10 +1,22 @@
 import { useEffect } from 'react'
+import { Head } from 'vite-react-ssg'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import Footer from '../components/Footer'
 
+/* Titles per route. Without these the legal pages inherited whatever the
+   template carried; now they say what they are. /goodbye is noindex — it is the
+   page you land on after deleting an account, not a search result. */
+const META = {
+  '/privacy': ['Datenschutzerklärung · Prometheus', 'Wie Prometheus personenbezogene Daten verarbeitet.'],
+  '/terms': ['AGB · Prometheus', 'Allgemeine Geschäftsbedingungen für die Nutzung von Prometheus.'],
+  '/impressum': ['Impressum · Prometheus', 'Anbieterkennzeichnung der PeakForce OÜ.'],
+  '/goodbye': ['Konto gelöscht · Prometheus', ''],
+}
+
 export default function LegalLayout() {
   const { pathname } = useLocation()
+  const [title, description] = META[pathname] ?? ['Prometheus', '']
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -12,6 +24,13 @@ export default function LegalLayout() {
 
   return (
     <div className="min-h-screen bg-dark text-white">
+      <Head>
+        <html lang="de" />
+        <title>{title}</title>
+        {description && <meta name="description" content={description} />}
+        {pathname === '/goodbye' && <meta name="robots" content="noindex" />}
+      </Head>
+
       {/* Simplified Navbar */}
       <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

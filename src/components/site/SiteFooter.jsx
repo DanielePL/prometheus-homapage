@@ -16,6 +16,7 @@ export default function SiteFooter() {
 
           <FooterCol title="Produkt" links={[
             { label: 'Plattform', href: '#plattform' },
+            { label: 'Studio Light', href: '/studios' },
             { label: 'Ökosystem', href: '#oekosystem' },
             { label: 'Einstieg', href: '#einstieg' },
             { label: 'Branchen', href: '#branchen' },

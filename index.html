@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prometheus · Das Betriebssystem für moderne Fitness-Unternehmen</title>
-    <meta name="description" content="Fünf Apps, eine Datenbank, eine Identität. Vom Empfangstablet bis zur Konzernzentrale: papierlos, eine Wahrheit auf jeder Ebene, das Mitglied checkt sich selbst ein." />
+    <!-- No title and no description tag here on purpose.
+         Every route sets its own through the Head component (vite-react-ssg).
+         A static one in this template does not get replaced — it is appended
+         to, so each prerendered page shipped two titles and two descriptions,
+         one of them German on an English page. A crawler picking the wrong one
+         is a coin flip we do not need to take.
+         (Written without angle brackets deliberately: tags inside this comment
+         survive the head processing and reappear as real, empty tags.) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=Arimo:wght@400;700&display=swap" rel="stylesheet" />
