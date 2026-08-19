@@ -46,7 +46,7 @@ const faq = [
   },
   {
     q: 'Is there a free plan?',
-    a: 'No. There is a 14-day trial and it does not ask for a card. We would rather charge properly and support the people who pay than run a free tier nobody is accountable for.',
+    a: 'No. There is a 14-day trial and it does not ask for a card. After that it is a paid product — that is what pays for the support and the development behind it.',
   },
   {
     q: 'Do my clients have to pay for the app?',
@@ -206,7 +206,62 @@ export default function TrainerizeAlternative() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.12} className="mt-10 grid sm:grid-cols-2 gap-5">
+            {/* The comparison the visitor came for, without a single claim about
+                anyone else: he fills in the left column from his own bank
+                statement. Nothing to source, nothing to keep current, and it is
+                his own number that does the arguing. */}
+            <Reveal delay={0.1} y={24} className="mt-10 glass-strong rounded-3xl p-7 lg:p-9">
+              <h3 className="display text-2xl lg:text-3xl leading-tight">
+                Add up your own stack.
+              </h3>
+              <p className="mt-3 text-white/55 leading-relaxed max-w-2xl">
+                Write in what each line costs you today — including the ones you pay per
+                client or as a percentage of what your clients pay you.
+              </p>
+
+              <div className="mt-7 grid lg:grid-cols-[1.15fr_auto_0.85fr] gap-7 lg:gap-9 items-center">
+                <div className="space-y-0.5">
+                  {[
+                    'Programming and client management',
+                    'Nutrition and macro tracking',
+                    'Video review and annotations',
+                    'Video calls',
+                    'Invoicing and payment fees',
+                    'Scheduling and booking',
+                    'The app your clients use',
+                  ].map((row) => (
+                    <div
+                      key={row}
+                      className="flex items-baseline justify-between gap-4 py-2.5 border-b border-white/8"
+                    >
+                      <span className="text-sm text-white/65 leading-snug">{row}</span>
+                      <span className="text-white/25 text-sm shrink-0">$ ______</span>
+                    </div>
+                  ))}
+                  <p className="pt-4 text-sm font-semibold text-white/80">Your total per month</p>
+                </div>
+
+                <div className="hidden lg:block text-white/20 display text-3xl">vs</div>
+
+                <div className="rounded-2xl bg-accent/10 border border-accent/25 p-7 text-center">
+                  <p className="text-sm text-white/55">All of the above</p>
+                  <p className="display text-5xl mt-2">
+                    $19<span className="text-base text-white/45 font-body"> – $89</span>
+                  </p>
+                  <p className="mt-2 text-sm text-white/55">
+                    one line, by client count
+                  </p>
+                  <a
+                    href={SIGNUP}
+                    className="mt-6 w-full h-12 rounded-xl bg-accent text-white font-semibold text-sm inline-flex items-center justify-center gap-2 hover:bg-accent-light transition-all"
+                  >
+                    Start free <ArrowRight size={16} />
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.12} className="mt-6 grid sm:grid-cols-2 gap-5">
               <div className="glass rounded-3xl p-7">
                 <h3 className="display text-2xl mb-4">Worth switching for</h3>
                 {[
