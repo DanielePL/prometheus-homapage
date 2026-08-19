@@ -19,24 +19,26 @@ services:
       # right page client-side once the bundle loads, which is exactly why it
       # went unnoticed.
       #
-      # The build writes flat files (dist/studios.html), and Render does not try
-      # "<path>.html" on its own, so each one needs naming here.
+      # scripts/postbuild-pretty-urls.mjs writes each page a second time as
+      # <slug>/index.html, which is what these point at — that copy also makes
+      # the URLs work if this file is ignored (Render only applies render.yaml
+      # to Blueprint-created services).
       # Keep in sync with ssgOptions.includedRoutes in vite.config.js.
       - type: rewrite
         source: /studios
-        destination: /studios.html
+        destination: /studios/index.html
       - type: rewrite
         source: /privacy
-        destination: /privacy.html
+        destination: /privacy/index.html
       - type: rewrite
         source: /terms
-        destination: /terms.html
+        destination: /terms/index.html
       - type: rewrite
         source: /impressum
-        destination: /impressum.html
+        destination: /impressum/index.html
       - type: rewrite
         source: /goodbye
-        destination: /goodbye.html
+        destination: /goodbye/index.html
       # Everything else is a client-side route (/auth/callback, /stripe/success,
       # /growth) and has to boot the app.
       - type: rewrite
