@@ -15,12 +15,17 @@ import { SIGNUP, PRICING } from '../lib/links'
  * pages that state those three things in plain, extractable prose. So this page
  * says them outright, in that order, and repeats them as JSON-LD.
  *
- * What this page deliberately does not do: describe Trainerize. Comparative
- * claims about a competitor are lawful only while they are accurate and
- * current, and their pricing is neither ours to track nor stable. Naming the
- * product in the title is nominative use and is fine; asserting what it costs
- * today is a liability with no upside. The add-on pattern is described
- * generically, which is the argument anyway.
+ * What this page deliberately does not do: describe Trainerize, or the field in
+ * general. Under EU comparative-advertising rules a comparison counts as one
+ * even when the competitor is identified only by implication — and on a page
+ * with this title, "software that charges extra for nutrition" identifies
+ * somebody. So every claim here is about us: what we include, what we charge,
+ * and what we do not have. The reader is asked to add up his own bill and
+ * compare, which is both the stronger argument and the one that cannot age
+ * into a false statement.
+ *
+ * Naming the product in the title is nominative use and is fine. In an ad text
+ * the name stays forbidden — that is a trademark problem, not a copy choice.
  *
  * The competitor's name must never appear in an ad text — that is a trademark
  * problem. On this page it is fine.
@@ -137,9 +142,9 @@ export default function TrainerizeAlternative() {
                 <span className="display-italic opacity-70">Here is ours, in plain numbers.</span>
               </h1>
               <p className="mt-7 text-lg text-white/60 leading-relaxed max-w-2xl">
-                Most coaches who go looking are not unhappy with the training features. They
-                are tired of paying separately for nutrition, for video, for payments — and
-                of the client experience that comes out of it.
+                Most coaches who go looking are not unhappy with the training features.
+                They are tired of running four subscriptions to coach one client. Here is
+                what ours costs and what is in it — no sign-up needed to read it.
               </p>
               <div className="mt-9 flex flex-col sm:flex-row gap-3.5">
                 <a
@@ -187,19 +192,20 @@ export default function TrainerizeAlternative() {
             <SectionHeader
               align="left"
               eyebrow="The actual difference"
-              title="One price,"
-              accent="or a base price plus four add-ons."
+              title="One number,"
+              accent="and it is the one you pay."
             />
             <Reveal delay={0.06} className="mt-7 space-y-5 text-lg text-white/60 leading-relaxed">
               <p>
-                The number a coach compares is rarely the number he ends up paying. Nutrition
-                is priced separately, video review is a tier up, taking payments is a
-                percentage, and the app your clients use has its own line.
+                Everything in the list above is in every plan. There is no tier that unlocks
+                nutrition, no upgrade for video review, no percentage on what your clients
+                pay you, and no separate line for the app they use.
               </p>
               <p>
-                Ours is one number. Whether that is cheaper for you depends entirely on how
-                many of those pieces you actually use — so the honest way to find out is to
-                add up what you pay today, across every tool, and compare that.
+                Whether that works out cheaper for you, we cannot tell you — it depends on
+                what you use. Add up what you pay today across every tool and subscription,
+                then compare that figure with ours. That is the only comparison worth making,
+                and it is one you can do yourself in ten minutes.
               </p>
             </Reveal>
 
