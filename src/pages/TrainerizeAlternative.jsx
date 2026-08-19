@@ -26,9 +26,6 @@ import { SIGNUP, PRICING } from '../lib/links'
  *
  * Naming the product in the title is nominative use and is fine. In an ad text
  * the name stays forbidden — that is a trademark problem, not a copy choice.
- *
- * The competitor's name must never appear in an ad text — that is a trademark
- * problem. On this page it is fine.
  */
 
 const facts = [
@@ -57,7 +54,7 @@ const faq = [
   },
   {
     q: 'Is nutrition an add-on?',
-    a: 'No. Nutrition planning, macro tracking and your own food library are in every plan, as are video review with annotations, built-in video calls and invoicing. That is the main difference from software that prices those separately.',
+    a: 'No. Nutrition planning, macro tracking and your own food library are in every plan, as are video review with annotations, built-in video calls and invoicing. There is no tier that unlocks them.',
   },
   {
     q: 'Can I run a gym or studio on it?',
