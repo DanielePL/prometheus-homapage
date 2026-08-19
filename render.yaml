@@ -9,6 +9,36 @@ services:
         name: Content-Type
         value: application/json
     routes:
+      # Prerendered pages first — order matters, the first match wins.
+      #
+      # Without these, the catch-all below swallowed every path except "/": a
+      # request for /studios was answered with index.html, so a crawler read the
+      # homepage under the studios URL, complete with the homepage's canonical
+      # tag pointing at "/". The page effectively did not exist for search,
+      # while looking perfectly fine in a browser — React Router renders the
+      # right page client-side once the bundle loads, which is exactly why it
+      # went unnoticed.
+      #
+      # The build writes flat files (dist/studios.html), and Render does not try
+      # "<path>.html" on its own, so each one needs naming here.
+      # Keep in sync with ssgOptions.includedRoutes in vite.config.js.
+      - type: rewrite
+        source: /studios
+        destination: /studios.html
+      - type: rewrite
+        source: /privacy
+        destination: /privacy.html
+      - type: rewrite
+        source: /terms
+        destination: /terms.html
+      - type: rewrite
+        source: /impressum
+        destination: /impressum.html
+      - type: rewrite
+        source: /goodbye
+        destination: /goodbye.html
+      # Everything else is a client-side route (/auth/callback, /stripe/success,
+      # /growth) and has to boot the app.
       - type: rewrite
         source: /*
         destination: /index.html
