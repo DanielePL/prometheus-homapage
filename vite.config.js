@@ -33,6 +33,7 @@ export default defineConfig(({ isSsrBuild }) => ({
       '/terms',
       '/impressum',
       '/goodbye',
+      '/404',
     ],
     formatting: 'minify',
   },

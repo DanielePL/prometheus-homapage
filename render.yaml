@@ -42,11 +42,23 @@ services:
       - type: rewrite
         source: /goodbye
         destination: /goodbye/index.html
-      # Everything else is a client-side route (/auth/callback, /stripe/success,
-      # /growth) and has to boot the app.
+      # The three routes that exist only in the browser and must boot the app:
+      # an OAuth return, a Stripe return, and the investor pitch.
       - type: rewrite
-        source: /*
+        source: /auth/*
         destination: /index.html
+      - type: rewrite
+        source: /stripe/*
+        destination: /index.html
+      - type: rewrite
+        source: /growth
+        destination: /index.html
+      # No catch-all on purpose. Anything left over matches no file, and the
+      # host answers with dist/404.html and a real 404 status. A blanket
+      # "/* -> /index.html" turns every mistyped URL into a 200 that serves the
+      # homepage — a soft 404, which reads to a crawler as an unlimited supply
+      # of duplicate homepages, and which hides broken internal links because
+      # nothing ever visibly fails.
     envVars:
       - key: NODE_VERSION
         value: 20

@@ -21,7 +21,7 @@ import { join } from 'node:path'
 const DIST = 'dist'
 
 const pages = (await readdir(DIST))
-  .filter((f) => f.endsWith('.html') && f !== 'index.html')
+  .filter((f) => f.endsWith('.html') && f !== 'index.html' && f !== '404.html')
 
 for (const file of pages) {
   const slug = file.replace(/\.html$/, '')
@@ -29,4 +29,9 @@ for (const file of pages) {
   await copyFile(join(DIST, file), join(DIST, slug, 'index.html'))
 }
 
-console.log(`[pretty-urls] ${pages.length} pages also written as <slug>/index.html`)
+/* 404.html is deliberately NOT given the directory treatment: that exact
+   filename at the root is what a static host looks for when a request matches
+   nothing, and /404/ is not a URL anyone should reach. The build already writes
+   it flat, so it is simply left alone. */
+
+console.log(`[pretty-urls] ${pages.length} pages as <slug>/index.html, plus 404.html`)

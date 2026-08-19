@@ -14,6 +14,7 @@ import HomePage from './pages/HomePage'
  */
 const StudiosPage = lazy(() => import('./pages/StudiosPage'))
 const TrainerizeAlternative = lazy(() => import('./pages/TrainerizeAlternative'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 const LegalLayout = lazy(() => import('./layouts/LegalLayout'))
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/TermsOfService'))
@@ -58,4 +59,10 @@ export const routes = [
       { path: '/goodbye', element: wrap(<Goodbye />) },
     ],
   },
+
+  /* Prerendered at /404 and copied to dist/404.html, which the host serves —
+     with a real 404 status — for anything that matches no file. The wildcard
+     catches the same case client-side, after a wrong in-app link. */
+  { path: '/404', element: wrap(<NotFound />) },
+  { path: '*', element: wrap(<NotFound />) },
 ]
