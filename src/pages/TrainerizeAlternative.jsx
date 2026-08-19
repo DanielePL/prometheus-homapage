@@ -5,9 +5,15 @@ import { Section, SectionHeader, Reveal } from '../components/site/Section'
 import { HomeNav, HomeFooter } from '../components/home/HomeChrome'
 import { SIGNUP, PRICING } from '../lib/links'
 
-/* The page that answers "trainerize alternative" — 6'600 searches a month, and
- * the query with the clearest buying intent in the whole category: nobody types
- * it who is not already looking to switch.
+/* The page that answers "trainerize alternative" — 170 searches a month, low
+ * competition (Keyword Planner, 2026-08-17), inside a switching-intent cluster
+ * of roughly 600. Small numbers, and that is the point: nobody types this who is
+ * not already looking to leave, so the traffic converts at a rate no broad
+ * keyword comes near. It is not a traffic play.
+ *
+ * (An earlier version of this comment claimed 6'600. That figure is
+ * "gym master log in" from the Enterprise research — a different product, a
+ * different market. Do not size this page off it.)
  *
  * It is also how we get quoted. The AI answers that now sit above the results
  * (DuckDuckGo's Search Assist, Google's AI Overview, ChatGPT) reproduce a table
