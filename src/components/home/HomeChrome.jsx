@@ -15,7 +15,7 @@ import { APP, SIGNUP } from '../../lib/links'
 const LINKS = [
   { label: 'What you get', href: '/#included' },
   { label: 'Pricing', href: '/#pricing' },
-  { label: 'For studios', href: '/studios' },
+  { label: 'For studios', href: '/studios/' },
 ]
 
 export function HomeNav() {
@@ -124,7 +124,7 @@ export function HomeFooter() {
             <ul className="space-y-2.5 text-sm">
               <li><a href="/#included" className="text-white/45 hover:text-white transition-colors">What you get</a></li>
               <li><a href="/#pricing" className="text-white/45 hover:text-white transition-colors">Pricing</a></li>
-              <li><Link to="/studios" className="text-white/45 hover:text-white transition-colors">For studios</Link></li>
+              <li><Link to="/studios/" className="text-white/45 hover:text-white transition-colors">For studios</Link></li>
               <li><a href={APP} className="text-white/45 hover:text-white transition-colors">Log in</a></li>
             </ul>
           </div>
@@ -132,9 +132,9 @@ export function HomeFooter() {
           <div>
             <h4 className="font-semibold text-sm mb-4">Legal</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><Link to="/impressum" className="text-white/45 hover:text-white transition-colors">Imprint</Link></li>
-              <li><Link to="/privacy" className="text-white/45 hover:text-white transition-colors">Privacy</Link></li>
-              <li><Link to="/terms" className="text-white/45 hover:text-white transition-colors">Terms</Link></li>
+              <li><Link to="/impressum/" className="text-white/45 hover:text-white transition-colors">Imprint</Link></li>
+              <li><Link to="/privacy/" className="text-white/45 hover:text-white transition-colors">Privacy</Link></li>
+              <li><Link to="/terms/" className="text-white/45 hover:text-white transition-colors">Terms</Link></li>
             </ul>
           </div>
         </div>

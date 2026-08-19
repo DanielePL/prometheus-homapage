@@ -32,7 +32,7 @@ const doors = [
     name: 'Small studio or box',
     who: 'One location, a few trainers',
     body: 'Turn on Studio Light and the door, the class schedule, memberships and the till appear in the same account.',
-    to: '/studios',
+    to: '/studios/',
     linkLabel: 'See Studio Light',
   },
 ]

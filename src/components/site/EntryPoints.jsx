@@ -35,7 +35,7 @@ const entries = [
     /* The only card with its own page. A studio owner needs more than four
        bullet points before booking anything, and that depth belongs on
        /studios rather than on a homepage that has to rank for coaching. */
-    more: { to: '/studios', label: 'Alles zu Studio Light' },
+    more: { to: '/studios/', label: 'Alles zu Studio Light' },
   },
   {
     key: 'enterprise',

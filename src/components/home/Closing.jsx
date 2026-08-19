@@ -108,7 +108,7 @@ export function Pricing() {
 
         <p className="mt-6 text-sm text-white/40 leading-relaxed">
           Prices in US dollars, the same everywhere. Studio owners:{' '}
-          <Link to="/studios" className="text-accent hover:text-accent-light underline underline-offset-4">
+          <Link to="/studios/" className="text-accent hover:text-accent-light underline underline-offset-4">
             what Studio Light adds
           </Link>
           .

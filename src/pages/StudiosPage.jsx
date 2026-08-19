@@ -8,7 +8,16 @@ import PhotoBreak from '../components/site/PhotoBreak'
 import { HomeNav, HomeFooter } from '../components/home/HomeChrome'
 import { SIGNUP_STUDIO, CONTACT } from '../lib/links'
 
-/* /studios — the depth behind the "small studio" door on the homepage.
+/* /studios/ — with the trailing slash, and that matters.
+ *
+ * The host answers /studios (no slash) with the SPA catch-all, i.e. the
+ * homepage, and only resolves /studios/ to this page's file. A visitor never
+ * notices — React Router renders the right page either way once the bundle
+ * loads — but the first response is all a crawler reads. So the canonical tag,
+ * the sitemap entry and every internal link use the slashed form, which is the
+ * one the server actually serves.
+ *
+ * /studios — the depth behind the "small studio" door on the homepage.
  *
  * Why this is a page and not another homepage section: the homepage has to rank
  * for coaching vocabulary (`coaching software`, `trainerize alternative`). A
@@ -74,14 +83,14 @@ export default function StudiosPage() {
           name="description"
           content="Check-in, class booking, memberships, point of sale, shifts and invoices — one switch in the Prometheus account you already coach from. $79 a month, 14-day trial, no card."
         />
-        <link rel="canonical" href="https://prometheus.coach/studios" />
+        <link rel="canonical" href="https://prometheus.coach/studios/" />
         <meta property="og:title" content="Prometheus Studio Light — run the studio from the account you coach in" />
         <meta
           property="og:description"
           content="One studio, one account: check-in, classes, memberships, point of sale, shifts and books — alongside your programming, nutrition and video review."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://prometheus.coach/studios" />
+        <meta property="og:url" content="https://prometheus.coach/studios/" />
         {/* jpg rather than one of the .webp photos: X still renders webp
             previews inconsistently, and a link with no picture is a link
             nobody clicks. */}

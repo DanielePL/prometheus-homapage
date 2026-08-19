@@ -16,7 +16,7 @@ export default function SiteFooter() {
 
           <FooterCol title="Produkt" links={[
             { label: 'Plattform', href: '#plattform' },
-            { label: 'Studio Light', href: '/studios' },
+            { label: 'Studio Light', href: '/studios/' },
             { label: 'Ökosystem', href: '#oekosystem' },
             { label: 'Einstieg', href: '#einstieg' },
             { label: 'Branchen', href: '#branchen' },
@@ -31,9 +31,9 @@ export default function SiteFooter() {
           <div>
             <h4 className="font-semibold text-sm mb-4">Rechtliches</h4>
             <ul className="space-y-2.5">
-              <li><Link to="/impressum" className="text-sm text-white/45 hover:text-white transition-colors">Impressum</Link></li>
-              <li><Link to="/privacy" className="text-sm text-white/45 hover:text-white transition-colors">Datenschutz</Link></li>
-              <li><Link to="/terms" className="text-sm text-white/45 hover:text-white transition-colors">AGB</Link></li>
+              <li><Link to="/impressum/" className="text-sm text-white/45 hover:text-white transition-colors">Impressum</Link></li>
+              <li><Link to="/privacy/" className="text-sm text-white/45 hover:text-white transition-colors">Datenschutz</Link></li>
+              <li><Link to="/terms/" className="text-sm text-white/45 hover:text-white transition-colors">AGB</Link></li>
             </ul>
           </div>
         </div>
