@@ -125,6 +125,7 @@ export function HomeFooter() {
               <li><a href="/#included" className="text-white/45 hover:text-white transition-colors">What you get</a></li>
               <li><a href="/#pricing" className="text-white/45 hover:text-white transition-colors">Pricing</a></li>
               <li><Link to="/studios/" className="text-white/45 hover:text-white transition-colors">For studios</Link></li>
+              <li><Link to="/trainerize-alternative/" className="text-white/45 hover:text-white transition-colors">Switching from Trainerize</Link></li>
               <li><a href={APP} className="text-white/45 hover:text-white transition-colors">Log in</a></li>
             </ul>
           </div>
