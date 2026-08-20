@@ -1,6 +1,7 @@
 import { ViteReactSSG } from 'vite-react-ssg'
 import './index.css'
 import { routes } from './routes.jsx'
+import { countVisit } from './lib/beacon'
 
 /* ViteReactSSG instead of createRoot.
  *
@@ -13,4 +14,13 @@ import { routes } from './routes.jsx'
  * A page with no content in its HTML cannot rank for anything, including its
  * own brand name.
  */
-export const createRoot = ViteReactSSG({ routes })
+export const createRoot = ViteReactSSG({ routes }, ({ isClient, router }) => {
+  /* Count each page view, in the browser only — during the build this runs in
+     Node, where there is no visitor to count.
+     Subscribing to the router rather than firing once: this is a single-page
+     app, so a move from / to /studios/ never reloads and would otherwise go
+     unrecorded. */
+  if (!isClient) return
+  countVisit()
+  router?.subscribe?.(() => countVisit())
+})
