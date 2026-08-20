@@ -78,13 +78,17 @@ export default function StudiosPage() {
     <>
       <Head>
         <html lang="en" />
-        <title>Studio software for a single location · Prometheus Studio Light</title>
+        {/* Titled for measured demand: "fitness studio management software" and
+            its variants are worth ~3'500 searches a month across the English
+            markets, all at low competition (Keyword Planner, 2026-08-20). The
+            page already answered that need; it just did not say the words. */}
+        <title>Fitness studio management software for one location · Prometheus Studio Light</title>
         <meta
           name="description"
-          content="Check-in, class booking, memberships, point of sale, shifts and invoices — one switch in the Prometheus account you already coach from. $79 a month, 14-day trial, no card."
+          content="Studio management software for a single gym or box: check-in at the door, class booking, memberships, point of sale, shifts and invoices — in the same account you coach from. $79 a month, 14-day trial, no card."
         />
         <link rel="canonical" href="https://prometheus.coach/studios/" />
-        <meta property="og:title" content="Prometheus Studio Light — run the studio from the account you coach in" />
+        <meta property="og:title" content="Fitness studio management software — Prometheus Studio Light" />
         <meta
           property="og:description"
           content="One studio, one account: check-in, classes, memberships, point of sale, shifts and books — alongside your programming, nutrition and video review."
@@ -110,7 +114,7 @@ export default function StudiosPage() {
           {/* ── Hero ─────────────────────────────────────────────────────── */}
           <Section className="pt-32 lg:pt-44 pb-16 lg:pb-20" width="narrow">
             <Reveal>
-              <p className="eyebrow text-accent mb-5">Studio Light</p>
+              <p className="eyebrow text-accent mb-5">Studio management software</p>
               <h1 className="display text-4xl sm:text-6xl lg:text-7xl leading-[1.05]">
                 Coach on the floor.{' '}
                 <span className="display-italic opacity-70">Run the studio from the same account.</span>
