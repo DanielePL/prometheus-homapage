@@ -21,7 +21,11 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto">
         <div className="max-w-3xl">
           <Reveal>
-            <p className="eyebrow text-accent mb-5">Coaching software</p>
+            {/* The eyebrow carries the search phrase so the page states it in
+                text, not only in the title tag. The headline stays what it is —
+                it is the line a coach recognises, and no keyword is worth
+                trading it for. */}
+            <p className="eyebrow text-accent mb-5">Software for personal trainers</p>
             <h1 className="display text-4xl sm:text-6xl lg:text-7xl leading-[1.04]">
               Five tools, one client.{' '}
               <span className="display-italic opacity-70">That was never the plan.</span>

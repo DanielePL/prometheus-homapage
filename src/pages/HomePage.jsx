@@ -43,13 +43,18 @@ export default function HomePage() {
     <>
       <Head>
         <html lang="en" />
-        <title>Prometheus · Coaching software with the whole job in one place</title>
+        {/* Aimed at the measured demand, not at how we describe ourselves.
+            "personal trainer software" and its variants are worth ~5'000
+            searches a month between them (Keyword Planner, 2026-08-20);
+            "coaching software", which this said before, is a phrase we like and
+            nobody types. */}
+        <title>Personal trainer software — everything in one account | Prometheus</title>
         <meta
           name="description"
-          content="Programming, nutrition, check-ins, video calls and payments in one account — plus an assistant that follows up on enquiries. From $19 a month. 14-day trial, no card."
+          content="Software for personal trainers and online coaches: programming, nutrition, video review, calls and payments in one account, plus an assistant that follows up on enquiries. From $19 a month, 14-day trial, no card."
         />
         <link rel="canonical" href="https://prometheus.coach/" />
-        <meta property="og:title" content="Prometheus · Coaching software with the whole job in one place" />
+        <meta property="og:title" content="Personal trainer software — everything in one account" />
         <meta
           property="og:description"
           content="Five tools, one client. That was never the plan. Programming, nutrition, feedback, video calls and payments in one account."
