@@ -2,7 +2,7 @@ export default function PrivacyPolicy() {
   return (
     <article>
       <h1 className="text-3xl font-bold font-heading mb-2">Privacy Policy</h1>
-      <p className="text-sm text-[#666] mb-12">Last updated: August 9, 2026</p>
+      <p className="text-sm text-[#666] mb-12">Last updated: August 22, 2026</p>
 
       <div className="space-y-10 text-[#999] leading-relaxed">
         {/* Introduction */}
@@ -115,7 +115,8 @@ export default function PrivacyPolicy() {
 
           <h3 className="text-white font-semibold mt-6 mb-2">Anonymized Research &amp; Data Partnerships</h3>
           <p>
-            We may aggregate and anonymize training data collected through the Service and
+            We may aggregate and anonymize training data collected through the Service
+            (including meal photos and their AI nutrition estimates) and
             share the resulting datasets with third-party partners, including research
             institutions, healthcare organizations, technology companies, and sports
             organizations. These partnerships serve purposes such as scientific research,
@@ -303,6 +304,20 @@ export default function PrivacyPolicy() {
             provide the Service. After account deletion, your data is permanently removed within
             30 days, except where retention is required by law (e.g., tax records for up to 7
             years).
+          </p>
+          <p className="mt-3">
+            Upon account deletion, we may retain meal photos and their associated nutrition
+            estimates in <strong className="text-white">anonymized form</strong> for the research
+            and product-improvement purposes described in Section 4 (&ldquo;Anonymized Research
+            &amp; Data Partnerships&rdquo;): the data is irreversibly de-linked from your
+            identity, and images containing identifying details (such as people or faces) are
+            excluded or redacted before retention. Such anonymized data no longer constitutes
+            personal data under the GDPR. The opt-out described in Section 4 applies &mdash; if
+            you have opted out, or opt out at deletion time via{' '}
+            <a href="mailto:hello@prometheus.coach" className="text-accent hover:underline">
+              hello@prometheus.coach
+            </a>
+            , your meal photos are deleted outright.
           </p>
         </section>
 
