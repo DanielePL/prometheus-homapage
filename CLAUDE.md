@@ -1,3 +1,5 @@
+@WORKFLOW.md
+
 # Prometheus Homepage — CLAUDE.md
 
 Die Marketing-Website auf `prometheus.coach`. **Nicht** die Produkt-App (die
